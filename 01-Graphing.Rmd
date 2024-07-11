@@ -1,4 +1,4 @@
-# Lab 1: Graphing Data
+# Lab 1: Graphing Data TEST
 
 <script>
 $("#coverpic").hide();

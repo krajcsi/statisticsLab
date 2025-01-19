@@ -2,7 +2,7 @@
 
 set -ev
 
-echo "sdfsfsdfsdfswdfsfs"
+echo "TESTsdfsfsdfsdfswfgdgddfsfs"
 
 # rm -rf ./docs
 # Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"

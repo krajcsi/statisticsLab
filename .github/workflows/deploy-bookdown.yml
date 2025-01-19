@@ -23,20 +23,6 @@ jobs:
           # format of output document - pdf, html or tex
           output_format: html # default is pdf
 
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v2
-      - uses: r-lib/actions/setup-pandoc@v2
-        with:
-            pandoc-version: '2.19'
-
-      - name: Install dependencies
-        run: |
-          install.packages(c("bookdown", "markdown", "data.table", "dplyr"))
-        shell: Rscript {0}
-
-      - name: Build book
-        run: Rscript -e 'bookdown::render_book("index.Rmd")'
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:

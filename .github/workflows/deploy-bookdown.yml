@@ -11,12 +11,12 @@ jobs:
     steps:
       # You may pin to the exact commit or the version.
       # uses: ckrusemd/rmarkdown-action@ea75a8a3da2717e9a5034466a600424d3e2f90c0
-      uses: ckrusemd/rmarkdown-action@v0.21
-      with:
-        # input rmarkdown file (.Rmd)
-        input_file: index.Rmd
-        # format of output document - pdf, html or tex
-        output_format: HTML # default is pdf
+      - uses: ckrusemd/rmarkdown-action@v0.21
+        with:
+          # input rmarkdown file (.Rmd)
+          input_file: index.Rmd
+          # format of output document - pdf, html or tex
+          output_format: HTML # default is pdf
       
       - name: Checkout
         uses: actions/checkout@v2

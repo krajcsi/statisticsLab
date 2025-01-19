@@ -22,7 +22,7 @@ jobs:
             pandoc-version: '2.19'
       - name: Install dependencies
         run: |
-          install.packages(c("bookdown", "markdown", "data.table", "dplyr", "bindrcpp", "ggplot2", "summarytools", "gapminder", "ggpubr"))
+          install.packages(c("bookdown", "markdown", "data.table", "dplyr", "bindrcpp", "ggplot2", "summarytools", "gapminder", "ggpubr", "xtable"))
         shell: Rscript {0}
         
       - name: Build book

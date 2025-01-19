@@ -12,21 +12,21 @@ jobs:
       
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Github action for bookdown
-        uses: ckrusemd/rmarkdown-action@v0.21
-        # You may pin to the exact commit or the version.
-        # uses: ckrusemd/rmarkdown-action@ea75a8a3da2717e9a5034466a600424d3e2f90c0
+        
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-pandoc@v2
         with:
-          # input rmarkdown file (.Rmd)
-          input_file: index.Rmd
-          # format of output document - pdf, html or tex
-          output_format: html # default is pdf
-
+            pandoc-version: '2.19'
+      - name: Install dependencies
+        run: |
+          install.packages(c("bookdown", "markdown", "data.table", "dplyr", "bindrcpp"))
+        shell: Rscript {0}
+      - name: Build book
+        run: Rscript -e 'bookdown::render_book("index.Rmd")'
+        
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: master
           folder: docs
-
-          

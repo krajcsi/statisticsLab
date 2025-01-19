@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("bookdown", "markdown", "data.table"))
+          install.packages(c("bookdown", "markdown", "data.table", "dplyr"))
         shell: Rscript {0}
 
       - name: Build book

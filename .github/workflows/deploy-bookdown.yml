@@ -9,7 +9,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: ckrusemd/rmarkdown-action@v0.21
+      - name: Github action for bookdown
+        uses: ckrusemd/rmarkdown-action@v0.21
         # You may pin to the exact commit or the version.
         # uses: ckrusemd/rmarkdown-action@ea75a8a3da2717e9a5034466a600424d3e2f90c0
         with:
@@ -41,5 +42,4 @@ jobs:
           branch: master
           folder: docs
 
-            - name: Github action for bookdown
           

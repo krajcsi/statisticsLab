@@ -15,13 +15,16 @@ jobs:
         
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
-      - uses: r-lib/actions/setup-pandoc@v2
+        
+      - name: Set up pandoc
+        uses: r-lib/actions/setup-pandoc@v2
         with:
             pandoc-version: '2.19'
       - name: Install dependencies
         run: |
-          install.packages(c("bookdown", "markdown", "data.table", "dplyr", "bindrcpp"))
+          install.packages(c("bookdown", "markdown", "data.table", "dplyr", "bindrcpp", "ggplot2"))
         shell: Rscript {0}
+        
       - name: Build book
         run: Rscript -e 'bookdown::render_book("index.Rmd")'
         

@@ -608,10 +608,10 @@ The null hypothesis is never proved or established, but is possibly disproved, i
 <p>We can see that chance produces some differences that are non-zero. The histogram shows all the mean differences that were produced by chance. Most of the differences are between -2 and +2, but some of them are bit more negative, or a bit more positive. If we want to know what chance <strong>did</strong> do in this one simulation with 100 runs, then we need to find the range, the minimum and maximum value. This will tell us the most negative mean difference that chance did produce, and the most positive mean difference that chance did produce. Then, we will also know that chance <strong>did not</strong> produce any larger negative, or larger positive differences, in this simulation.</p>
 <p>We use the <code>min()</code> and <code>max()</code> functions to get the minimum and maximum value.</p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(mean_differences)</span></code></pre></div>
-<pre><code>## [1] -3.83955</code></pre>
+<pre><code>## [1] -3.441359</code></pre>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(mean_differences)</span></code></pre></div>
-<pre><code>## [1] 3.278647</code></pre>
-<p>We now know, that biggest negative difference was -3.84, and the biggest positive difference was 3.279. We also know that any mean difference inside the range <strong>was produced by chance</strong> in our simulation, and any mean difference outside the range <strong>was not produced by chance</strong> in our simulation</p>
+<pre><code>## [1] 3.310823</code></pre>
+<p>We now know, that biggest negative difference was -3.441, and the biggest positive difference was 3.311. We also know that any mean difference inside the range <strong>was produced by chance</strong> in our simulation, and any mean difference outside the range <strong>was not produced by chance</strong> in our simulation</p>
 </div>
 <div id="make-inferences" class="section level4 hasAnchor" number="5.1.1.6">
 <h4><span class="header-section-number">5.1.1.6</span> Make inferences<a href="lab-5-fundamentals-of-hypothesis-testing.html#make-inferences" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -682,9 +682,9 @@ The null hypothesis is never proved or established, but is possibly disproved, i
 <span id="cb170-28"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb170-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;mean difference&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics_Lab_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(mean_differences)</span></code></pre></div>
-<pre><code>## [1] -3.137149</code></pre>
+<pre><code>## [1] -3.578034</code></pre>
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(mean_differences)</span></code></pre></div>
-<pre><code>## [1] 3.63567</code></pre>
+<pre><code>## [1] 4.586947</code></pre>
 </div>
 </div>
 <div id="crumping-real-data" class="section level3 hasAnchor" number="5.1.2">
@@ -763,10 +763,10 @@ The null hypothesis is never proved or established, but is possibly disproved, i
 <span id="cb175-25"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb175-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;mean difference&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics_Lab_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(mean_differences)</span></code></pre></div>
-<pre><code>## [1] -0.1148177</code></pre>
+<pre><code>## [1] -0.08519498</code></pre>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(mean_differences)</span></code></pre></div>
-<pre><code>## [1] 0.07295361</code></pre>
-<p>According to the simulation, the biggest negative difference was -0.115, and the biggest positive difference was 0.073. We also know that any mean difference inside the range <strong>was produced by chance</strong> in our simulation, and any mean difference outside the range <strong>was not produced by chance</strong> in our simulation.</p>
+<pre><code>## [1] 0.1070113</code></pre>
+<p>According to the simulation, the biggest negative difference was -0.085, and the biggest positive difference was 0.107. We also know that any mean difference inside the range <strong>was produced by chance</strong> in our simulation, and any mean difference outside the range <strong>was not produced by chance</strong> in our simulation.</p>
 <p>A difference of .14 or 14% was never produced by chance, it was completely outside the range. Based on this analysis we can be fairly confident that the test-enhanced learning effect was not a fluke, it was not produced by chance. We have evidence to support the claim that testing enhances learning, and because of this we test you while you are learning to enhance your learning while you learn.</p>
 </div>
 </div>
@@ -825,7 +825,7 @@ The null hypothesis is never proved or established, but is possibly disproved, i
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb181-1" aria-hidden="true" tabindex="-1"></a>ordered_differences <span class="ot">&lt;-</span> <span class="fu">sort</span>(mean_differences) <span class="co"># sort</span></span>
 <span id="cb181-2"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb181-2" aria-hidden="true" tabindex="-1"></a>alpha_cutoff <span class="ot">&lt;-</span> ordered_differences[<span class="dv">950</span>] <span class="co"># pick 950th number</span></span>
 <span id="cb181-3"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb181-3" aria-hidden="true" tabindex="-1"></a>alpha_cutoff</span></code></pre></div>
-<pre><code>## [1] 6.890794</code></pre>
+<pre><code>## [1] 5.591712</code></pre>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to histogram using vline</span></span>
 <span id="cb183-2"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb183-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb183-3"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_df,<span class="fu">aes</span>(<span class="at">x=</span>mean_differences))<span class="sc">+</span></span>
@@ -835,11 +835,11 @@ The null hypothesis is never proved or established, but is possibly disproved, i
 <span id="cb183-7"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb183-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of mean differences&quot;</span>)<span class="sc">+</span></span>
 <span id="cb183-8"><a href="lab-5-fundamentals-of-hypothesis-testing.html#cb183-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;absolute mean difference&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics_Lab_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
-<p>OK, so our alpha criterion or cutoff is located at 6.89 on the x-axis. This shows us that mean differences of 6.89 or larger happen only 5% of the time by chance.</p>
+<p>OK, so our alpha criterion or cutoff is located at 5.59 on the x-axis. This shows us that mean differences of 5.59 or larger happen only 5% of the time by chance.</p>
 <p>You could use this information to make an inference about whether or not chance produced the difference in your experiments</p>
 <ol style="list-style-type: decimal">
-<li><p>When the mean difference is 6.89 or larger, you might conclude that chance did not produce the difference</p></li>
-<li><p>When the mean difference is less than 6.89, you might conclude that chance could have produced the mean difference.</p></li>
+<li><p>When the mean difference is 5.59 or larger, you might conclude that chance did not produce the difference</p></li>
+<li><p>When the mean difference is less than 5.59, you might conclude that chance could have produced the mean difference.</p></li>
 </ol>
 <p>It’s up to you to set your alpha criterion. In practice it is often set at p=.05. But, you could be more conservative and set it to p=.01. Or more liberal and set it to p=.1. It’s up to you.</p>
 </div>

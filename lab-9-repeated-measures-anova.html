@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Lab 9 Repeated Measures ANOVA | Answering questions with data: Lab Manual</title>
+  <meta name="description" content="A lab manual for Psyc 3400" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Lab 9 Repeated Measures ANOVA | Answering questions with data: Lab Manual" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A lab manual for Psyc 3400" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Lab 9 Repeated Measures ANOVA | Answering questions with data: Lab Manual" />
+  
+  <meta name="twitter:description" content="A lab manual for Psyc 3400" />
+  
+
+<meta name="author" content="Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab-8-one-way-anova.html"/>
+<link rel="next" href="lab-10-factorial-anova.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-79429674-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-79429674-4');
+</script>
+
+
+<script type="text/javascript">
+mattcrump=1;
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="tufte.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics Lab Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface TEST</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#important-notes"><i class="fa fa-check"></i><b>0.1</b> Important notes</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>0.1.1</b> Attributions</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i><b>0.1.2</b> CC BY-SA 4.0 license</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#copying-the-lab-manual"><i class="fa fa-check"></i><b>0.1.3</b> Copying the lab manual</a></li>
+<li class="chapter" data-level="0.1.4" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.1.4</b> Acknowledgments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i>Software</a>
+<ul>
+<li class="chapter" data-level="0.2" data-path="software.html"><a href="software.html#data"><i class="fa fa-check"></i><b>0.2</b> Data</a>
+<ul>
+<li class="chapter" data-level="0.2.1" data-path="software.html"><a href="software.html#data-repository"><i class="fa fa-check"></i><b>0.2.1</b> Data Repository</a></li>
+<li class="chapter" data-level="0.2.2" data-path="software.html"><a href="software.html#csv-format"><i class="fa fa-check"></i><b>0.2.2</b> CSV format</a></li>
+<li class="chapter" data-level="0.2.3" data-path="software.html"><a href="software.html#spss-format"><i class="fa fa-check"></i><b>0.2.3</b> SPSS format</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>0.3</b> R</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="software.html"><a href="software.html#why-r"><i class="fa fa-check"></i><b>0.3.1</b> Why R?</a></li>
+<li class="chapter" data-level="0.3.2" data-path="software.html"><a href="software.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>0.3.2</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="0.3.3" data-path="software.html"><a href="software.html#r-studio-notes-and-tips"><i class="fa fa-check"></i><b>0.3.3</b> R studio notes and tips</a></li>
+<li class="chapter" data-level="0.3.4" data-path="software.html"><a href="software.html#how-to-complete-the-r-labs"><i class="fa fa-check"></i><b>0.3.4</b> How to complete the R Labs</a></li>
+<li class="chapter" data-level="0.3.5" data-path="software.html"><a href="software.html#screencast-tutorial"><i class="fa fa-check"></i><b>0.3.5</b> Screencast tutorial</a></li>
+<li class="chapter" data-level="0.3.6" data-path="software.html"><a href="software.html#r-studio-cloud"><i class="fa fa-check"></i><b>0.3.6</b> R-studio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="software.html"><a href="software.html#excel"><i class="fa fa-check"></i><b>0.4</b> Excel</a></li>
+<li class="chapter" data-level="0.5" data-path="software.html"><a href="software.html#spss"><i class="fa fa-check"></i><b>0.5</b> SPSS</a></li>
+<li class="chapter" data-level="0.6" data-path="software.html"><a href="software.html#jamovi"><i class="fa fa-check"></i><b>0.6</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html"><i class="fa fa-check"></i><b>1</b> Lab 1: Graphing Data TEST 2 3</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#general-goals"><i class="fa fa-check"></i><b>1.1</b> General Goals</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#important-info"><i class="fa fa-check"></i><b>1.1.1</b> Important info</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#r-1"><i class="fa fa-check"></i><b>1.2</b> R</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#download-the-lab-templates"><i class="fa fa-check"></i><b>1.2.1</b> Download the lab templates</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#get-some-data"><i class="fa fa-check"></i><b>1.2.2</b> Get some data</a></li>
+<li class="chapter" data-level="1.2.3" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#look-at-the-data"><i class="fa fa-check"></i><b>1.2.3</b> Look at the data</a></li>
+<li class="chapter" data-level="1.2.4" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#make-plots-to-answer-questions"><i class="fa fa-check"></i><b>1.2.4</b> Make Plots to answer questions</a></li>
+<li class="chapter" data-level="1.2.5" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#ggplot2-basics"><i class="fa fa-check"></i><b>1.2.5</b> ggplot2 basics</a></li>
+<li class="chapter" data-level="1.2.6" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#more-questions-about-nyc-films"><i class="fa fa-check"></i><b>1.2.6</b> More questions about NYC films</a></li>
+<li class="chapter" data-level="1.2.7" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#gapminder-data"><i class="fa fa-check"></i><b>1.2.7</b> Gapminder Data</a></li>
+<li class="chapter" data-level="1.2.8" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#asking-questions-with-the-gap-minder-data"><i class="fa fa-check"></i><b>1.2.8</b> Asking Questions with the gap minder data</a></li>
+<li class="chapter" data-level="1.2.9" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#generalization-exercise"><i class="fa fa-check"></i><b>1.2.9</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="1.2.10" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#writing-assignment"><i class="fa fa-check"></i><b>1.2.10</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#excel-1"><i class="fa fa-check"></i><b>1.3</b> Excel</a></li>
+<li class="chapter" data-level="1.4" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#spss-1"><i class="fa fa-check"></i><b>1.4</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#opening-spss-and-the-spss-layout"><i class="fa fa-check"></i><b>1.4.1</b> Opening SPSS and the SPSS layout</a></li>
+<li class="chapter" data-level="1.4.2" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#reviewing-variable-properties-and-the-variable-view-tab"><i class="fa fa-check"></i><b>1.4.2</b> Reviewing variable properties and the Variable View tab</a></li>
+<li class="chapter" data-level="1.4.3" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#opening-a-data-file-and-producing-different-types-of-graphs"><i class="fa fa-check"></i><b>1.4.3</b> Opening a data file and producing different types of graphs</a></li>
+<li class="chapter" data-level="1.4.4" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#practice-problems"><i class="fa fa-check"></i><b>1.4.4</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#jamovi-1"><i class="fa fa-check"></i><b>1.5</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html"><i class="fa fa-check"></i><b>2</b> Lab 2: Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#general-goals-1"><i class="fa fa-check"></i><b>2.1</b> General Goals</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#important-info-1"><i class="fa fa-check"></i><b>2.1.1</b> Important info</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#r-2"><i class="fa fa-check"></i><b>2.2</b> R</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#descriptives-basics-in-r"><i class="fa fa-check"></i><b>2.2.1</b> Descriptives basics in R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>2.2.2</b> Central Tendency</a></li>
+<li class="chapter" data-level="2.2.3" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#variation"><i class="fa fa-check"></i><b>2.2.3</b> Variation</a></li>
+<li class="chapter" data-level="2.2.4" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#descriptives-by-conditions"><i class="fa fa-check"></i><b>2.2.4</b> Descriptives by conditions</a></li>
+<li class="chapter" data-level="2.2.5" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#describing-gapminder"><i class="fa fa-check"></i><b>2.2.5</b> Describing gapminder</a></li>
+<li class="chapter" data-level="2.2.6" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#generalization-exercise-1"><i class="fa fa-check"></i><b>2.2.6</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="2.2.7" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#writing-assignment-1"><i class="fa fa-check"></i><b>2.2.7</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#excel-2"><i class="fa fa-check"></i><b>2.3</b> Excel</a></li>
+<li class="chapter" data-level="2.4" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#spss-2"><i class="fa fa-check"></i><b>2.4</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#calculating-descriptive-statistics"><i class="fa fa-check"></i><b>2.4.1</b> Calculating Descriptive Statistics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#descriptive-statistics-and-histograms"><i class="fa fa-check"></i><b>2.4.2</b> Descriptive Statistics and Histograms</a></li>
+<li class="chapter" data-level="2.4.3" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#editing-graphs"><i class="fa fa-check"></i><b>2.4.3</b> Editing graphs</a></li>
+<li class="chapter" data-level="2.4.4" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#practice-problems-1"><i class="fa fa-check"></i><b>2.4.4</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#jamovi-2"><i class="fa fa-check"></i><b>2.5</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html"><i class="fa fa-check"></i><b>3</b> Lab 3: Correlation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#general-goals-2"><i class="fa fa-check"></i><b>3.1</b> General Goals</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#important-info-2"><i class="fa fa-check"></i><b>3.1.1</b> Important Info</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#r-3"><i class="fa fa-check"></i><b>3.2</b> R</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#cor-for-correlation"><i class="fa fa-check"></i><b>3.2.1</b> cor for correlation</a></li>
+<li class="chapter" data-level="3.2.2" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#world-happiness-report"><i class="fa fa-check"></i><b>3.2.2</b> World Happiness Report</a></li>
+<li class="chapter" data-level="3.2.3" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#generalization-exercise-2"><i class="fa fa-check"></i><b>3.2.3</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="3.2.4" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#writing-assignment-2"><i class="fa fa-check"></i><b>3.2.4</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#excel-3"><i class="fa fa-check"></i><b>3.3</b> Excel</a></li>
+<li class="chapter" data-level="3.4" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#spss-3"><i class="fa fa-check"></i><b>3.4</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#correlation-coefficient-for-bivariate-data-two-variables"><i class="fa fa-check"></i><b>3.4.1</b> Correlation Coefficient for Bivariate Data: Two Variables</a></li>
+<li class="chapter" data-level="3.4.2" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#correlation-matrix"><i class="fa fa-check"></i><b>3.4.2</b> Correlation Matrix</a></li>
+<li class="chapter" data-level="3.4.3" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#correlation-and-scatterplots"><i class="fa fa-check"></i><b>3.4.3</b> Correlation and Scatterplots</a></li>
+<li class="chapter" data-level="3.4.4" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#splitting-a-file"><i class="fa fa-check"></i><b>3.4.4</b> Splitting a File</a></li>
+<li class="chapter" data-level="3.4.5" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#practice-problems-2"><i class="fa fa-check"></i><b>3.4.5</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#jamovi-3"><i class="fa fa-check"></i><b>3.5</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html"><i class="fa fa-check"></i><b>4</b> Lab 4: Normal Distribution &amp; Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#general-goals-3"><i class="fa fa-check"></i><b>4.1</b> General Goals</a></li>
+<li class="chapter" data-level="4.2" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#r-4"><i class="fa fa-check"></i><b>4.2</b> R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#generating-numbers-in-r"><i class="fa fa-check"></i><b>4.2.1</b> Generating Numbers in R</a></li>
+<li class="chapter" data-level="4.2.2" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#sampling-distribution-of-the-mean."><i class="fa fa-check"></i><b>4.2.2</b> sampling distribution of the mean.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#sampling-distributions-for-any-statistic"><i class="fa fa-check"></i><b>4.2.3</b> Sampling distributions for any statistic</a></li>
+<li class="chapter" data-level="4.2.4" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.2.4</b> Central limit theorem</a></li>
+<li class="chapter" data-level="4.2.5" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.2.5</b> The normal distribution</a></li>
+<li class="chapter" data-level="4.2.6" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#z-scores"><i class="fa fa-check"></i><b>4.2.6</b> z-scores</a></li>
+<li class="chapter" data-level="4.2.7" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#generalization-exercise-3"><i class="fa fa-check"></i><b>4.2.7</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="4.2.8" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#writing-assignment-3"><i class="fa fa-check"></i><b>4.2.8</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#excel-4"><i class="fa fa-check"></i><b>4.3</b> Excel</a></li>
+<li class="chapter" data-level="4.4" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#spss-4"><i class="fa fa-check"></i><b>4.4</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#saving-data-as-standardized-values."><i class="fa fa-check"></i><b>4.4.1</b> Saving data as standardized values.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#computing-variables"><i class="fa fa-check"></i><b>4.4.2</b> Computing variables</a></li>
+<li class="chapter" data-level="4.4.3" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#practice-problems-3"><i class="fa fa-check"></i><b>4.4.3</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#jamovi-4"><i class="fa fa-check"></i><b>4.5</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html"><i class="fa fa-check"></i><b>5</b> Lab 5: Fundamentals of Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#r-5"><i class="fa fa-check"></i><b>5.1</b> R</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#the-crump-test"><i class="fa fa-check"></i><b>5.1.1</b> The Crump Test</a></li>
+<li class="chapter" data-level="5.1.2" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#crumping-real-data"><i class="fa fa-check"></i><b>5.1.2</b> Crumping real data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#the-randomization-test"><i class="fa fa-check"></i><b>5.1.3</b> The Randomization Test</a></li>
+<li class="chapter" data-level="5.1.4" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#generalization-exercise-4"><i class="fa fa-check"></i><b>5.1.4</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="5.1.5" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#writing-assignment-4"><i class="fa fa-check"></i><b>5.1.5</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#excel-5"><i class="fa fa-check"></i><b>5.2</b> Excel</a></li>
+<li class="chapter" data-level="5.3" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#spss-5"><i class="fa fa-check"></i><b>5.3</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#experiment-background"><i class="fa fa-check"></i><b>5.3.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="5.3.2" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#calculate-difference-scores-between-pairs-of-measures"><i class="fa fa-check"></i><b>5.3.2</b> Calculate difference scores between pairs of measures</a></li>
+<li class="chapter" data-level="5.3.3" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#conduct-a-sign-test"><i class="fa fa-check"></i><b>5.3.3</b> Conduct a sign test</a></li>
+<li class="chapter" data-level="5.3.4" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#entering-data-for-sign-test-problems"><i class="fa fa-check"></i><b>5.3.4</b> Entering data for sign test problems</a></li>
+<li class="chapter" data-level="5.3.5" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#practice-problems-4"><i class="fa fa-check"></i><b>5.3.5</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#jamovi-5"><i class="fa fa-check"></i><b>5.4</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html"><i class="fa fa-check"></i><b>6</b> Lab 6: t-Test (one-sample, paired sample)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#does-music-convey-social-information-to-infants"><i class="fa fa-check"></i><b>6.1</b> Does Music Convey Social Information to Infants?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#study-description"><i class="fa fa-check"></i><b>6.1.1</b> STUDY DESCRIPTION</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#lab-skills-learned"><i class="fa fa-check"></i><b>6.2</b> Lab skills learned</a></li>
+<li class="chapter" data-level="6.3" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#important-stuff"><i class="fa fa-check"></i><b>6.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="6.4" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#r-6"><i class="fa fa-check"></i><b>6.4</b> R</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#loading-the-data"><i class="fa fa-check"></i><b>6.4.1</b> Loading the data</a></li>
+<li class="chapter" data-level="6.4.2" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#inspect-the-data-frame"><i class="fa fa-check"></i><b>6.4.2</b> Inspect the data frame</a></li>
+<li class="chapter" data-level="6.4.3" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#get-the-data-for-experiment-one"><i class="fa fa-check"></i><b>6.4.3</b> Get the data for Experiment one</a></li>
+<li class="chapter" data-level="6.4.4" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#baseline-phase-conduct-a-one-sample-t-test"><i class="fa fa-check"></i><b>6.4.4</b> Baseline phase: Conduct a one sample t-test</a></li>
+<li class="chapter" data-level="6.4.5" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#test-phase"><i class="fa fa-check"></i><b>6.4.5</b> Test phase</a></li>
+<li class="chapter" data-level="6.4.6" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#paired-samples-t-test"><i class="fa fa-check"></i><b>6.4.6</b> Paired-samples t-test</a></li>
+<li class="chapter" data-level="6.4.7" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#graphing-the-findings"><i class="fa fa-check"></i><b>6.4.7</b> Graphing the findings</a></li>
+<li class="chapter" data-level="6.4.8" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#data-simulation"><i class="fa fa-check"></i><b>6.4.8</b> Data-simulation</a></li>
+<li class="chapter" data-level="6.4.9" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#generalization-exercise-5"><i class="fa fa-check"></i><b>6.4.9</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="6.4.10" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#writing-assignment-5"><i class="fa fa-check"></i><b>6.4.10</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#excel-6"><i class="fa fa-check"></i><b>6.5</b> Excel</a></li>
+<li class="chapter" data-level="6.6" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#spss-6"><i class="fa fa-check"></i><b>6.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#experiment-background-1"><i class="fa fa-check"></i><b>6.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="6.6.2" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#performing-a-one-sample-t-test"><i class="fa fa-check"></i><b>6.6.2</b> Performing a one-sample t-test</a></li>
+<li class="chapter" data-level="6.6.3" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#performing-a-paired-samples-t-test"><i class="fa fa-check"></i><b>6.6.3</b> Performing a paired-samples t-test</a></li>
+<li class="chapter" data-level="6.6.4" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#graphing-your-results"><i class="fa fa-check"></i><b>6.6.4</b> Graphing your results</a></li>
+<li class="chapter" data-level="6.6.5" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#the-relationship-between-the-one-sample-and-the-paired-samples-t-test"><i class="fa fa-check"></i><b>6.6.5</b> The relationship between the one-sample and the paired-samples t-test</a></li>
+<li class="chapter" data-level="6.6.6" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#practice-problems-5"><i class="fa fa-check"></i><b>6.6.6</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#jamovi-6"><i class="fa fa-check"></i><b>6.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html"><i class="fa fa-check"></i><b>7</b> Lab 7: t-test (Independent Sample)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#do-you-come-across-as-smarter-when-people-read-what-you-say-or-hear-what-you-say"><i class="fa fa-check"></i><b>7.1</b> Do you come across as smarter when people read what you say or hear what you say?</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#study-description-1"><i class="fa fa-check"></i><b>7.1.1</b> STUDY DESCRIPTION</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#lab-skills-learned-1"><i class="fa fa-check"></i><b>7.2</b> Lab skills learned</a></li>
+<li class="chapter" data-level="7.3" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#important-stuff-1"><i class="fa fa-check"></i><b>7.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="7.4" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#r-7"><i class="fa fa-check"></i><b>7.4</b> R</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#load-the-data-1"><i class="fa fa-check"></i><b>7.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="7.4.2" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#inspect-data-frame"><i class="fa fa-check"></i><b>7.4.2</b> Inspect data frame</a></li>
+<li class="chapter" data-level="7.4.3" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#find-the-data-you-need"><i class="fa fa-check"></i><b>7.4.3</b> Find the data you need</a></li>
+<li class="chapter" data-level="7.4.4" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#look-at-the-dependent-variable."><i class="fa fa-check"></i><b>7.4.4</b> Look at the dependent variable.</a></li>
+<li class="chapter" data-level="7.4.5" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#conduct-independent-samples-t-test"><i class="fa fa-check"></i><b>7.4.5</b> Conduct Independent samples t-test</a></li>
+<li class="chapter" data-level="7.4.6" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#remaining-ratings"><i class="fa fa-check"></i><b>7.4.6</b> Remaining ratings</a></li>
+<li class="chapter" data-level="7.4.7" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#reconstructing-the-graph-from-the-paper"><i class="fa fa-check"></i><b>7.4.7</b> Reconstructing the graph from the paper</a></li>
+<li class="chapter" data-level="7.4.8" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#generalization-exercise-6"><i class="fa fa-check"></i><b>7.4.8</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="7.4.9" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#writing-assignment-6"><i class="fa fa-check"></i><b>7.4.9</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#excel-7"><i class="fa fa-check"></i><b>7.5</b> Excel</a></li>
+<li class="chapter" data-level="7.6" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#spss-7"><i class="fa fa-check"></i><b>7.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#experiment-background-2"><i class="fa fa-check"></i><b>7.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="7.6.2" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#performing-an-independent-samples-t-test"><i class="fa fa-check"></i><b>7.6.2</b> Performing an independent-samples t-test</a></li>
+<li class="chapter" data-level="7.6.3" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#graphing-your-data"><i class="fa fa-check"></i><b>7.6.3</b> Graphing your data</a></li>
+<li class="chapter" data-level="7.6.4" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#practice-problems-6"><i class="fa fa-check"></i><b>7.6.4</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#jamovi-7"><i class="fa fa-check"></i><b>7.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html"><i class="fa fa-check"></i><b>8</b> Lab 8 One-way ANOVA</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#how-to-not-think-about-bad-memories-by-playing-tetris"><i class="fa fa-check"></i><b>8.1</b> How to not think about bad memories by playing Tetris</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#study-description-2"><i class="fa fa-check"></i><b>8.1.1</b> STUDY DESCRIPTION</a></li>
+<li class="chapter" data-level="8.1.2" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#study-methods"><i class="fa fa-check"></i><b>8.1.2</b> Study Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#lab-skills-learned-2"><i class="fa fa-check"></i><b>8.2</b> Lab Skills Learned</a></li>
+<li class="chapter" data-level="8.3" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#important-stuff-2"><i class="fa fa-check"></i><b>8.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="8.4" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#r-8"><i class="fa fa-check"></i><b>8.4</b> R</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#load-the-data-2"><i class="fa fa-check"></i><b>8.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="8.4.2" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#inspect-the-dataframe"><i class="fa fa-check"></i><b>8.4.2</b> Inspect the dataframe</a></li>
+<li class="chapter" data-level="8.4.3" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#get-the-data-you-need"><i class="fa fa-check"></i><b>8.4.3</b> Get the data you need</a></li>
+<li class="chapter" data-level="8.4.4" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#look-at-the-data-2"><i class="fa fa-check"></i><b>8.4.4</b> Look at the data</a></li>
+<li class="chapter" data-level="8.4.5" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#conduct-the-anova"><i class="fa fa-check"></i><b>8.4.5</b> Conduct the ANOVA</a></li>
+<li class="chapter" data-level="8.4.6" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#reporting-the-anova-results"><i class="fa fa-check"></i><b>8.4.6</b> Reporting the ANOVA results</a></li>
+<li class="chapter" data-level="8.4.7" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#individual-comparisons"><i class="fa fa-check"></i><b>8.4.7</b> Individual comparisons</a></li>
+<li class="chapter" data-level="8.4.8" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#writing-it-all-up."><i class="fa fa-check"></i><b>8.4.8</b> Writing it all up.</a></li>
+<li class="chapter" data-level="8.4.9" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#food-for-thought"><i class="fa fa-check"></i><b>8.4.9</b> Food for thought</a></li>
+<li class="chapter" data-level="8.4.10" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#generalization-exercise-7"><i class="fa fa-check"></i><b>8.4.10</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="8.4.11" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#writing-assignment-7"><i class="fa fa-check"></i><b>8.4.11</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#excel-8"><i class="fa fa-check"></i><b>8.5</b> Excel</a></li>
+<li class="chapter" data-level="8.6" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#spss-8"><i class="fa fa-check"></i><b>8.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#experiment-background-3"><i class="fa fa-check"></i><b>8.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="8.6.2" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#performing-a-one-factor-analysis-of-variance-anova-graphing-the-data"><i class="fa fa-check"></i><b>8.6.2</b> Performing a One-Factor Analysis of Variance (ANOVA) &amp; Graphing the data</a></li>
+<li class="chapter" data-level="8.6.3" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#planned-comparisons-t-tests"><i class="fa fa-check"></i><b>8.6.3</b> Planned Comparisons: T-tests</a></li>
+<li class="chapter" data-level="8.6.4" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#unplanned-comparisons-post-hoc-tests"><i class="fa fa-check"></i><b>8.6.4</b> Unplanned Comparisons: Post-hoc tests</a></li>
+<li class="chapter" data-level="8.6.5" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#practice-problems-7"><i class="fa fa-check"></i><b>8.6.5</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#jamovi-8"><i class="fa fa-check"></i><b>8.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html"><i class="fa fa-check"></i><b>9</b> Lab 9 Repeated Measures ANOVA</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#betcha-cant-type-jhdbzkco-very-fast-on-your-first-try"><i class="fa fa-check"></i><b>9.1</b> Betcha can’t type JHDBZKCO very fast on your first try</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#study-description-3"><i class="fa fa-check"></i><b>9.1.1</b> STUDY DESCRIPTION</a></li>
+<li class="chapter" data-level="9.1.2" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#study-methods-1"><i class="fa fa-check"></i><b>9.1.2</b> Study Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#lab-skills-learned-3"><i class="fa fa-check"></i><b>9.2</b> Lab Skills Learned</a></li>
+<li class="chapter" data-level="9.3" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#important-stuff-3"><i class="fa fa-check"></i><b>9.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="9.4" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#r-9"><i class="fa fa-check"></i><b>9.4</b> R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#load-the-data-3"><i class="fa fa-check"></i><b>9.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="9.4.2" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#inspect-the-dataframe-1"><i class="fa fa-check"></i><b>9.4.2</b> Inspect the dataframe</a></li>
+<li class="chapter" data-level="9.4.3" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#get-the-data-you-need-1"><i class="fa fa-check"></i><b>9.4.3</b> Get the data you need</a></li>
+<li class="chapter" data-level="9.4.4" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#look-at-the-data-3"><i class="fa fa-check"></i><b>9.4.4</b> Look at the data</a></li>
+<li class="chapter" data-level="9.4.5" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#look-at-the-means"><i class="fa fa-check"></i><b>9.4.5</b> Look at the means</a></li>
+<li class="chapter" data-level="9.4.6" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#conduct-the-repeated-measures-anova"><i class="fa fa-check"></i><b>9.4.6</b> Conduct the repeated Measures ANOVA</a></li>
+<li class="chapter" data-level="9.4.7" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#follow-up-comparisons"><i class="fa fa-check"></i><b>9.4.7</b> Follow-up comparisons</a></li>
+<li class="chapter" data-level="9.4.8" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#reporting-everything"><i class="fa fa-check"></i><b>9.4.8</b> Reporting everything</a></li>
+<li class="chapter" data-level="9.4.9" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#generalization-exercise-8"><i class="fa fa-check"></i><b>9.4.9</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="9.4.10" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#writing-assignment-8"><i class="fa fa-check"></i><b>9.4.10</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#excel-9"><i class="fa fa-check"></i><b>9.5</b> Excel</a></li>
+<li class="chapter" data-level="9.6" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#spss-9"><i class="fa fa-check"></i><b>9.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#experiment-background-4"><i class="fa fa-check"></i><b>9.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="9.6.2" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#produce-a-frequency-histogram-and-remove-outliers"><i class="fa fa-check"></i><b>9.6.2</b> Produce a frequency histogram and remove outliers</a></li>
+<li class="chapter" data-level="9.6.3" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#conduct-and-graph-one-factor-repeated-measures-anova"><i class="fa fa-check"></i><b>9.6.3</b> Conduct and graph One-Factor Repeated Measures ANOVA</a></li>
+<li class="chapter" data-level="9.6.4" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#conduct-planned-comparisons-using-a-paired-samples-t-test"><i class="fa fa-check"></i><b>9.6.4</b> Conduct planned comparisons using a paired-samples t-test</a></li>
+<li class="chapter" data-level="9.6.5" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#practice-problems-8"><i class="fa fa-check"></i><b>9.6.5</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#jamovi-9"><i class="fa fa-check"></i><b>9.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html"><i class="fa fa-check"></i><b>10</b> Lab 10: Factorial ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#does-standing-up-make-you-focus-more"><i class="fa fa-check"></i><b>10.1</b> Does standing up make you focus more?</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#study-description-4"><i class="fa fa-check"></i><b>10.1.1</b> STUDY DESCRIPTION</a></li>
+<li class="chapter" data-level="10.1.2" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#study-methods-2"><i class="fa fa-check"></i><b>10.1.2</b> Study Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#lab-skills-learned-4"><i class="fa fa-check"></i><b>10.2</b> Lab Skills Learned</a></li>
+<li class="chapter" data-level="10.3" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#important-stuff-4"><i class="fa fa-check"></i><b>10.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="10.4" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#r-10"><i class="fa fa-check"></i><b>10.4</b> R</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#load-the-data-4"><i class="fa fa-check"></i><b>10.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="10.4.2" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#inspect-the-dataframe-2"><i class="fa fa-check"></i><b>10.4.2</b> Inspect the dataframe</a></li>
+<li class="chapter" data-level="10.4.3" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#get-the-data-you-need-2"><i class="fa fa-check"></i><b>10.4.3</b> Get the data you need</a></li>
+<li class="chapter" data-level="10.4.4" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#get-the-data-into-the-format-you-want"><i class="fa fa-check"></i><b>10.4.4</b> Get the data into the format you want</a></li>
+<li class="chapter" data-level="10.4.5" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#look-at-the-data-4"><i class="fa fa-check"></i><b>10.4.5</b> Look at the data</a></li>
+<li class="chapter" data-level="10.4.6" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#look-at-the-means-1"><i class="fa fa-check"></i><b>10.4.6</b> Look at the means</a></li>
+<li class="chapter" data-level="10.4.7" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#conduct-the-anova-1"><i class="fa fa-check"></i><b>10.4.7</b> Conduct the ANOVA</a></li>
+<li class="chapter" data-level="10.4.8" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#between-subjects-anova"><i class="fa fa-check"></i><b>10.4.8</b> Between Subjects ANOVA</a></li>
+<li class="chapter" data-level="10.4.9" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#repeated-measures-anova"><i class="fa fa-check"></i><b>10.4.9</b> Repeated measures ANOVA</a></li>
+<li class="chapter" data-level="10.4.10" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#follow-up-comparisons-1"><i class="fa fa-check"></i><b>10.4.10</b> Follow-up comparisons</a></li>
+<li class="chapter" data-level="10.4.11" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#generalization-exercise-9"><i class="fa fa-check"></i><b>10.4.11</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="10.4.12" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#writing-asignment"><i class="fa fa-check"></i><b>10.4.12</b> Writing asignment</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#excel-10"><i class="fa fa-check"></i><b>10.5</b> Excel</a></li>
+<li class="chapter" data-level="10.6" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#spss-10"><i class="fa fa-check"></i><b>10.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#experiment-background-5"><i class="fa fa-check"></i><b>10.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="10.6.2" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#conduct-a-between-subjects-two-factor-analysis-of-variance-anova"><i class="fa fa-check"></i><b>10.6.2</b> Conduct a Between-Subjects Two-Factor Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="10.6.3" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#calculate-simple-effects"><i class="fa fa-check"></i><b>10.6.3</b> Calculate simple effects</a></li>
+<li class="chapter" data-level="10.6.4" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#conduct-a-repeated-measures-two-factor-analysis-of-variance-anova"><i class="fa fa-check"></i><b>10.6.4</b> Conduct a Repeated Measures Two-Factor Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="10.6.5" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#calculate-simple-effects-1"><i class="fa fa-check"></i><b>10.6.5</b> Calculate simple effects</a></li>
+<li class="chapter" data-level="10.6.6" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#practice-problems-9"><i class="fa fa-check"></i><b>10.6.6</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#jamovi-10"><i class="fa fa-check"></i><b>10.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html"><i class="fa fa-check"></i><b>11</b> Lab 11: Mixed Factorial ANOVA</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#do-you-remember-things-better-when-you-take-pictures-of-them"><i class="fa fa-check"></i><b>11.1</b> Do you remember things better when you take pictures of them?</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#study-description-5"><i class="fa fa-check"></i><b>11.1.1</b> Study description</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#lab-skills-learned-5"><i class="fa fa-check"></i><b>11.2</b> Lab Skills Learned</a></li>
+<li class="chapter" data-level="11.3" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#important-stuff-5"><i class="fa fa-check"></i><b>11.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="11.4" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#r-11"><i class="fa fa-check"></i><b>11.4</b> R</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#load-the-data-5"><i class="fa fa-check"></i><b>11.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="11.4.2" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#inspect-the-dataframe-3"><i class="fa fa-check"></i><b>11.4.2</b> Inspect the dataframe</a></li>
+<li class="chapter" data-level="11.4.3" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#get-the-data-you-need-3"><i class="fa fa-check"></i><b>11.4.3</b> Get the data you need</a></li>
+<li class="chapter" data-level="11.4.4" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#get-the-data-into-the-format-you-want-1"><i class="fa fa-check"></i><b>11.4.4</b> Get the data into the format you want</a></li>
+<li class="chapter" data-level="11.4.5" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#look-at-the-data-5"><i class="fa fa-check"></i><b>11.4.5</b> Look at the data</a></li>
+<li class="chapter" data-level="11.4.6" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#look-at-the-means-2"><i class="fa fa-check"></i><b>11.4.6</b> Look at the means</a></li>
+<li class="chapter" data-level="11.4.7" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#conduct-the-anova-2"><i class="fa fa-check"></i><b>11.4.7</b> Conduct the ANOVA</a></li>
+<li class="chapter" data-level="11.4.8" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#generalization-exercise-10"><i class="fa fa-check"></i><b>11.4.8</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="11.4.9" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#writing-assignment-9"><i class="fa fa-check"></i><b>11.4.9</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#excel-11"><i class="fa fa-check"></i><b>11.5</b> Excel</a></li>
+<li class="chapter" data-level="11.6" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#spss-11"><i class="fa fa-check"></i><b>11.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#experiment-background-6"><i class="fa fa-check"></i><b>11.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="11.6.2" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#conduct-a-mixed-factorial-analysis-of-variance-anova"><i class="fa fa-check"></i><b>11.6.2</b> Conduct a Mixed-Factorial Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="11.6.3" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#calculate-simple-effects-2"><i class="fa fa-check"></i><b>11.6.3</b> Calculate simple effects</a></li>
+<li class="chapter" data-level="11.6.4" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#practice-problems-10"><i class="fa fa-check"></i><b>11.6.4</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#jamovi-11"><i class="fa fa-check"></i><b>11.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Answering questions with data: Lab Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<img src="LabmanualCover.png" id="coverpic" width="350" style="display: block; margin: auto;" />
+<div id="lab-9-repeated-measures-anova" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Lab 9 Repeated Measures ANOVA<a href="lab-9-repeated-measures-anova.html#lab-9-repeated-measures-anova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
+$("#coverpic").hide();
+</script>
+<p><span class="newthought">
+However, perhaps the main point is that you are under no obligation to analyse variance into its parts if it does not come apart easily, and its unwillingness to do so naturally indicates that one’s line of approach is not very fruitful.
+—R. A. Fisher
+</span></p>
+<div id="betcha-cant-type-jhdbzkco-very-fast-on-your-first-try" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Betcha can’t type JHDBZKCO very fast on your first try<a href="lab-9-repeated-measures-anova.html#betcha-cant-type-jhdbzkco-very-fast-on-your-first-try" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This lab activity uses the data from Behmer &amp; Crump (2017) to teach one-factor repeated measures ANOVA with-up follow comparisons</p>
+<div id="study-description-3" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> STUDY DESCRIPTION<a href="lab-9-repeated-measures-anova.html#study-description-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Behmer &amp; Crump (2017) used the everyday task of typing on a computer keyboard to ask questions about how people learn to put sequences of actions together. Whenever you type a series of letters on the keyboard, you are putting a sequence of actions together, so typing is task that could be used to measure skilled sequencing. Typing also happens to be a convenient task for measuring sequencing. For example, every time a person types a letter, the timing of the button press and the letter pressed can be measured and stored for later analysis.</p>
+<p>Behmer &amp; Crump were interested in asking a few different questions, however, we will simplify everything and talk about replication. First we describe an interesting finding from previous research. Behmer &amp; Crump repeated an experiment that should also produce this same finding. If they succeed in doing this, it means the finding can be replicated, and that it happens in more than one lab.</p>
+<p><strong>Finding from previous resaearch:</strong> Prior research showed that typists do something funny. Skilled typists can type normal words very fast. This suggests they know how to locate all of the letters on the keyboard, and can press each letter very quickly to type words. That part isn’t particularly funny. However, if you take really skilled typists and make them type random letters like this: kwitb dhhgjtryq xkldpt mazhyffdt, guess what happens? They slow down a lot. It’s kind of weird that a typist would slow down, after all they can type letters really fast when they appear in words, but not when they appear in random orders…what gives? Last, it turns out that typists are kind of in the middle in terms of speed, if you ask them to type non-words that have similar properties to words, such as: quenp hamlke phwempy.</p>
+<p>To summarize, prior research showed that typing speed changes as a function of the structure of the text, roughly in this order from fastest to slowest.</p>
+<p>(FASTEST) Normal Words &lt; Word-like Non-words &lt; Random strings (SLOWEST)</p>
+<p><strong>Replication question:</strong> Behmer &amp; Crump also measured typists while they typed words, non-words that were English-like, and random strings. They had some additional things they were interested in, but for us, we are interested in whether they would show the same effect. Would they replicate the pattern: Normal words (Fastest) &lt; Word-like Non-words (medium) &lt;- Random strings (Slowest)?</p>
+</div>
+<div id="study-methods-1" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Study Methods<a href="lab-9-repeated-measures-anova.html#study-methods-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The authors conducted a repeated measures experiment. A total of 38 subjects were used for the analysis.</p>
+<p><strong>Independent Variable</strong>: The IV Stimulus or typing material had three levels: Normal, Bigrams, and Random. Normal refers to normal 5 letter English words (like truck, or plant). Bigrams refers to non-words that have properties similar to words (e.g., phemt quilp). Random refers to 5 letter strings whose letters were totally random (qmklt gdrzn lprni).</p>
+<p><strong>Dependent Variables</strong>: There were three dependent variables, that all measured different aspects of typing performance. Reaction times (RTs) were defined as the temporal interval between seeing a stimulus (to type), and then starting to type it (first key press). Inter-keystroke intervals (IKSIs) are the times between each key-press. Last, accuracy was also measured (correct or incorrect key-presses)</p>
+<p><strong>The task</strong>: Participants (who happened to also be students from Brooklyn College) sat in front a computer. They were presented with one stimulus (word, bigrams, or random) at a time. As soon as they saw the string of letters, they typed it as quickly and accurately as they could, then they moved on to the next trial.</p>
+<p>Reminder, this is a repeated measures design because each participant typed letter strings from the word, bigrams, and random conditions.</p>
+</div>
+</div>
+<div id="lab-skills-learned-3" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Lab Skills Learned<a href="lab-9-repeated-measures-anova.html#lab-skills-learned-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Conducting a one-factor repeated measures ANOVA</li>
+<li>Conducting follow-up comparisons</li>
+</ul>
+</div>
+<div id="important-stuff-3" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Important Stuff<a href="lab-9-repeated-measures-anova.html#important-stuff-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>citation: Behmer, Lawrence P., Crump, M. J. C. (2017). Spatial Knowledge during Skilled Action Sequencing: Hierarchical versus Non-Hierarchical Representations. Attention, Perception &amp; Psychophysics, 79, 2435-2448.</li>
+<li><a href="https://github.com/CrumpLab/CrumpLab.github.io/raw/master/files/8753/Behmer%20and%20Crump%20-%202017.pdf">Link to .pdf of article</a></li>
+<li><a href="https://github.com/CrumpLab/statisticsLab/raw/master/data/exp1_BehmerCrumpAPP.csv" download>Data in .csv format</a></li>
+</ul>
+</div>
+<div id="r-9" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> R<a href="lab-9-repeated-measures-anova.html#r-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="load-the-data-3" class="section level3 hasAnchor" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Load the data<a href="lab-9-repeated-measures-anova.html#load-the-data-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember that any line with a # makes a comment and the code does not run. Below is how to load the .csv data from the online repository, or from a local file (you need to change the file path to where the local file is, if you downloaded it). The data contains all of the measures and conditions from Experiment 1 in the paper.</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="lab-9-repeated-measures-anova.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb262-2"><a href="lab-9-repeated-measures-anova.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="co">#all_data &lt;- fread(&quot;https://github.com/CrumpLab/statisticsLab/raw/master/data/exp1_BehmerCrumpAPP.csv&quot;)</span></span>
+<span id="cb262-3"><a href="lab-9-repeated-measures-anova.html#cb262-3" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;data/exp1_BehmerCrumpAPP.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="inspect-the-dataframe-1" class="section level3 hasAnchor" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Inspect the dataframe<a href="lab-9-repeated-measures-anova.html#inspect-the-dataframe-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This will give you a big picture of the data frame. Click the button to view it in your browser, then take a look to see what is in it.</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="lab-9-repeated-measures-anova.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb263-2"><a href="lab-9-repeated-measures-anova.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(<span class="fu">dfSummary</span>(all_data[,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,<span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>)]))</span></code></pre></div>
+<p>Note, there is some weird stuff in code above. Normally, we would just write <code>view(dfSummary(all_data))</code>, why we add this: <code>all_data[,c(1:7,10:20)]</code>? It turns out the dfSummary function didn’t like some of the data. In particular it didn’t like the data in columns 8 an 9 (notice those numbers are missing, the range inside c is 1 to 7 and 10 to 20). It doesn’t mean the data isn’t there, just that it didn’t want to display it in the viewer.</p>
+</div>
+<div id="get-the-data-you-need-1" class="section level3 hasAnchor" number="9.4.3">
+<h3><span class="header-section-number">9.4.3</span> Get the data you need<a href="lab-9-repeated-measures-anova.html#get-the-data-you-need-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This data file contains all of the data from Experiment 1 in the paper. So, we don’t need to get rid of any rows.</p>
+<p>There are numerous columns, some of them we don’t need for the analysis. But, we’ll just ignore these later when we use <code>dplyr</code> to group by the columns we want.</p>
+<p>The structure of this data a file is in long form. Every row described a measurement for a single key-press. For example, the first 5 rows, have data for the timing of the first 5 key-presses, that the first subject made to type the first string of letters they saw. In total there were 85,410 key-presses made. That’s quite a lot.</p>
+<div id="the-independent-variable-1" class="section level4 hasAnchor" number="9.4.3.1">
+<h4><span class="header-section-number">9.4.3.1</span> The independent variable<a href="lab-9-repeated-measures-anova.html#the-independent-variable-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The important independent variable is in the column <code>Stimulus</code>.</p>
+<ul>
+<li>Normal (5 letter English words)</li>
+<li>Bigrams (5 letter strings that kind of looked like words)</li>
+<li>Random (5 letter strings that were random)</li>
+</ul>
+<p>It is also important to know that the <code>Order</code> column codes the position for each letter, from 1 to 5.</p>
+<p>Note: there was another independent variable in the study as well. We talk about this later. The second IV is coded in the <code>Block</code> column.</p>
+<ul>
+<li>Baseline (normal typing, keyboard is visible while typing)</li>
+<li>Manipulation (occluded typing, keyboard is covered while typing)</li>
+</ul>
+</div>
+<div id="the-dependent-variables" class="section level4 hasAnchor" number="9.4.3.2">
+<h4><span class="header-section-number">9.4.3.2</span> The dependent variables<a href="lab-9-repeated-measures-anova.html#the-dependent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li><code>TimeFromOnset</code> : This column records the temporal interval in milliseconds between the onset of the word and each key-press. When order is 1 (first keystroke), the number here is the reaction time to start typing.</li>
+<li><code>PureRTs</code> : This column contains keystroke intervals. The first interval is between the onset of the word and the first key-press (order 1), the second interval is between the first and second key-press (order 2), and so on. <code>PureRTs</code> for orders 2 to 5, represent the inter-keystroke intervals reported in paper.</li>
+<li><code>AllCorrect</code> : 0 means incorrect (wrong letter was typed), 1 means correct (correct letter was typed)</li>
+</ol>
+</div>
+</div>
+<div id="look-at-the-data-3" class="section level3 hasAnchor" number="9.4.4">
+<h3><span class="header-section-number">9.4.4</span> Look at the data<a href="lab-9-repeated-measures-anova.html#look-at-the-data-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember before we do any analysis, we always want to “look” at the data. This first pass let’s us know if the data “look right”. For example, the data file could be messed up and maybe there aren’t any numbers there, or maybe the numbers are just too weird.</p>
+<p>For example, this study involves reaction times: the time between seeing something and responding to it. If you had done a study like this before, you would know that it usually doesn’t take people that long to start responding. Most reaction times will be under a second (or 1000 milliseconds). But, sometime people are little slow, and sometimes they do funny things like check their phone in the middle of an experiment.</p>
+<p>Before I analyze reaction time data, I often make a histogram of all of the RT data, like this:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="lab-9-repeated-measures-anova.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(all_data<span class="sc">$</span>PureRTs)</span></code></pre></div>
+<p><img src="Statistics_Lab_files/figure-html/unnamed-chunk-255-1.png" width="672" /></p>
+<p>We can see that almost all of the reaction times are well below 5000 milliseconds (5 seconds), which is good. Most of the time people were paying attention and not “checking their phone”. Notice, the range of the histogram goes out to 15,000 milliseconds. You can’t see any bars out there (too small to notice), but there must be at least a few trials where somebody took 15 seconds to start responding. These are called outliers. We will remove them before we conduct our analysis</p>
+</div>
+<div id="look-at-the-means" class="section level3 hasAnchor" number="9.4.5">
+<h3><span class="header-section-number">9.4.5</span> Look at the means<a href="lab-9-repeated-measures-anova.html#look-at-the-means" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As part of looking at the data, we might as well make a figure that shows the mean reaction times in each condition, and some error bars to look at the spread in each condition. The following code takes three important steps:</p>
+<ol style="list-style-type: decimal">
+<li>Get the means for each subject in each condition. These are put into the data frame called <code>subject_means</code>.</li>
+<li>Get the means for each condition, by averaging over the means for each subject. These are put into the data frame called <code>plot_means</code>.</li>
+<li>Make a graph with the <code>plot_means</code> data frame using ggplot2.</li>
+</ol>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="lab-9-repeated-measures-anova.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb265-2"><a href="lab-9-repeated-measures-anova.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb265-3"><a href="lab-9-repeated-measures-anova.html#cb265-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-4"><a href="lab-9-repeated-measures-anova.html#cb265-4" aria-hidden="true" tabindex="-1"></a>all_data<span class="sc">$</span>Block<span class="ot">&lt;-</span><span class="fu">as.factor</span>(all_data<span class="sc">$</span>Block)</span>
+<span id="cb265-5"><a href="lab-9-repeated-measures-anova.html#cb265-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(all_data<span class="sc">$</span>Block) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Visible keyboard&quot;</span>,<span class="st">&quot;Covered Keyboard&quot;</span>)</span>
+<span id="cb265-6"><a href="lab-9-repeated-measures-anova.html#cb265-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-7"><a href="lab-9-repeated-measures-anova.html#cb265-7" aria-hidden="true" tabindex="-1"></a><span class="do">## get subject mean RTs</span></span>
+<span id="cb265-8"><a href="lab-9-repeated-measures-anova.html#cb265-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-9"><a href="lab-9-repeated-measures-anova.html#cb265-9" aria-hidden="true" tabindex="-1"></a>subject_means <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span></span>
+<span id="cb265-10"><a href="lab-9-repeated-measures-anova.html#cb265-10" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">filter</span>(Order<span class="sc">==</span><span class="dv">1</span>, Correct<span class="sc">==</span><span class="dv">1</span>, PureRTs<span class="sc">&lt;</span><span class="dv">5000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb265-11"><a href="lab-9-repeated-measures-anova.html#cb265-11" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">group_by</span>(Subject, Block, Stimulus) <span class="sc">%&gt;%</span></span>
+<span id="cb265-12"><a href="lab-9-repeated-measures-anova.html#cb265-12" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">summarise</span>(<span class="at">mean_rt =</span> <span class="fu">mean</span>(PureRTs))</span>
+<span id="cb265-13"><a href="lab-9-repeated-measures-anova.html#cb265-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-14"><a href="lab-9-repeated-measures-anova.html#cb265-14" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Subject<span class="ot">&lt;-</span><span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Subject)</span>
+<span id="cb265-15"><a href="lab-9-repeated-measures-anova.html#cb265-15" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Block<span class="ot">&lt;-</span><span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Block)</span>
+<span id="cb265-16"><a href="lab-9-repeated-measures-anova.html#cb265-16" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Stimulus<span class="ot">&lt;-</span><span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Stimulus)</span>
+<span id="cb265-17"><a href="lab-9-repeated-measures-anova.html#cb265-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-18"><a href="lab-9-repeated-measures-anova.html#cb265-18" aria-hidden="true" tabindex="-1"></a><span class="do">## get condition mean RTs</span></span>
+<span id="cb265-19"><a href="lab-9-repeated-measures-anova.html#cb265-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-20"><a href="lab-9-repeated-measures-anova.html#cb265-20" aria-hidden="true" tabindex="-1"></a>plot_means <span class="ot">&lt;-</span> subject_means <span class="sc">%&gt;%</span></span>
+<span id="cb265-21"><a href="lab-9-repeated-measures-anova.html#cb265-21" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(Block, Stimulus) <span class="sc">%&gt;%</span></span>
+<span id="cb265-22"><a href="lab-9-repeated-measures-anova.html#cb265-22" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(mean_rt),</span>
+<span id="cb265-23"><a href="lab-9-repeated-measures-anova.html#cb265-23" aria-hidden="true" tabindex="-1"></a>                        <span class="at">SEs =</span> <span class="fu">sd</span>(mean_rt)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(mean_rt)))</span>
+<span id="cb265-24"><a href="lab-9-repeated-measures-anova.html#cb265-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-25"><a href="lab-9-repeated-measures-anova.html#cb265-25" aria-hidden="true" tabindex="-1"></a><span class="do">## plot the condition means</span></span>
+<span id="cb265-26"><a href="lab-9-repeated-measures-anova.html#cb265-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-27"><a href="lab-9-repeated-measures-anova.html#cb265-27" aria-hidden="true" tabindex="-1"></a><span class="co"># re-order stimulus factor for plotting</span></span>
+<span id="cb265-28"><a href="lab-9-repeated-measures-anova.html#cb265-28" aria-hidden="true" tabindex="-1"></a>plot_means<span class="sc">$</span>Stimulus <span class="ot">&lt;-</span> <span class="fu">factor</span>(plot_means<span class="sc">$</span>Stimulus, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Normal&quot;</span>, <span class="st">&quot;Bigrams&quot;</span>, <span class="st">&quot;Random&quot;</span>))</span>
+<span id="cb265-29"><a href="lab-9-repeated-measures-anova.html#cb265-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-30"><a href="lab-9-repeated-measures-anova.html#cb265-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_means, <span class="fu">aes</span>(<span class="at">x=</span>Stimulus, <span class="at">y=</span>means, <span class="at">group=</span>Block, <span class="at">color=</span>Block))<span class="sc">+</span></span>
+<span id="cb265-31"><a href="lab-9-repeated-measures-anova.html#cb265-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb265-32"><a href="lab-9-repeated-measures-anova.html#cb265-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb265-33"><a href="lab-9-repeated-measures-anova.html#cb265-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>means<span class="sc">-</span>SEs, <span class="at">ymax=</span>means<span class="sc">+</span>SEs), <span class="at">width=</span>.<span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb265-34"><a href="lab-9-repeated-measures-anova.html#cb265-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb265-35"><a href="lab-9-repeated-measures-anova.html#cb265-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Mean Reaction Time (ms)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb265-36"><a href="lab-9-repeated-measures-anova.html#cb265-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Typing Material&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics_Lab_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
+<p>Alright, we made things a little bit more complicated than they need to be. Our primary question is whether reaction times followed this pattern: Normal &lt; Bigrams &lt; Random. We can see the means do follow this pattern. However, shouldn’t we only be looking at three means, why are their six means, and two lines?</p>
+<p>The above code included the second independent variable <code>Block</code>. As a result, you are seeing the means for Typing material when subjects could see the keyboard, and when the couldn’t see the keyboard. We will come back to this later. For now, let’s ignore the Block condition, and find the means for the Typing Material IV by averaging over the Block conditions. We run the same code as above, by take out <code>Block</code>, in the <code>group_by</code> function. We also take <code>Block</code> out the ggplot function.</p>
+<p><strong>VERY IMPORTANT</strong>: We did something in the above code that we didn’t point out. We filtered the data before we found the means. For most of the data sets in other labs, we given you data that is more or less ready to analyse. More often than not data needs to be pre-processed, or filtered before you analyze it. We can use the <code>filter</code> function in <code>dplyr</code> to do our filtering. <code>filter</code> filters the rows for us, so we will only include the rows that we want.</p>
+<ol style="list-style-type: decimal">
+<li><p>We want to analyze the time between the onset of the stimulus and the first keystroke. The reaction times for this value are in the <code>PureRTs</code> column, but this column contains other RTs that we do not want to analyse. For example, the <code>Order</code> column codes for the letter position in the string. We only want to analyze the rows that contain a <code>1</code>, for the first position. So, that is why we add <code>Order==1</code> to the filter function below.</p></li>
+<li><p>We want to analyze only the reaction times that are correct. That is, when the subject typed the first letter correctly, and did not make a typo. Accuracy is coded in the <code>Correct</code> column, with 1 = correct, and 0 = incorrect. We add <code>Correct==1</code> to the filtering function.</p></li>
+</ol>
+<p>Note the use of <code>==</code>, that is two equal signs in a row. In R, two equal signs in a row has a special meaning. It means conduct a <code>logic</code> test to determine if one thing is the same as another.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>We want to analyze only reaction times that are “sensible” to analyze. What does sensible mean? We don’t want to analyze data that is clearly garbage data. For example, if someone fell asleep at the computer and didn’t respond for 15 seconds, that kind of data is not what we want to analyze. If we were to filter the data, and exclude these kinds of <code>outliers</code>, we would be conducting an outlier elimination procedure. Behmer &amp; Crump (2017) did this, and it is commonly done in many different kinds of studies. We skip an extended discussion of outlier elimination for this lab. But, we do introduce the idea of doing it. We want to keep as much of the data as possible. So, what we do is keep all of the RTs that are less than 5000 ms (that’s 5 seconds). To do this, we add <code>PureRTs&lt;5000</code> to the filter function.</li>
+</ol>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="lab-9-repeated-measures-anova.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get subject mean RTs</span></span>
+<span id="cb266-2"><a href="lab-9-repeated-measures-anova.html#cb266-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-3"><a href="lab-9-repeated-measures-anova.html#cb266-3" aria-hidden="true" tabindex="-1"></a>subject_means <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span></span>
+<span id="cb266-4"><a href="lab-9-repeated-measures-anova.html#cb266-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">filter</span>(Order<span class="sc">==</span><span class="dv">1</span>, Correct<span class="sc">==</span><span class="dv">1</span>, PureRTs<span class="sc">&lt;</span><span class="dv">5000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb266-5"><a href="lab-9-repeated-measures-anova.html#cb266-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">group_by</span>(Subject, Stimulus) <span class="sc">%&gt;%</span></span>
+<span id="cb266-6"><a href="lab-9-repeated-measures-anova.html#cb266-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">summarise</span>(<span class="at">mean_rt =</span> <span class="fu">mean</span>(PureRTs))</span>
+<span id="cb266-7"><a href="lab-9-repeated-measures-anova.html#cb266-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-8"><a href="lab-9-repeated-measures-anova.html#cb266-8" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Subject<span class="ot">&lt;-</span><span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Subject)</span>
+<span id="cb266-9"><a href="lab-9-repeated-measures-anova.html#cb266-9" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Stimulus<span class="ot">&lt;-</span><span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Stimulus)</span>
+<span id="cb266-10"><a href="lab-9-repeated-measures-anova.html#cb266-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-11"><a href="lab-9-repeated-measures-anova.html#cb266-11" aria-hidden="true" tabindex="-1"></a><span class="do">## get condition mean RTs</span></span>
+<span id="cb266-12"><a href="lab-9-repeated-measures-anova.html#cb266-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-13"><a href="lab-9-repeated-measures-anova.html#cb266-13" aria-hidden="true" tabindex="-1"></a>plot_means <span class="ot">&lt;-</span> subject_means <span class="sc">%&gt;%</span></span>
+<span id="cb266-14"><a href="lab-9-repeated-measures-anova.html#cb266-14" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(Stimulus) <span class="sc">%&gt;%</span></span>
+<span id="cb266-15"><a href="lab-9-repeated-measures-anova.html#cb266-15" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(mean_rt),</span>
+<span id="cb266-16"><a href="lab-9-repeated-measures-anova.html#cb266-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">SEs =</span> <span class="fu">sd</span>(mean_rt)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(mean_rt)))</span>
+<span id="cb266-17"><a href="lab-9-repeated-measures-anova.html#cb266-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-18"><a href="lab-9-repeated-measures-anova.html#cb266-18" aria-hidden="true" tabindex="-1"></a><span class="do">## plot the condition means</span></span>
+<span id="cb266-19"><a href="lab-9-repeated-measures-anova.html#cb266-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-20"><a href="lab-9-repeated-measures-anova.html#cb266-20" aria-hidden="true" tabindex="-1"></a><span class="co"># re-order stimulus factor for plotting</span></span>
+<span id="cb266-21"><a href="lab-9-repeated-measures-anova.html#cb266-21" aria-hidden="true" tabindex="-1"></a>plot_means<span class="sc">$</span>Stimulus <span class="ot">&lt;-</span> <span class="fu">factor</span>(plot_means<span class="sc">$</span>Stimulus, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Normal&quot;</span>, <span class="st">&quot;Bigrams&quot;</span>, <span class="st">&quot;Random&quot;</span>))</span>
+<span id="cb266-22"><a href="lab-9-repeated-measures-anova.html#cb266-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-23"><a href="lab-9-repeated-measures-anova.html#cb266-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_means, <span class="fu">aes</span>(<span class="at">x=</span>Stimulus, <span class="at">y=</span>means, <span class="at">group=</span><span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb266-24"><a href="lab-9-repeated-measures-anova.html#cb266-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb266-25"><a href="lab-9-repeated-measures-anova.html#cb266-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb266-26"><a href="lab-9-repeated-measures-anova.html#cb266-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>means<span class="sc">-</span>SEs, <span class="at">ymax=</span>means<span class="sc">+</span>SEs), <span class="at">width=</span>.<span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb266-27"><a href="lab-9-repeated-measures-anova.html#cb266-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb266-28"><a href="lab-9-repeated-measures-anova.html#cb266-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Mean Reaction Time (ms)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb266-29"><a href="lab-9-repeated-measures-anova.html#cb266-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Typing Material&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics_Lab_files/figure-html/unnamed-chunk-257-1.png" width="672" /></p>
+</div>
+<div id="conduct-the-repeated-measures-anova" class="section level3 hasAnchor" number="9.4.6">
+<h3><span class="header-section-number">9.4.6</span> Conduct the repeated Measures ANOVA<a href="lab-9-repeated-measures-anova.html#conduct-the-repeated-measures-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We use the same <code>aov</code> function as we used last time. The only difference is that we add in a new part to the formula. Remember the formula for a one-factor between subjects ANOVA looked like this:</p>
+<p><code>aov( DV ~ IV , dataframe)</code>, where DV is the name of the column with your independent variable, IV is the name of the column with your independent variable, and <code>dataframe</code> is the name of your data frame containing the means in each condition.</p>
+<p>The formula for a repeated-measures ANOVA looks like this:</p>
+<p><code>aov( DV ~ IV + Error(Subject/IV), dataframe)</code>. We have added <code>+ Error(Subject/IV)</code>. This tells R to use the appropriate error term for the repeated measures ANOVA. In the formula, <code>Subject</code> refers to the name of the column coding your subjects (make sure this is a factor in R), and <code>IV</code> is the name of the column for your independent variable.</p>
+<p>The formula for our data would be: <code>aov( mean_rt ~ Stimulus + Error(Subject/Stimulus), subject_means)</code>.</p>
+<p>Here is the code below. Just as reminder, the raw data codes every single key press on each row. We don’t want to submit this as the data frame to the <code>aov</code> function. Instead, we need to calculate the data frame for the subject means in each condition. We did that above as a step toward making the graphs. We do it again here to remind you that you need to do this.</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="lab-9-repeated-measures-anova.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get subject means</span></span>
+<span id="cb267-2"><a href="lab-9-repeated-measures-anova.html#cb267-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-3"><a href="lab-9-repeated-measures-anova.html#cb267-3" aria-hidden="true" tabindex="-1"></a>subject_means <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span></span>
+<span id="cb267-4"><a href="lab-9-repeated-measures-anova.html#cb267-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">filter</span>(Order<span class="sc">==</span><span class="dv">1</span>, Correct<span class="sc">==</span><span class="dv">1</span>, PureRTs<span class="sc">&lt;</span><span class="dv">5000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb267-5"><a href="lab-9-repeated-measures-anova.html#cb267-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">group_by</span>(Subject, Stimulus) <span class="sc">%&gt;%</span></span>
+<span id="cb267-6"><a href="lab-9-repeated-measures-anova.html#cb267-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">summarise</span>(<span class="at">mean_rt =</span> <span class="fu">mean</span>(PureRTs))</span>
+<span id="cb267-7"><a href="lab-9-repeated-measures-anova.html#cb267-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-8"><a href="lab-9-repeated-measures-anova.html#cb267-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure IV and Subject are coded as factors</span></span>
+<span id="cb267-9"><a href="lab-9-repeated-measures-anova.html#cb267-9" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Subject  <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Subject)</span>
+<span id="cb267-10"><a href="lab-9-repeated-measures-anova.html#cb267-10" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Stimulus <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Stimulus)</span>
+<span id="cb267-11"><a href="lab-9-repeated-measures-anova.html#cb267-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-12"><a href="lab-9-repeated-measures-anova.html#cb267-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct the anova</span></span>
+<span id="cb267-13"><a href="lab-9-repeated-measures-anova.html#cb267-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-14"><a href="lab-9-repeated-measures-anova.html#cb267-14" aria-hidden="true" tabindex="-1"></a>aov_out <span class="ot">&lt;-</span> <span class="fu">aov</span>( mean_rt <span class="sc">~</span> Stimulus <span class="sc">+</span> <span class="fu">Error</span>(Subject<span class="sc">/</span>Stimulus), subject_means)</span>
+<span id="cb267-15"><a href="lab-9-repeated-measures-anova.html#cb267-15" aria-hidden="true" tabindex="-1"></a>summary_out <span class="ot">&lt;-</span> <span class="fu">summary</span>(aov_out)</span>
+<span id="cb267-16"><a href="lab-9-repeated-measures-anova.html#cb267-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-17"><a href="lab-9-repeated-measures-anova.html#cb267-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)</span>
+<span id="cb267-18"><a href="lab-9-repeated-measures-anova.html#cb267-18" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">xtable</span>(summary_out))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Residuals</td>
+<td align="right">37</td>
+<td align="right">3030779.9</td>
+<td align="right">81912.970</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Stimulus</td>
+<td align="right">2</td>
+<td align="right">1157965.2</td>
+<td align="right">578982.606</td>
+<td align="right">230.5806</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">Residuals1</td>
+<td align="right">74</td>
+<td align="right">185812.3</td>
+<td align="right">2510.977</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p>Great, we have conducted the ANOVA. We could write up the results of the ANOVA like this:</p>
+<blockquote>
+<p>For each subject we computed mean reactions for correct keystrokes in each condition of the Stimulus factor. These means were submitted to a one-factor repeated-measures ANOVA, with Stimulus (Normal, Bigrams, and Random) as the sole factor. The effect of Stimulus was signficant, F(2, 74) = 230.58, MSE = 2510.98, p &lt; 0.001.</p>
+</blockquote>
+<p>Note, the p-value shows up as a zero, that’s because it is so small that R doesn’t want to print the actual number 0.000000000000000…1.</p>
+<p>What does this tell us?</p>
+<ol style="list-style-type: decimal">
+<li><p>The <span class="math inline">\(F\)</span> value we obtained (230.58) almost never occurs by chance. More specifically, the sampling distribution of F from the distribution of no differences virtually never produces a huge F like 230.58</p></li>
+<li><p>It is super-duper unlikely that chance (sampling error) could have produced the difference we observed.</p></li>
+<li><p>We reject the idea that chance caused the differences, and are very confident that the manipulation (changing the kinds of letters that people have to type), has a causal influence on reaction time in typing.</p></li>
+</ol>
+<div id="report-the-means-too" class="section level4 hasAnchor" number="9.4.6.1">
+<h4><span class="header-section-number">9.4.6.1</span> Report the means too<a href="lab-9-repeated-measures-anova.html#report-the-means-too" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Remember, the important goal when conducting analyses, and then writing about them, is to tell people what you did and what you found. This involves more than one step. For this example, we might do three basic things. 1) make a figure to show the means, 2) report the ANOVA so people know if there is support for the inference that the differences between the means are not caused by chance, and 3) report descriptives for the means, so people know what the numbers are (the figure doesn’t show the exact values).</p>
+<p>We’ve already made the figure and done the ANOVA, let’s report the condition means. To do this, we need to find the means for each condition, collapsing over the means for each subject in each condition. Note that, we already did this to make the figure. Here’s the code again:</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="lab-9-repeated-measures-anova.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get subject mean RTs</span></span>
+<span id="cb268-2"><a href="lab-9-repeated-measures-anova.html#cb268-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb268-3"><a href="lab-9-repeated-measures-anova.html#cb268-3" aria-hidden="true" tabindex="-1"></a>subject_means <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span></span>
+<span id="cb268-4"><a href="lab-9-repeated-measures-anova.html#cb268-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">filter</span>(Order<span class="sc">==</span><span class="dv">1</span>, Correct<span class="sc">==</span><span class="dv">1</span>, PureRTs<span class="sc">&lt;</span><span class="dv">5000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb268-5"><a href="lab-9-repeated-measures-anova.html#cb268-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">group_by</span>(Subject, Stimulus) <span class="sc">%&gt;%</span></span>
+<span id="cb268-6"><a href="lab-9-repeated-measures-anova.html#cb268-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">summarise</span>(<span class="at">mean_rt =</span> <span class="fu">mean</span>(PureRTs))</span>
+<span id="cb268-7"><a href="lab-9-repeated-measures-anova.html#cb268-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb268-8"><a href="lab-9-repeated-measures-anova.html#cb268-8" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Subject<span class="ot">&lt;-</span><span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Subject)</span>
+<span id="cb268-9"><a href="lab-9-repeated-measures-anova.html#cb268-9" aria-hidden="true" tabindex="-1"></a>subject_means<span class="sc">$</span>Stimulus<span class="ot">&lt;-</span><span class="fu">as.factor</span>(subject_means<span class="sc">$</span>Stimulus)</span>
+<span id="cb268-10"><a href="lab-9-repeated-measures-anova.html#cb268-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb268-11"><a href="lab-9-repeated-measures-anova.html#cb268-11" aria-hidden="true" tabindex="-1"></a><span class="do">## get condition mean RTs</span></span>
+<span id="cb268-12"><a href="lab-9-repeated-measures-anova.html#cb268-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb268-13"><a href="lab-9-repeated-measures-anova.html#cb268-13" aria-hidden="true" tabindex="-1"></a>plot_means <span class="ot">&lt;-</span> subject_means <span class="sc">%&gt;%</span></span>
+<span id="cb268-14"><a href="lab-9-repeated-measures-anova.html#cb268-14" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(Stimulus) <span class="sc">%&gt;%</span></span>
+<span id="cb268-15"><a href="lab-9-repeated-measures-anova.html#cb268-15" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(mean_rt),</span>
+<span id="cb268-16"><a href="lab-9-repeated-measures-anova.html#cb268-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">SEs =</span> <span class="fu">sd</span>(mean_rt)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(mean_rt)))</span>
+<span id="cb268-17"><a href="lab-9-repeated-measures-anova.html#cb268-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb268-18"><a href="lab-9-repeated-measures-anova.html#cb268-18" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(plot_means)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Stimulus</th>
+<th align="right">means</th>
+<th align="right">SEs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Bigrams</td>
+<td align="right">924.8764</td>
+<td align="right">26.69375</td>
+</tr>
+<tr class="even">
+<td align="left">Normal</td>
+<td align="right">833.1872</td>
+<td align="right">24.00055</td>
+</tr>
+<tr class="odd">
+<td align="left">Random</td>
+<td align="right">1077.5361</td>
+<td align="right">31.60979</td>
+</tr>
+</tbody>
+</table>
+<p>Now, our full write-up of the results would look like this.</p>
+<blockquote>
+<p>For each subject we computed mean reactions for correct keystrokes in each condition of the Stimulus factor. These means were submitted to a one-factor repeated-measures ANOVA, with Stimulus (Normal, Bigrams, and Random) as the sole factor. The effect of Stimulus was signficant, F(2, 74) = 230.58, MSE = 2510.98, p &lt; 0.001. The mean reaction time was fastest in the Normal condition (M = 833 ms, SE = 24 ms), followed by the Bigram condition, (M = 924 ms, SE = 27 ms) and slowest in the Random Condition (M = 1078 ms, SE = 32 ms).</p>
+</blockquote>
+</div>
+</div>
+<div id="follow-up-comparisons" class="section level3 hasAnchor" number="9.4.7">
+<h3><span class="header-section-number">9.4.7</span> Follow-up comparisons<a href="lab-9-repeated-measures-anova.html#follow-up-comparisons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The ANOVA tells us that the differences between the means are unlikely to be due to chance. But, remember, this is an omnibus test. It does not tell us if specific pairs of means are different from one another. To determine whether the difference between two specific means is not likely due to chance, we need to conduct follow-up tests.</p>
+<p>Because this is a repeated-measures design, we can use the paired-samples t-test for follow-up tests. Let’s do two follow-up tests to confirm that the RTs for Normal words were indeed faster than the RTs for the Bigram condition (word-like non-words); and then, let’s confirm that the RTs for the Bigram condition were indeed faster than the RTs for the Random condition.</p>
+<div id="normal-vs-bigrams" class="section level4 hasAnchor" number="9.4.7.1">
+<h4><span class="header-section-number">9.4.7.1</span> Normal vs Bigrams<a href="lab-9-repeated-measures-anova.html#normal-vs-bigrams" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We use the <code>subject_means</code> data frame. But, we want to rid of all the rows containing the means from the Random condition. We use filter to do that, then we conduct the paired-samples t-test.</p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="lab-9-repeated-measures-anova.html#cb269-1" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> subject_means <span class="sc">%&gt;%</span></span>
+<span id="cb269-2"><a href="lab-9-repeated-measures-anova.html#cb269-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Stimulus <span class="sc">!=</span> <span class="st">&quot;Random&quot;</span>)</span>
+<span id="cb269-3"><a href="lab-9-repeated-measures-anova.html#cb269-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb269-4"><a href="lab-9-repeated-measures-anova.html#cb269-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(mean_rt<span class="sc">~</span>Stimulus, </span>
+<span id="cb269-5"><a href="lab-9-repeated-measures-anova.html#cb269-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb269-6"><a href="lab-9-repeated-measures-anova.html#cb269-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>, </span>
+<span id="cb269-7"><a href="lab-9-repeated-measures-anova.html#cb269-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> comparison_df)</span></code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  mean_rt by Stimulus
+## t = 12.14, df = 37, p-value = 1.807e-14
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##   76.38601 106.99253
+## sample estimates:
+## mean difference 
+##        91.68927</code></pre>
+</div>
+<div id="bigrams-vs-random" class="section level4 hasAnchor" number="9.4.7.2">
+<h4><span class="header-section-number">9.4.7.2</span> Bigrams vs Random<a href="lab-9-repeated-measures-anova.html#bigrams-vs-random" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We use the <code>subject_means</code> data frame. But, we want to rid of all the rows containing the means from the Normal condition. We use filter to do that, then we conduct the paired-samples t-test.</p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="lab-9-repeated-measures-anova.html#cb271-1" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> subject_means <span class="sc">%&gt;%</span></span>
+<span id="cb271-2"><a href="lab-9-repeated-measures-anova.html#cb271-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Stimulus <span class="sc">!=</span> <span class="st">&quot;Normal&quot;</span>)</span>
+<span id="cb271-3"><a href="lab-9-repeated-measures-anova.html#cb271-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb271-4"><a href="lab-9-repeated-measures-anova.html#cb271-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(mean_rt<span class="sc">~</span>Stimulus, </span>
+<span id="cb271-5"><a href="lab-9-repeated-measures-anova.html#cb271-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired=</span><span class="cn">TRUE</span>, </span>
+<span id="cb271-6"><a href="lab-9-repeated-measures-anova.html#cb271-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>, </span>
+<span id="cb271-7"><a href="lab-9-repeated-measures-anova.html#cb271-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> comparison_df)</span></code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  mean_rt by Stimulus
+## t = -14.212, df = 37, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##  -174.4245 -130.8949
+## sample estimates:
+## mean difference 
+##       -152.6597</code></pre>
+</div>
+</div>
+<div id="reporting-everything" class="section level3 hasAnchor" number="9.4.8">
+<h3><span class="header-section-number">9.4.8</span> Reporting everything<a href="lab-9-repeated-measures-anova.html#reporting-everything" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we can look at some write-ups that report everything we did, and everything we want to know. I’ll show you two ways to do it.</p>
+<div id="first-way" class="section level4 hasAnchor" number="9.4.8.1">
+<h4><span class="header-section-number">9.4.8.1</span> First way<a href="lab-9-repeated-measures-anova.html#first-way" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the first way, we embed the results of the t-test into the description of the mean reaction times.</p>
+<p>For each subject we computed mean reactions for correct keystrokes in each condition of the Stimulus factor. These means were submitted to a one-factor repeated-measures ANOVA, with Stimulus (Normal, Bigrams, and Random) as the sole factor. The effect of Stimulus was significant, F(2, 74) = 230.58, MSE = 2510.98, p &lt; 0.001. The mean reaction time was significantly faster in the Normal condition (M = 833 ms, SE = 24 ms), compared to the Bigram condition, (M = 924 ms, SE = 27 ms), t(37) = 12.14, p&lt;0.001. Additionally, mean reactions in the Bigram condition were significantly faster than the Random Condition (M = 1078 ms, SE = 32 ms), t(37) = 14.21, p &lt; 0.001.</p>
+</div>
+<div id="second-way" class="section level4 hasAnchor" number="9.4.8.2">
+<h4><span class="header-section-number">9.4.8.2</span> Second way<a href="lab-9-repeated-measures-anova.html#second-way" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the second way, we first report the means as we did the very first time, and then after that we report the t-test results to highlight the size the of the differences between each comparison.</p>
+<p>For each subject we computed mean reactions for correct keystrokes in each condition of the Stimulus factor. These means were submitted to a one-factor repeated-measures ANOVA, with Stimulus (Normal, Bigrams, and Random) as the sole factor. The effect of Stimulus was significant, F(2, 74) = 230.58, MSE = 2510.98, p &lt; 0.001. The mean reaction time was fastest in the Normal condition (M = 833 ms, SE = 24 ms), followed by the Bigram condition, (M = 924 ms, SE = 27 ms) and slowest in the Random Condition (M = 1078 ms, SE = 32 ms). Mean reaction times were significantly faster (M = 91 ms) in the Normal than Bigrams condition, t(37) = 12.14, p &lt; 0.001. And, mean reaction times were significantly faster (M = 152 ms) in the Bigrams than Random condition, t(37) = 14.21, p &lt; 0.01.</p>
+<p>There are other ways to write-up statistical results. These are just some example recipes. The important thing is to:</p>
+<ol style="list-style-type: decimal">
+<li>Say what the numbers were that you are analyzing</li>
+<li>Say what the statistical test was</li>
+<li>Say the results of the statistical test</li>
+<li>Say what the patterns of means were</li>
+<li>Say what the follow-up tests were when you test differences between specific means.</li>
+<li>Add a table or figure so it is easier to “see” the results.</li>
+</ol>
+</div>
+</div>
+<div id="generalization-exercise-8" class="section level3 hasAnchor" number="9.4.9">
+<h3><span class="header-section-number">9.4.9</span> Generalization Exercise<a href="lab-9-repeated-measures-anova.html#generalization-exercise-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Your task is to conduct another repeated-measures ANOVA. Rather than using the reaction time for the first-keystroke as the dependent measure, you will use the reaction times between all of the keystrokes in each word, these are called interkeystroke intervals. The <code>Order</code> variable is used to code keystroke position (1 to 5). You will want to analyze only the <code>PureRTs</code> that have an <code>Order</code> greater than 1. For example, you could use the following code to get the subject_means for the mean interkeystroke intervals.</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="lab-9-repeated-measures-anova.html#cb273-1" aria-hidden="true" tabindex="-1"></a>subject_means <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span></span>
+<span id="cb273-2"><a href="lab-9-repeated-measures-anova.html#cb273-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">filter</span>(Order <span class="sc">&gt;</span> <span class="dv">1</span>, Correct<span class="sc">==</span><span class="dv">1</span>, PureRTs<span class="sc">&lt;</span><span class="dv">5000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb273-3"><a href="lab-9-repeated-measures-anova.html#cb273-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">group_by</span>(Subject, Stimulus) <span class="sc">%&gt;%</span></span>
+<span id="cb273-4"><a href="lab-9-repeated-measures-anova.html#cb273-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">summarise</span>(<span class="at">mean_rt =</span> <span class="fu">mean</span>(PureRTs))</span></code></pre></div>
+<p>A. Make a figure for the new DV
+B. Report the ANOVA table for the new repeated measures ANOVA
+C. Discuss whether the general pattern is the same as before.</p>
+</div>
+<div id="writing-assignment-8" class="section level3 hasAnchor" number="9.4.10">
+<h3><span class="header-section-number">9.4.10</span> Writing assignment<a href="lab-9-repeated-measures-anova.html#writing-assignment-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>(2 points - Graded)</p>
+<ol style="list-style-type: decimal">
+<li><p>Explain the concept of <span class="math inline">\(SS_\text{Total}\)</span> (.5 points)</p></li>
+<li><p>Explain the concept of partitioning SS_ into smaller pieces. What is the goal of the spitting? (.5 points)</p></li>
+<li><p>Explain the major difference between a between-subjects ANOVA and repeated-measures ANOVA in terms of what is being partioned. (1 point)</p></li>
+</ol>
+<p>General grading.</p>
+<ul>
+<li>You will receive 0 points for missing answers</li>
+<li>You must write in complete sentences. Point form sentences will be given 0 points.</li>
+<li>Completely incorrect answers will receive 0 points.</li>
+<li>If your answer is generally correct but very difficult to understand and unclear you may receive half points for the question</li>
+</ul>
+</div>
+</div>
+<div id="excel-9" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Excel<a href="lab-9-repeated-measures-anova.html#excel-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How to do it in Excel</p>
+</div>
+<div id="spss-9" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> SPSS<a href="lab-9-repeated-measures-anova.html#spss-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this lab, we will use SPSS to:</p>
+<ol style="list-style-type: decimal">
+<li>Produce a frequency histogram and remove outliers</li>
+<li>Conduct and graph One-Factor Repeated Measures ANOVA</li>
+<li>Conduct planned comparisons using a paired-samples t-test</li>
+</ol>
+<div id="experiment-background-4" class="section level3 hasAnchor" number="9.6.1">
+<h3><span class="header-section-number">9.6.1</span> Experiment Background<a href="lab-9-repeated-measures-anova.html#experiment-background-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>In this experiment, Behmer and Crump (2017) recruited 38 subjects to type words presented on a screen as quickly as they could. The independent variable was typing material and it had 3 levels: Normal (5 letter English words), Bigrams (5 letter non-words that have properties like real words), and Random (random 5 letter strings). The authors wanted to know whether reaction time (RT) was different according to the type of word being typed.</p>
+<p>Dependent Variables: There were three dependent variables, that all measured different aspects of typing performance. Reaction times (RTs) were defined as the temporal interval between seeing a stimulus (to type), and then starting to type it (first key press). Inter-keystroke intervals (IKSIs) are the times between each key-press. Last, accuracy was also measured (correct or incorrect key-presses). For this analysis we will use <code>Pure RTs</code> as our one DV.</p>
+<p>Nota bene: This is a repeated measures design because each participant typed letter strings from the word, bigrams, and random conditions.</p>
+</div>
+<div id="produce-a-frequency-histogram-and-remove-outliers" class="section level3 hasAnchor" number="9.6.2">
+<h3><span class="header-section-number">9.6.2</span> Produce a frequency histogram and remove outliers<a href="lab-9-repeated-measures-anova.html#produce-a-frequency-histogram-and-remove-outliers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p><a href="https://github.com/CrumpLab/statisticsLab/blob/master/data/spssdata/BehmerCrump.sav">Here</a> is a link to the data file. It is named BehmerCrump.sav. Your data should look like this:</p>
+<p><img src="img/9.4.11.png" /><!-- --></p>
+<p>First, we’ll be creating a histogram to look at our data. Go to <span style="color:blue">Graphs</span>, then <span style="color:blue">Legacy Dialogs</span>, then <span style="color:blue">Histogram…</span></p>
+<p><img src="img/9.4.12.png" /><!-- --></p>
+<p>The next window will ask you to specify the variable you would like graphed. Choose <code>PureRTs</code> from the list on the left and move it into the “Variable” field using the arrow.</p>
+<p><img src="img/9.4.13.png" /><!-- --></p>
+<p>Click <span style="color:blue">OK</span>. SPSS will produce a frequency histogram of your data.</p>
+<p><img src="img/9.4.14.png" /><!-- --></p>
+<p>Notice that the RTs form a positively skewed distribution. Most RT measurements are on the lower end of the scale, and there are very few RTs that are higher than 5000ms. These measurements could have resulted from subjects falling asleep, looking at their phones, or being otherwise distracted in the middle of the experiment. We want to remove those values so they do not influence and mischaracterize our results. To do this, go to the top menu and choose <span style="color:blue">Data</span>, then <span style="color:blue">Select Cases…</span></p>
+<p><img src="img/9.4.15.png" /><!-- --></p>
+<p>The next window will ask you which cases to select. We specifically want to remove any cases larger than 5000, so check off <span style="color:blue">If condition is satisfied:</span></p>
+<p><img src="img/9.4.16.png" /><!-- --></p>
+<p>Then click <span style="color:blue">If…</span> The window that follows will ask you to specify the condition for inclusion. Find the variable <code>PureRTs</code> in the left-hand list and move it to the field on top using the arrow. Then, type “&lt; 5000” to specify that we want to keep only values under 5000ms.</p>
+<p><img src="img/9.4.17.png" /><!-- --></p>
+<p>Click <span style="color:blue">Continue</span>. Your data has now been edited so that trials on which the <code>PureRTs</code> value was greater than 5000 have been removed.</p>
+<p>Let’s take some time to think about this data. We have measurements taken from many participants across multiple trials and multiple conditions. Our goal is to be able to come up with a single RT for each person per condition. The only way to do this is to take an individual’s RTs for a particular condition and average them. To do this, we need to calculate means. First, go to <span style="color:blue">Analyze</span>, then <span style="color:blue">Compare Means</span>, then <span style="color:blue"> Means…</span></p>
+<p><img src="img/9.4.18.png" /><!-- --></p>
+<p>In the next window, move the <code>PureRTs</code> variable into the “Dependent List” field. In the field below, labeled “Independent List”, place the <code>Subject</code> variable:</p>
+<p><img src="img/9.4.19.png" /><!-- --></p>
+<p>Then, click <span style="color:blue">Next</span>. The bottom field will become blank again, and you can now place the <code>Stimulus</code> variable into it.</p>
+<p><img src="img/9.4.20.png" /><!-- --></p>
+<p>Click <span style="color:blue">OK</span>. SPSS will produce an output table containing each subject’s average RT per condition:</p>
+<p><img src="img/9.4.21.png" /><!-- --></p>
+</div>
+<div id="conduct-and-graph-one-factor-repeated-measures-anova" class="section level3 hasAnchor" number="9.6.3">
+<h3><span class="header-section-number">9.6.3</span> Conduct and graph One-Factor Repeated Measures ANOVA<a href="lab-9-repeated-measures-anova.html#conduct-and-graph-one-factor-repeated-measures-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>For this part of the tutorial, we will switch over to a new SPSS file. <a href="https://github.com/CrumpLab/statisticsLab/blob/master/data/spssdata/BehmerCrumpMeanRTs.sav">Here</a> is the link; it’s called BehmerCrumpMeanRTs.sav. When you open the file, it should look like this:</p>
+<p><img src="img/9.4.22.png" /><!-- --></p>
+<p>Notice that this file contains the means from the table we just created. Each person’s data is contained within a row: there are 3 measurements corresponding to all stimulus conditions. To calculate a One-Factor Repeated Measures ANOVA, go to <span style="color:blue">Analyze</span>, then <span style="color:blue">General Linear Model</span>, then <span style="color:blue">Repeated Measures…</span></p>
+<p><img src="img/9.4.23.png" /><!-- --></p>
+<p>The next window will ask you to label your within-subjects variable. Type <code>Stimulus</code> into the “Within-Subjects Factor Name” field. Indicate that this variable has 3 levels. Then click <span style="color:blue">Add</span>, and then <span style="color:blue">Define</span>.</p>
+<p><img src="img/9.4.24.png" /><!-- --></p>
+<p>In the next window, move all 3 conditions listed on the left into the “Within-Subjects Variables” field.</p>
+<p><img src="img/9.4.25.png" /><!-- --></p>
+<p>Click <span style="color:blue">OK</span>. SPSS will produce an output table labeled “Tests of Within-SUbjects Effects” that contains The F statistic and its corresponding p-value.</p>
+<p><img src="img/9.4.26.png" /><!-- --></p>
+<p>From this table, we see that there is a significant effect of stimulus on RT, F(2, 74)= 420.33, p&lt;.05. In order to graph this data and look at the means, go to <span style="color:blue">Graphs</span>, then <span style="color:blue">Legacy Dialogs</span>, then <span style="color:blue">Bar…</span></p>
+<p><img src="img/9.4.27.png" /><!-- --></p>
+<p>In the next window, choose <span style="color:blue">Simple</span>, but this time select <span style="color:blue">Summaries of separate variables</span>, then <span style="color:blue">Define</span>:</p>
+<p><img src="img/9.4.28.png" /><!-- --></p>
+<p>In the next window, move the three stimulus conditions listed in the field on the left into the field labeled “Bars Represent.”</p>
+<p><img src="img/9.4.29.png" /><!-- --></p>
+<p>Then click <span style="color:blue">OK</span>. SPSS will produce a bar graph with each bar representing the mean of each of the conditions. We can see that the Random condition has the longest RT, followed by Bigrams, and then Normal. However, at this point we do not know which groups are significantly different from the others.</p>
+<p><img src="img/9.4.30.png" /><!-- --></p>
+</div>
+<div id="conduct-planned-comparisons-using-a-paired-samples-t-test" class="section level3 hasAnchor" number="9.6.4">
+<h3><span class="header-section-number">9.6.4</span> Conduct planned comparisons using a paired-samples t-test<a href="lab-9-repeated-measures-anova.html#conduct-planned-comparisons-using-a-paired-samples-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>To find out where the difference among these 3 conditions exists, we will use a planned comparison in the form of a paired-samples t-test. This method takes 2 groups at a time and tests for pairwise differences. There are three comparisons that can be made here:</p>
+<ol style="list-style-type: decimal">
+<li>normal vs. bigram</li>
+<li>bigram vs. random</li>
+<li>random vs. normal</li>
+</ol>
+<p>We will use a paired-samples t-test instead of an independent-samples t-test because in each comparison, the same people are being remeasured in each group.</p>
+<p>To begin, go to <span style="color:blue">Analyze</span>, then <span style="color:blue">Compare Means</span>, then <span style="color:blue">Paired Samples T-test…</span></p>
+<p><img src="img/9.4.31.png" /><!-- --></p>
+<p>In the next window, move the two conditions of our first pairwise comparison (<code>normal</code> vs. <code>bigram</code>) into the field on the right using the arrow.</p>
+<p><img src="img/9.4.32.png" /><!-- --></p>
+<p>Click <span style="color:blue">OK</span>. SPSS will produce a series of tables. The “Paired Samples test” table contains the t-statistic and its associated p-value.</p>
+<p><img src="img/9.4.33.png" /><!-- --></p>
+<p>Looking at this output, we can see that the Normal and Bigrams conditions are indeed significantly different, t(37)= 13.09, p&lt;.05.</p>
+<p>You can use this same method for the remaining comparisons.</p>
+</div>
+<div id="practice-problems-8" class="section level3 hasAnchor" number="9.6.5">
+<h3><span class="header-section-number">9.6.5</span> Practice Problems<a href="lab-9-repeated-measures-anova.html#practice-problems-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<ol style="list-style-type: decimal">
+<li><p>Run the same analysis as illustrated in this lab tutorial but with accuracy (correct) as the dependent variable. Use an alpha level of .05. Remember to calculate means per subject and stimulus first. This will generate a table, whose values you can enter into a new SPSS spreadsheet file.</p></li>
+<li><p>Is there an effect of stimulus on error rate? If so, conduct the appropriate planned comparisons.</p></li>
+<li><p>Graph the means using a bar graph; include +/-1 SEM Error bars.</p></li>
+</ol>
+</div>
+</div>
+<div id="jamovi-9" class="section level2 hasAnchor" number="9.7">
+<h2><span class="header-section-number">9.7</span> JAMOVI<a href="lab-9-repeated-measures-anova.html#jamovi-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How to do it in JAMOVI</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab-8-one-way-anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-10-factorial-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CrumpLab/statisticsLab/blob/master/09-RMANOVA.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Statistics_Lab.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

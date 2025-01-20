@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Lab 8 One-way ANOVA | Answering questions with data: Lab Manual</title>
+  <meta name="description" content="A lab manual for Psyc 3400" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Lab 8 One-way ANOVA | Answering questions with data: Lab Manual" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A lab manual for Psyc 3400" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Lab 8 One-way ANOVA | Answering questions with data: Lab Manual" />
+  
+  <meta name="twitter:description" content="A lab manual for Psyc 3400" />
+  
+
+<meta name="author" content="Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab-7-t-test-independent-sample.html"/>
+<link rel="next" href="lab-9-repeated-measures-anova.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-79429674-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-79429674-4');
+</script>
+
+
+<script type="text/javascript">
+mattcrump=1;
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="tufte.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics Lab Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface TEST</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#important-notes"><i class="fa fa-check"></i><b>0.1</b> Important notes</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>0.1.1</b> Attributions</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i><b>0.1.2</b> CC BY-SA 4.0 license</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#copying-the-lab-manual"><i class="fa fa-check"></i><b>0.1.3</b> Copying the lab manual</a></li>
+<li class="chapter" data-level="0.1.4" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.1.4</b> Acknowledgments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i>Software</a>
+<ul>
+<li class="chapter" data-level="0.2" data-path="software.html"><a href="software.html#data"><i class="fa fa-check"></i><b>0.2</b> Data</a>
+<ul>
+<li class="chapter" data-level="0.2.1" data-path="software.html"><a href="software.html#data-repository"><i class="fa fa-check"></i><b>0.2.1</b> Data Repository</a></li>
+<li class="chapter" data-level="0.2.2" data-path="software.html"><a href="software.html#csv-format"><i class="fa fa-check"></i><b>0.2.2</b> CSV format</a></li>
+<li class="chapter" data-level="0.2.3" data-path="software.html"><a href="software.html#spss-format"><i class="fa fa-check"></i><b>0.2.3</b> SPSS format</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>0.3</b> R</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="software.html"><a href="software.html#why-r"><i class="fa fa-check"></i><b>0.3.1</b> Why R?</a></li>
+<li class="chapter" data-level="0.3.2" data-path="software.html"><a href="software.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>0.3.2</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="0.3.3" data-path="software.html"><a href="software.html#r-studio-notes-and-tips"><i class="fa fa-check"></i><b>0.3.3</b> R studio notes and tips</a></li>
+<li class="chapter" data-level="0.3.4" data-path="software.html"><a href="software.html#how-to-complete-the-r-labs"><i class="fa fa-check"></i><b>0.3.4</b> How to complete the R Labs</a></li>
+<li class="chapter" data-level="0.3.5" data-path="software.html"><a href="software.html#screencast-tutorial"><i class="fa fa-check"></i><b>0.3.5</b> Screencast tutorial</a></li>
+<li class="chapter" data-level="0.3.6" data-path="software.html"><a href="software.html#r-studio-cloud"><i class="fa fa-check"></i><b>0.3.6</b> R-studio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="software.html"><a href="software.html#excel"><i class="fa fa-check"></i><b>0.4</b> Excel</a></li>
+<li class="chapter" data-level="0.5" data-path="software.html"><a href="software.html#spss"><i class="fa fa-check"></i><b>0.5</b> SPSS</a></li>
+<li class="chapter" data-level="0.6" data-path="software.html"><a href="software.html#jamovi"><i class="fa fa-check"></i><b>0.6</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html"><i class="fa fa-check"></i><b>1</b> Lab 1: Graphing Data TEST 2 3</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#general-goals"><i class="fa fa-check"></i><b>1.1</b> General Goals</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#important-info"><i class="fa fa-check"></i><b>1.1.1</b> Important info</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#r-1"><i class="fa fa-check"></i><b>1.2</b> R</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#download-the-lab-templates"><i class="fa fa-check"></i><b>1.2.1</b> Download the lab templates</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#get-some-data"><i class="fa fa-check"></i><b>1.2.2</b> Get some data</a></li>
+<li class="chapter" data-level="1.2.3" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#look-at-the-data"><i class="fa fa-check"></i><b>1.2.3</b> Look at the data</a></li>
+<li class="chapter" data-level="1.2.4" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#make-plots-to-answer-questions"><i class="fa fa-check"></i><b>1.2.4</b> Make Plots to answer questions</a></li>
+<li class="chapter" data-level="1.2.5" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#ggplot2-basics"><i class="fa fa-check"></i><b>1.2.5</b> ggplot2 basics</a></li>
+<li class="chapter" data-level="1.2.6" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#more-questions-about-nyc-films"><i class="fa fa-check"></i><b>1.2.6</b> More questions about NYC films</a></li>
+<li class="chapter" data-level="1.2.7" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#gapminder-data"><i class="fa fa-check"></i><b>1.2.7</b> Gapminder Data</a></li>
+<li class="chapter" data-level="1.2.8" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#asking-questions-with-the-gap-minder-data"><i class="fa fa-check"></i><b>1.2.8</b> Asking Questions with the gap minder data</a></li>
+<li class="chapter" data-level="1.2.9" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#generalization-exercise"><i class="fa fa-check"></i><b>1.2.9</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="1.2.10" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#writing-assignment"><i class="fa fa-check"></i><b>1.2.10</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#excel-1"><i class="fa fa-check"></i><b>1.3</b> Excel</a></li>
+<li class="chapter" data-level="1.4" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#spss-1"><i class="fa fa-check"></i><b>1.4</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#opening-spss-and-the-spss-layout"><i class="fa fa-check"></i><b>1.4.1</b> Opening SPSS and the SPSS layout</a></li>
+<li class="chapter" data-level="1.4.2" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#reviewing-variable-properties-and-the-variable-view-tab"><i class="fa fa-check"></i><b>1.4.2</b> Reviewing variable properties and the Variable View tab</a></li>
+<li class="chapter" data-level="1.4.3" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#opening-a-data-file-and-producing-different-types-of-graphs"><i class="fa fa-check"></i><b>1.4.3</b> Opening a data file and producing different types of graphs</a></li>
+<li class="chapter" data-level="1.4.4" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#practice-problems"><i class="fa fa-check"></i><b>1.4.4</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="lab-1-graphing-data-test-2-3.html"><a href="lab-1-graphing-data-test-2-3.html#jamovi-1"><i class="fa fa-check"></i><b>1.5</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html"><i class="fa fa-check"></i><b>2</b> Lab 2: Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#general-goals-1"><i class="fa fa-check"></i><b>2.1</b> General Goals</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#important-info-1"><i class="fa fa-check"></i><b>2.1.1</b> Important info</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#r-2"><i class="fa fa-check"></i><b>2.2</b> R</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#descriptives-basics-in-r"><i class="fa fa-check"></i><b>2.2.1</b> Descriptives basics in R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#central-tendency"><i class="fa fa-check"></i><b>2.2.2</b> Central Tendency</a></li>
+<li class="chapter" data-level="2.2.3" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#variation"><i class="fa fa-check"></i><b>2.2.3</b> Variation</a></li>
+<li class="chapter" data-level="2.2.4" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#descriptives-by-conditions"><i class="fa fa-check"></i><b>2.2.4</b> Descriptives by conditions</a></li>
+<li class="chapter" data-level="2.2.5" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#describing-gapminder"><i class="fa fa-check"></i><b>2.2.5</b> Describing gapminder</a></li>
+<li class="chapter" data-level="2.2.6" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#generalization-exercise-1"><i class="fa fa-check"></i><b>2.2.6</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="2.2.7" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#writing-assignment-1"><i class="fa fa-check"></i><b>2.2.7</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#excel-2"><i class="fa fa-check"></i><b>2.3</b> Excel</a></li>
+<li class="chapter" data-level="2.4" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#spss-2"><i class="fa fa-check"></i><b>2.4</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#calculating-descriptive-statistics"><i class="fa fa-check"></i><b>2.4.1</b> Calculating Descriptive Statistics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#descriptive-statistics-and-histograms"><i class="fa fa-check"></i><b>2.4.2</b> Descriptive Statistics and Histograms</a></li>
+<li class="chapter" data-level="2.4.3" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#editing-graphs"><i class="fa fa-check"></i><b>2.4.3</b> Editing graphs</a></li>
+<li class="chapter" data-level="2.4.4" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#practice-problems-1"><i class="fa fa-check"></i><b>2.4.4</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="lab-2-descriptive-statistics.html"><a href="lab-2-descriptive-statistics.html#jamovi-2"><i class="fa fa-check"></i><b>2.5</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html"><i class="fa fa-check"></i><b>3</b> Lab 3: Correlation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#general-goals-2"><i class="fa fa-check"></i><b>3.1</b> General Goals</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#important-info-2"><i class="fa fa-check"></i><b>3.1.1</b> Important Info</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#r-3"><i class="fa fa-check"></i><b>3.2</b> R</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#cor-for-correlation"><i class="fa fa-check"></i><b>3.2.1</b> cor for correlation</a></li>
+<li class="chapter" data-level="3.2.2" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#world-happiness-report"><i class="fa fa-check"></i><b>3.2.2</b> World Happiness Report</a></li>
+<li class="chapter" data-level="3.2.3" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#generalization-exercise-2"><i class="fa fa-check"></i><b>3.2.3</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="3.2.4" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#writing-assignment-2"><i class="fa fa-check"></i><b>3.2.4</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#excel-3"><i class="fa fa-check"></i><b>3.3</b> Excel</a></li>
+<li class="chapter" data-level="3.4" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#spss-3"><i class="fa fa-check"></i><b>3.4</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#correlation-coefficient-for-bivariate-data-two-variables"><i class="fa fa-check"></i><b>3.4.1</b> Correlation Coefficient for Bivariate Data: Two Variables</a></li>
+<li class="chapter" data-level="3.4.2" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#correlation-matrix"><i class="fa fa-check"></i><b>3.4.2</b> Correlation Matrix</a></li>
+<li class="chapter" data-level="3.4.3" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#correlation-and-scatterplots"><i class="fa fa-check"></i><b>3.4.3</b> Correlation and Scatterplots</a></li>
+<li class="chapter" data-level="3.4.4" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#splitting-a-file"><i class="fa fa-check"></i><b>3.4.4</b> Splitting a File</a></li>
+<li class="chapter" data-level="3.4.5" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#practice-problems-2"><i class="fa fa-check"></i><b>3.4.5</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="lab-3-correlation.html"><a href="lab-3-correlation.html#jamovi-3"><i class="fa fa-check"></i><b>3.5</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html"><i class="fa fa-check"></i><b>4</b> Lab 4: Normal Distribution &amp; Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#general-goals-3"><i class="fa fa-check"></i><b>4.1</b> General Goals</a></li>
+<li class="chapter" data-level="4.2" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#r-4"><i class="fa fa-check"></i><b>4.2</b> R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#generating-numbers-in-r"><i class="fa fa-check"></i><b>4.2.1</b> Generating Numbers in R</a></li>
+<li class="chapter" data-level="4.2.2" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#sampling-distribution-of-the-mean."><i class="fa fa-check"></i><b>4.2.2</b> sampling distribution of the mean.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#sampling-distributions-for-any-statistic"><i class="fa fa-check"></i><b>4.2.3</b> Sampling distributions for any statistic</a></li>
+<li class="chapter" data-level="4.2.4" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.2.4</b> Central limit theorem</a></li>
+<li class="chapter" data-level="4.2.5" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.2.5</b> The normal distribution</a></li>
+<li class="chapter" data-level="4.2.6" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#z-scores"><i class="fa fa-check"></i><b>4.2.6</b> z-scores</a></li>
+<li class="chapter" data-level="4.2.7" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#generalization-exercise-3"><i class="fa fa-check"></i><b>4.2.7</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="4.2.8" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#writing-assignment-3"><i class="fa fa-check"></i><b>4.2.8</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#excel-4"><i class="fa fa-check"></i><b>4.3</b> Excel</a></li>
+<li class="chapter" data-level="4.4" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#spss-4"><i class="fa fa-check"></i><b>4.4</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#saving-data-as-standardized-values."><i class="fa fa-check"></i><b>4.4.1</b> Saving data as standardized values.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#computing-variables"><i class="fa fa-check"></i><b>4.4.2</b> Computing variables</a></li>
+<li class="chapter" data-level="4.4.3" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#practice-problems-3"><i class="fa fa-check"></i><b>4.4.3</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="lab-4-normal-distribution-central-limit-theorem.html"><a href="lab-4-normal-distribution-central-limit-theorem.html#jamovi-4"><i class="fa fa-check"></i><b>4.5</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html"><i class="fa fa-check"></i><b>5</b> Lab 5: Fundamentals of Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#r-5"><i class="fa fa-check"></i><b>5.1</b> R</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#the-crump-test"><i class="fa fa-check"></i><b>5.1.1</b> The Crump Test</a></li>
+<li class="chapter" data-level="5.1.2" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#crumping-real-data"><i class="fa fa-check"></i><b>5.1.2</b> Crumping real data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#the-randomization-test"><i class="fa fa-check"></i><b>5.1.3</b> The Randomization Test</a></li>
+<li class="chapter" data-level="5.1.4" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#generalization-exercise-4"><i class="fa fa-check"></i><b>5.1.4</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="5.1.5" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#writing-assignment-4"><i class="fa fa-check"></i><b>5.1.5</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#excel-5"><i class="fa fa-check"></i><b>5.2</b> Excel</a></li>
+<li class="chapter" data-level="5.3" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#spss-5"><i class="fa fa-check"></i><b>5.3</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#experiment-background"><i class="fa fa-check"></i><b>5.3.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="5.3.2" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#calculate-difference-scores-between-pairs-of-measures"><i class="fa fa-check"></i><b>5.3.2</b> Calculate difference scores between pairs of measures</a></li>
+<li class="chapter" data-level="5.3.3" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#conduct-a-sign-test"><i class="fa fa-check"></i><b>5.3.3</b> Conduct a sign test</a></li>
+<li class="chapter" data-level="5.3.4" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#entering-data-for-sign-test-problems"><i class="fa fa-check"></i><b>5.3.4</b> Entering data for sign test problems</a></li>
+<li class="chapter" data-level="5.3.5" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#practice-problems-4"><i class="fa fa-check"></i><b>5.3.5</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="lab-5-fundamentals-of-hypothesis-testing.html"><a href="lab-5-fundamentals-of-hypothesis-testing.html#jamovi-5"><i class="fa fa-check"></i><b>5.4</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html"><i class="fa fa-check"></i><b>6</b> Lab 6: t-Test (one-sample, paired sample)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#does-music-convey-social-information-to-infants"><i class="fa fa-check"></i><b>6.1</b> Does Music Convey Social Information to Infants?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#study-description"><i class="fa fa-check"></i><b>6.1.1</b> STUDY DESCRIPTION</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#lab-skills-learned"><i class="fa fa-check"></i><b>6.2</b> Lab skills learned</a></li>
+<li class="chapter" data-level="6.3" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#important-stuff"><i class="fa fa-check"></i><b>6.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="6.4" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#r-6"><i class="fa fa-check"></i><b>6.4</b> R</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#loading-the-data"><i class="fa fa-check"></i><b>6.4.1</b> Loading the data</a></li>
+<li class="chapter" data-level="6.4.2" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#inspect-the-data-frame"><i class="fa fa-check"></i><b>6.4.2</b> Inspect the data frame</a></li>
+<li class="chapter" data-level="6.4.3" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#get-the-data-for-experiment-one"><i class="fa fa-check"></i><b>6.4.3</b> Get the data for Experiment one</a></li>
+<li class="chapter" data-level="6.4.4" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#baseline-phase-conduct-a-one-sample-t-test"><i class="fa fa-check"></i><b>6.4.4</b> Baseline phase: Conduct a one sample t-test</a></li>
+<li class="chapter" data-level="6.4.5" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#test-phase"><i class="fa fa-check"></i><b>6.4.5</b> Test phase</a></li>
+<li class="chapter" data-level="6.4.6" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#paired-samples-t-test"><i class="fa fa-check"></i><b>6.4.6</b> Paired-samples t-test</a></li>
+<li class="chapter" data-level="6.4.7" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#graphing-the-findings"><i class="fa fa-check"></i><b>6.4.7</b> Graphing the findings</a></li>
+<li class="chapter" data-level="6.4.8" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#data-simulation"><i class="fa fa-check"></i><b>6.4.8</b> Data-simulation</a></li>
+<li class="chapter" data-level="6.4.9" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#generalization-exercise-5"><i class="fa fa-check"></i><b>6.4.9</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="6.4.10" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#writing-assignment-5"><i class="fa fa-check"></i><b>6.4.10</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#excel-6"><i class="fa fa-check"></i><b>6.5</b> Excel</a></li>
+<li class="chapter" data-level="6.6" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#spss-6"><i class="fa fa-check"></i><b>6.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#experiment-background-1"><i class="fa fa-check"></i><b>6.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="6.6.2" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#performing-a-one-sample-t-test"><i class="fa fa-check"></i><b>6.6.2</b> Performing a one-sample t-test</a></li>
+<li class="chapter" data-level="6.6.3" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#performing-a-paired-samples-t-test"><i class="fa fa-check"></i><b>6.6.3</b> Performing a paired-samples t-test</a></li>
+<li class="chapter" data-level="6.6.4" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#graphing-your-results"><i class="fa fa-check"></i><b>6.6.4</b> Graphing your results</a></li>
+<li class="chapter" data-level="6.6.5" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#the-relationship-between-the-one-sample-and-the-paired-samples-t-test"><i class="fa fa-check"></i><b>6.6.5</b> The relationship between the one-sample and the paired-samples t-test</a></li>
+<li class="chapter" data-level="6.6.6" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#practice-problems-5"><i class="fa fa-check"></i><b>6.6.6</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="lab-6-t-test-one-sample-paired-sample.html"><a href="lab-6-t-test-one-sample-paired-sample.html#jamovi-6"><i class="fa fa-check"></i><b>6.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html"><i class="fa fa-check"></i><b>7</b> Lab 7: t-test (Independent Sample)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#do-you-come-across-as-smarter-when-people-read-what-you-say-or-hear-what-you-say"><i class="fa fa-check"></i><b>7.1</b> Do you come across as smarter when people read what you say or hear what you say?</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#study-description-1"><i class="fa fa-check"></i><b>7.1.1</b> STUDY DESCRIPTION</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#lab-skills-learned-1"><i class="fa fa-check"></i><b>7.2</b> Lab skills learned</a></li>
+<li class="chapter" data-level="7.3" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#important-stuff-1"><i class="fa fa-check"></i><b>7.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="7.4" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#r-7"><i class="fa fa-check"></i><b>7.4</b> R</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#load-the-data-1"><i class="fa fa-check"></i><b>7.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="7.4.2" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#inspect-data-frame"><i class="fa fa-check"></i><b>7.4.2</b> Inspect data frame</a></li>
+<li class="chapter" data-level="7.4.3" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#find-the-data-you-need"><i class="fa fa-check"></i><b>7.4.3</b> Find the data you need</a></li>
+<li class="chapter" data-level="7.4.4" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#look-at-the-dependent-variable."><i class="fa fa-check"></i><b>7.4.4</b> Look at the dependent variable.</a></li>
+<li class="chapter" data-level="7.4.5" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#conduct-independent-samples-t-test"><i class="fa fa-check"></i><b>7.4.5</b> Conduct Independent samples t-test</a></li>
+<li class="chapter" data-level="7.4.6" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#remaining-ratings"><i class="fa fa-check"></i><b>7.4.6</b> Remaining ratings</a></li>
+<li class="chapter" data-level="7.4.7" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#reconstructing-the-graph-from-the-paper"><i class="fa fa-check"></i><b>7.4.7</b> Reconstructing the graph from the paper</a></li>
+<li class="chapter" data-level="7.4.8" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#generalization-exercise-6"><i class="fa fa-check"></i><b>7.4.8</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="7.4.9" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#writing-assignment-6"><i class="fa fa-check"></i><b>7.4.9</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#excel-7"><i class="fa fa-check"></i><b>7.5</b> Excel</a></li>
+<li class="chapter" data-level="7.6" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#spss-7"><i class="fa fa-check"></i><b>7.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#experiment-background-2"><i class="fa fa-check"></i><b>7.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="7.6.2" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#performing-an-independent-samples-t-test"><i class="fa fa-check"></i><b>7.6.2</b> Performing an independent-samples t-test</a></li>
+<li class="chapter" data-level="7.6.3" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#graphing-your-data"><i class="fa fa-check"></i><b>7.6.3</b> Graphing your data</a></li>
+<li class="chapter" data-level="7.6.4" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#practice-problems-6"><i class="fa fa-check"></i><b>7.6.4</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="lab-7-t-test-independent-sample.html"><a href="lab-7-t-test-independent-sample.html#jamovi-7"><i class="fa fa-check"></i><b>7.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html"><i class="fa fa-check"></i><b>8</b> Lab 8 One-way ANOVA</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#how-to-not-think-about-bad-memories-by-playing-tetris"><i class="fa fa-check"></i><b>8.1</b> How to not think about bad memories by playing Tetris</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#study-description-2"><i class="fa fa-check"></i><b>8.1.1</b> STUDY DESCRIPTION</a></li>
+<li class="chapter" data-level="8.1.2" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#study-methods"><i class="fa fa-check"></i><b>8.1.2</b> Study Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#lab-skills-learned-2"><i class="fa fa-check"></i><b>8.2</b> Lab Skills Learned</a></li>
+<li class="chapter" data-level="8.3" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#important-stuff-2"><i class="fa fa-check"></i><b>8.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="8.4" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#r-8"><i class="fa fa-check"></i><b>8.4</b> R</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#load-the-data-2"><i class="fa fa-check"></i><b>8.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="8.4.2" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#inspect-the-dataframe"><i class="fa fa-check"></i><b>8.4.2</b> Inspect the dataframe</a></li>
+<li class="chapter" data-level="8.4.3" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#get-the-data-you-need"><i class="fa fa-check"></i><b>8.4.3</b> Get the data you need</a></li>
+<li class="chapter" data-level="8.4.4" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#look-at-the-data-2"><i class="fa fa-check"></i><b>8.4.4</b> Look at the data</a></li>
+<li class="chapter" data-level="8.4.5" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#conduct-the-anova"><i class="fa fa-check"></i><b>8.4.5</b> Conduct the ANOVA</a></li>
+<li class="chapter" data-level="8.4.6" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#reporting-the-anova-results"><i class="fa fa-check"></i><b>8.4.6</b> Reporting the ANOVA results</a></li>
+<li class="chapter" data-level="8.4.7" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#individual-comparisons"><i class="fa fa-check"></i><b>8.4.7</b> Individual comparisons</a></li>
+<li class="chapter" data-level="8.4.8" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#writing-it-all-up."><i class="fa fa-check"></i><b>8.4.8</b> Writing it all up.</a></li>
+<li class="chapter" data-level="8.4.9" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#food-for-thought"><i class="fa fa-check"></i><b>8.4.9</b> Food for thought</a></li>
+<li class="chapter" data-level="8.4.10" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#generalization-exercise-7"><i class="fa fa-check"></i><b>8.4.10</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="8.4.11" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#writing-assignment-7"><i class="fa fa-check"></i><b>8.4.11</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#excel-8"><i class="fa fa-check"></i><b>8.5</b> Excel</a></li>
+<li class="chapter" data-level="8.6" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#spss-8"><i class="fa fa-check"></i><b>8.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#experiment-background-3"><i class="fa fa-check"></i><b>8.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="8.6.2" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#performing-a-one-factor-analysis-of-variance-anova-graphing-the-data"><i class="fa fa-check"></i><b>8.6.2</b> Performing a One-Factor Analysis of Variance (ANOVA) &amp; Graphing the data</a></li>
+<li class="chapter" data-level="8.6.3" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#planned-comparisons-t-tests"><i class="fa fa-check"></i><b>8.6.3</b> Planned Comparisons: T-tests</a></li>
+<li class="chapter" data-level="8.6.4" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#unplanned-comparisons-post-hoc-tests"><i class="fa fa-check"></i><b>8.6.4</b> Unplanned Comparisons: Post-hoc tests</a></li>
+<li class="chapter" data-level="8.6.5" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#practice-problems-7"><i class="fa fa-check"></i><b>8.6.5</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="lab-8-one-way-anova.html"><a href="lab-8-one-way-anova.html#jamovi-8"><i class="fa fa-check"></i><b>8.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html"><i class="fa fa-check"></i><b>9</b> Lab 9 Repeated Measures ANOVA</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#betcha-cant-type-jhdbzkco-very-fast-on-your-first-try"><i class="fa fa-check"></i><b>9.1</b> Betcha can’t type JHDBZKCO very fast on your first try</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#study-description-3"><i class="fa fa-check"></i><b>9.1.1</b> STUDY DESCRIPTION</a></li>
+<li class="chapter" data-level="9.1.2" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#study-methods-1"><i class="fa fa-check"></i><b>9.1.2</b> Study Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#lab-skills-learned-3"><i class="fa fa-check"></i><b>9.2</b> Lab Skills Learned</a></li>
+<li class="chapter" data-level="9.3" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#important-stuff-3"><i class="fa fa-check"></i><b>9.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="9.4" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#r-9"><i class="fa fa-check"></i><b>9.4</b> R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#load-the-data-3"><i class="fa fa-check"></i><b>9.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="9.4.2" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#inspect-the-dataframe-1"><i class="fa fa-check"></i><b>9.4.2</b> Inspect the dataframe</a></li>
+<li class="chapter" data-level="9.4.3" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#get-the-data-you-need-1"><i class="fa fa-check"></i><b>9.4.3</b> Get the data you need</a></li>
+<li class="chapter" data-level="9.4.4" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#look-at-the-data-3"><i class="fa fa-check"></i><b>9.4.4</b> Look at the data</a></li>
+<li class="chapter" data-level="9.4.5" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#look-at-the-means"><i class="fa fa-check"></i><b>9.4.5</b> Look at the means</a></li>
+<li class="chapter" data-level="9.4.6" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#conduct-the-repeated-measures-anova"><i class="fa fa-check"></i><b>9.4.6</b> Conduct the repeated Measures ANOVA</a></li>
+<li class="chapter" data-level="9.4.7" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#follow-up-comparisons"><i class="fa fa-check"></i><b>9.4.7</b> Follow-up comparisons</a></li>
+<li class="chapter" data-level="9.4.8" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#reporting-everything"><i class="fa fa-check"></i><b>9.4.8</b> Reporting everything</a></li>
+<li class="chapter" data-level="9.4.9" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#generalization-exercise-8"><i class="fa fa-check"></i><b>9.4.9</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="9.4.10" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#writing-assignment-8"><i class="fa fa-check"></i><b>9.4.10</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#excel-9"><i class="fa fa-check"></i><b>9.5</b> Excel</a></li>
+<li class="chapter" data-level="9.6" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#spss-9"><i class="fa fa-check"></i><b>9.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#experiment-background-4"><i class="fa fa-check"></i><b>9.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="9.6.2" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#produce-a-frequency-histogram-and-remove-outliers"><i class="fa fa-check"></i><b>9.6.2</b> Produce a frequency histogram and remove outliers</a></li>
+<li class="chapter" data-level="9.6.3" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#conduct-and-graph-one-factor-repeated-measures-anova"><i class="fa fa-check"></i><b>9.6.3</b> Conduct and graph One-Factor Repeated Measures ANOVA</a></li>
+<li class="chapter" data-level="9.6.4" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#conduct-planned-comparisons-using-a-paired-samples-t-test"><i class="fa fa-check"></i><b>9.6.4</b> Conduct planned comparisons using a paired-samples t-test</a></li>
+<li class="chapter" data-level="9.6.5" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#practice-problems-8"><i class="fa fa-check"></i><b>9.6.5</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="lab-9-repeated-measures-anova.html"><a href="lab-9-repeated-measures-anova.html#jamovi-9"><i class="fa fa-check"></i><b>9.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html"><i class="fa fa-check"></i><b>10</b> Lab 10: Factorial ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#does-standing-up-make-you-focus-more"><i class="fa fa-check"></i><b>10.1</b> Does standing up make you focus more?</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#study-description-4"><i class="fa fa-check"></i><b>10.1.1</b> STUDY DESCRIPTION</a></li>
+<li class="chapter" data-level="10.1.2" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#study-methods-2"><i class="fa fa-check"></i><b>10.1.2</b> Study Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#lab-skills-learned-4"><i class="fa fa-check"></i><b>10.2</b> Lab Skills Learned</a></li>
+<li class="chapter" data-level="10.3" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#important-stuff-4"><i class="fa fa-check"></i><b>10.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="10.4" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#r-10"><i class="fa fa-check"></i><b>10.4</b> R</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#load-the-data-4"><i class="fa fa-check"></i><b>10.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="10.4.2" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#inspect-the-dataframe-2"><i class="fa fa-check"></i><b>10.4.2</b> Inspect the dataframe</a></li>
+<li class="chapter" data-level="10.4.3" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#get-the-data-you-need-2"><i class="fa fa-check"></i><b>10.4.3</b> Get the data you need</a></li>
+<li class="chapter" data-level="10.4.4" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#get-the-data-into-the-format-you-want"><i class="fa fa-check"></i><b>10.4.4</b> Get the data into the format you want</a></li>
+<li class="chapter" data-level="10.4.5" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#look-at-the-data-4"><i class="fa fa-check"></i><b>10.4.5</b> Look at the data</a></li>
+<li class="chapter" data-level="10.4.6" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#look-at-the-means-1"><i class="fa fa-check"></i><b>10.4.6</b> Look at the means</a></li>
+<li class="chapter" data-level="10.4.7" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#conduct-the-anova-1"><i class="fa fa-check"></i><b>10.4.7</b> Conduct the ANOVA</a></li>
+<li class="chapter" data-level="10.4.8" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#between-subjects-anova"><i class="fa fa-check"></i><b>10.4.8</b> Between Subjects ANOVA</a></li>
+<li class="chapter" data-level="10.4.9" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#repeated-measures-anova"><i class="fa fa-check"></i><b>10.4.9</b> Repeated measures ANOVA</a></li>
+<li class="chapter" data-level="10.4.10" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#follow-up-comparisons-1"><i class="fa fa-check"></i><b>10.4.10</b> Follow-up comparisons</a></li>
+<li class="chapter" data-level="10.4.11" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#generalization-exercise-9"><i class="fa fa-check"></i><b>10.4.11</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="10.4.12" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#writing-asignment"><i class="fa fa-check"></i><b>10.4.12</b> Writing asignment</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#excel-10"><i class="fa fa-check"></i><b>10.5</b> Excel</a></li>
+<li class="chapter" data-level="10.6" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#spss-10"><i class="fa fa-check"></i><b>10.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#experiment-background-5"><i class="fa fa-check"></i><b>10.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="10.6.2" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#conduct-a-between-subjects-two-factor-analysis-of-variance-anova"><i class="fa fa-check"></i><b>10.6.2</b> Conduct a Between-Subjects Two-Factor Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="10.6.3" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#calculate-simple-effects"><i class="fa fa-check"></i><b>10.6.3</b> Calculate simple effects</a></li>
+<li class="chapter" data-level="10.6.4" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#conduct-a-repeated-measures-two-factor-analysis-of-variance-anova"><i class="fa fa-check"></i><b>10.6.4</b> Conduct a Repeated Measures Two-Factor Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="10.6.5" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#calculate-simple-effects-1"><i class="fa fa-check"></i><b>10.6.5</b> Calculate simple effects</a></li>
+<li class="chapter" data-level="10.6.6" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#practice-problems-9"><i class="fa fa-check"></i><b>10.6.6</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="lab-10-factorial-anova.html"><a href="lab-10-factorial-anova.html#jamovi-10"><i class="fa fa-check"></i><b>10.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html"><i class="fa fa-check"></i><b>11</b> Lab 11: Mixed Factorial ANOVA</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#do-you-remember-things-better-when-you-take-pictures-of-them"><i class="fa fa-check"></i><b>11.1</b> Do you remember things better when you take pictures of them?</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#study-description-5"><i class="fa fa-check"></i><b>11.1.1</b> Study description</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#lab-skills-learned-5"><i class="fa fa-check"></i><b>11.2</b> Lab Skills Learned</a></li>
+<li class="chapter" data-level="11.3" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#important-stuff-5"><i class="fa fa-check"></i><b>11.3</b> Important Stuff</a></li>
+<li class="chapter" data-level="11.4" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#r-11"><i class="fa fa-check"></i><b>11.4</b> R</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#load-the-data-5"><i class="fa fa-check"></i><b>11.4.1</b> Load the data</a></li>
+<li class="chapter" data-level="11.4.2" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#inspect-the-dataframe-3"><i class="fa fa-check"></i><b>11.4.2</b> Inspect the dataframe</a></li>
+<li class="chapter" data-level="11.4.3" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#get-the-data-you-need-3"><i class="fa fa-check"></i><b>11.4.3</b> Get the data you need</a></li>
+<li class="chapter" data-level="11.4.4" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#get-the-data-into-the-format-you-want-1"><i class="fa fa-check"></i><b>11.4.4</b> Get the data into the format you want</a></li>
+<li class="chapter" data-level="11.4.5" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#look-at-the-data-5"><i class="fa fa-check"></i><b>11.4.5</b> Look at the data</a></li>
+<li class="chapter" data-level="11.4.6" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#look-at-the-means-2"><i class="fa fa-check"></i><b>11.4.6</b> Look at the means</a></li>
+<li class="chapter" data-level="11.4.7" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#conduct-the-anova-2"><i class="fa fa-check"></i><b>11.4.7</b> Conduct the ANOVA</a></li>
+<li class="chapter" data-level="11.4.8" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#generalization-exercise-10"><i class="fa fa-check"></i><b>11.4.8</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="11.4.9" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#writing-assignment-9"><i class="fa fa-check"></i><b>11.4.9</b> Writing assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#excel-11"><i class="fa fa-check"></i><b>11.5</b> Excel</a></li>
+<li class="chapter" data-level="11.6" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#spss-11"><i class="fa fa-check"></i><b>11.6</b> SPSS</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#experiment-background-6"><i class="fa fa-check"></i><b>11.6.1</b> Experiment Background</a></li>
+<li class="chapter" data-level="11.6.2" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#conduct-a-mixed-factorial-analysis-of-variance-anova"><i class="fa fa-check"></i><b>11.6.2</b> Conduct a Mixed-Factorial Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="11.6.3" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#calculate-simple-effects-2"><i class="fa fa-check"></i><b>11.6.3</b> Calculate simple effects</a></li>
+<li class="chapter" data-level="11.6.4" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#practice-problems-10"><i class="fa fa-check"></i><b>11.6.4</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="lab-11-mixed-factorial-anova.html"><a href="lab-11-mixed-factorial-anova.html#jamovi-11"><i class="fa fa-check"></i><b>11.7</b> JAMOVI</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Answering questions with data: Lab Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<img src="LabmanualCover.png" id="coverpic" width="350" style="display: block; margin: auto;" />
+<div id="lab-8-one-way-anova" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Lab 8 One-way ANOVA<a href="lab-8-one-way-anova.html#lab-8-one-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
+$("#coverpic").hide();
+</script>
+<p><span class="newthought">
+The analysis of variance is not a mathematical theorem, but rather a convenient method of arranging the arithmetic.
+—R. A. Fisher
+</span></p>
+<div class="marginnote">
+<p>This lab is modified and extended from <a href="https://sites.trinity.edu/osl">Open Stats Labs</a>. Thanks to Open Stats Labs (Dr. Kevin P. McIntyre) for their fantastic work.</p>
+</div>
+<div id="how-to-not-think-about-bad-memories-by-playing-tetris" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> How to not think about bad memories by playing Tetris<a href="lab-8-one-way-anova.html#how-to-not-think-about-bad-memories-by-playing-tetris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This lab activity uses the open data from Experiment 2 of James et al. (2015) to teach one-way ANOVA with planned comparisons. Results of the activity provided below should exactly reproduce the results described in the paper.</p>
+<div id="study-description-2" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> STUDY DESCRIPTION<a href="lab-8-one-way-anova.html#study-description-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Following traumatic experiences, some people have flashbacks, which are also called “intrusive memories”” and are characterized by involuntary images of aspects of the traumatic event. Although people often try to simply forget traumatic memories, this approach is not very effective. Instead, previous research suggests that a better approach may be to try to change aspects of the memory after it is formed. For example, some research shows that traumatic memories can be altered and weakened to the point that they are no longer intrusive.</p>
+<p>Because intrusive memories of trauma are often visual in nature, James and colleagues (2015) sought to explore whether completing a visuospatial task (e.g., Tetris) after a memory was formed would interfere with the storage of that memory, and thereby reduce the frequency of subsequent intrusions. They hypothesized that only participants who complete a visuo-spatial task after reactivation of the traumatic memories would experience a reduction in intrusive memories. In comparison, simply completing a visuo-spatial task (without reactivation) or reactivation (without a visuo-spatial task), would not reduce the occurrence intrusive memories.</p>
+<p>In other words, if you play Tetris shortly after you were remembering bad memories, playing Tetris might weaken those memories, which could cause you experience those kinds of intrusive memories less often in the future.</p>
+</div>
+<div id="study-methods" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Study Methods<a href="lab-8-one-way-anova.html#study-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To test their hypothesis, the authors conducted an experiment ( N = 72, n = 18 per condition). The procedure is summarized as follows:</p>
+<p><strong>Trauma Film</strong>: All participants viewed a series of video clips of graphic violence (e.g., a person getting hit by a van while using his phone as he crosses the road) as a way to create memories that should become intrusive memories. Participants then went home and recorded the number of intrusive memories they experienced over the next 24 hours. Because this is before the experimental manipulations, all groups were predicted to have an equal occurrence of intrusive memories during the first 24-hours (called Day 0).</p>
+<p><strong>Experimental Task</strong>: After this 24-hour period, the participants returned to the lab and completed the experimental task. The experimenters randomly assigned participants to ONE of the following conditions:</p>
+<ol style="list-style-type: decimal">
+<li>No-task control: These participants completed a 10-minute music filler task.</li>
+<li>Reactivation + Tetris: These participants were shown a series of images from the trauma film to reactivate the traumatic memories (i.e., reactivation task). After a 10-minute music filler task, participants played the video game Tetris for 12 minutes.</li>
+<li>Tetris Only: These participants played Tetris for 12 minutes, but did not complete the reactivation task.</li>
+<li>Reactivation Only: These participants completed the reactivation task, but did not play Tetris.</li>
+</ol>
+<p><strong>Intrusive Memories</strong>: All participants were asked to record the number of intrusive memories that they experienced over the next seven days (Days 1 to 7).</p>
+<p>After the seven days had passed, participants completed an Intrusion-Provocation Task, in which they were shown blurred images from the trauma film and asked to indicate whether the blurred image triggered an intrusive memory.</p>
+</div>
+</div>
+<div id="lab-skills-learned-2" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Lab Skills Learned<a href="lab-8-one-way-anova.html#lab-skills-learned-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="important-stuff-2" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Important Stuff<a href="lab-8-one-way-anova.html#important-stuff-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>citation: James, E. L., Bonsall, M. B., Hoppitt, L., Tunbridge, E. M., Geddes, J. R., Milton, A. L., &amp; Holmes, E. A. (2015). Computer game play reduces intrusive memories of experimental trauma via re-consolidation-update mechanisms. Psychological Science, 26, 1201-1215.</li>
+<li><a href="http://journals.sagepub.com/stoken/default+domain/hQ2W4fbPrZVJ7eyNJaqu/full">Link to .pdf of article</a></li>
+<li><a href="https://raw.githubusercontent.com/CrumpLab/statisticsLab/master/data/Jamesetal2015Experiment2.csv" download>Data in .csv format</a></li>
+<li><a href="https://drive.google.com/file/d/0Bz-rhZ21ShvOZ1lvQ0dQekZGWU0/view?usp=sharing">Data in SPSS format</a></li>
+</ul>
+</div>
+<div id="r-8" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> R<a href="lab-8-one-way-anova.html#r-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="load-the-data-2" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Load the data<a href="lab-8-one-way-anova.html#load-the-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember that any line with a # makes a comment and the code does not run. Below is how to load the .csv data from the online repository, or from a local file (you need to change the file path to where the local file is, if you downloaded it). The data contains all of the measures and conditions from Experiment 2 in the paper.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="lab-8-one-way-anova.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb237-2"><a href="lab-8-one-way-anova.html#cb237-2" aria-hidden="true" tabindex="-1"></a><span class="co">#fread(&quot;https://raw.githubusercontent.com/CrumpLab/statisticsLab/master/data/Jamesetal2015Experiment2.csv&quot;)</span></span>
+<span id="cb237-3"><a href="lab-8-one-way-anova.html#cb237-3" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;data/Jamesetal2015Experiment2.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="inspect-the-dataframe" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Inspect the dataframe<a href="lab-8-one-way-anova.html#inspect-the-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This will give you a big picture of the data frame. Click the button to view it in your browser, then take a look to see what is in it.</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="lab-8-one-way-anova.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb238-2"><a href="lab-8-one-way-anova.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(<span class="fu">dfSummary</span>(all_data))</span></code></pre></div>
+</div>
+<div id="get-the-data-you-need" class="section level3 hasAnchor" number="8.4.3">
+<h3><span class="header-section-number">8.4.3</span> Get the data you need<a href="lab-8-one-way-anova.html#get-the-data-you-need" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Again we have only the data from Experiment 2, so we don’t need to get rid of any rows of the data. But we do need look at the columns to see how the independent variable and dependent variables were coded.</p>
+<div id="the-independent-variable" class="section level4 hasAnchor" number="8.4.3.1">
+<h4><span class="header-section-number">8.4.3.1</span> The independent variable<a href="lab-8-one-way-anova.html#the-independent-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There was one important independent variable, and it had four levels. The first column in the data frame is called condition, and it has four levels. The levels are 1, 2, 3, and 4 in the data-frame. These will correspond to the four levels in shown in figure:</p>
+<ul>
+<li>No-task control</li>
+<li>Reactivation Plus Tetris</li>
+<li>Tetris only</li>
+<li>Reactivation only</li>
+</ul>
+<p>Each of these refer to what subjects did after they watched the traumatic film. But, which of these correspond to the numbers 1 to 4 in the data-frame? It turns out the are in the right order, and 1 to 4 refer to:</p>
+<ol style="list-style-type: decimal">
+<li>No-task control</li>
+<li>Reactivation Plus Tetris</li>
+<li>Tetris only</li>
+<li>Reactivation only</li>
+</ol>
+<p>Let’s do ourselves a favor and rename the levels of the <code>Condition</code> column with words so we know what they refer to. First, convert the <code>Condition</code> column to a factor, then rename the levels. Then.</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="lab-8-one-way-anova.html#cb239-1" aria-hidden="true" tabindex="-1"></a>all_data<span class="sc">$</span>Condition <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(all_data<span class="sc">$</span>Condition)</span>
+<span id="cb239-2"><a href="lab-8-one-way-anova.html#cb239-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(all_data<span class="sc">$</span>Condition) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,</span>
+<span id="cb239-3"><a href="lab-8-one-way-anova.html#cb239-3" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;Reactivation+Tetris&quot;</span>, </span>
+<span id="cb239-4"><a href="lab-8-one-way-anova.html#cb239-4" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;Tetris_only&quot;</span>,</span>
+<span id="cb239-5"><a href="lab-8-one-way-anova.html#cb239-5" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;Reactivation_only&quot;</span>)</span></code></pre></div>
+</div>
+<div id="the-dependent-variable" class="section level4 hasAnchor" number="8.4.3.2">
+<h4><span class="header-section-number">8.4.3.2</span> The dependent variable<a href="lab-8-one-way-anova.html#the-dependent-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The authors showed two figures, one where they analysed intrusive memory frequency as the mean for the week, and the other where the used intrusive memory frequency on Day 7. In this tutorial, we will do the steps to run an ANOVA on the mean for the week data, and you will do follow these steps to run another ANOVA on the Day 7 data.</p>
+<p>The mean for the week data for each subject is apparently coded in the column <code>Days_One_to_Seven_Number_of_Intrusions</code>.</p>
+</div>
+</div>
+<div id="look-at-the-data-2" class="section level3 hasAnchor" number="8.4.4">
+<h3><span class="header-section-number">8.4.4</span> Look at the data<a href="lab-8-one-way-anova.html#look-at-the-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember before we do any analysis, we always want to “look” at the data. This first pass let’s us know if the data “look right”. For example, the data file could be messed up and maybe there aren’t any numbers there, or maybe the numbers are just too weird.</p>
+<p>In the last two labs, we saw how to show all the data we are interested in looking at in one go. We can do the same things here. For example, in one little piece of code, we can display the means in each condition, the standard errors of the mean, and the individual scores for each subject in each condition. This is a lot to look at, but it’s everything we want to look at for starters all in the same place. Looking at the data this way will also give us intuitions about what our ANOVA will tell us before we run the ANOVA. This is helpful for determining whether the results of your ANOVA are accurate or not. Let’s do it…also notice that the code is very similar to what we did for the independent t-test. In fact, all I did was copy and paste that code right here, and edited it a little bit. This is really fast, and shows the efficiency of doing things this way.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="lab-8-one-way-anova.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb240-2"><a href="lab-8-one-way-anova.html#cb240-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-3"><a href="lab-8-one-way-anova.html#cb240-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb240-4"><a href="lab-8-one-way-anova.html#cb240-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-5"><a href="lab-8-one-way-anova.html#cb240-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get means and SEs</span></span>
+<span id="cb240-6"><a href="lab-8-one-way-anova.html#cb240-6" aria-hidden="true" tabindex="-1"></a>descriptive_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb240-7"><a href="lab-8-one-way-anova.html#cb240-7" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span> </span>
+<span id="cb240-8"><a href="lab-8-one-way-anova.html#cb240-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">summarise</span>(<span class="at">means=</span> <span class="fu">mean</span>(Days_One_to_Seven_Number_of_Intrusions),</span>
+<span id="cb240-9"><a href="lab-8-one-way-anova.html#cb240-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">SEs =</span> <span class="fu">sd</span>(Days_One_to_Seven_Number_of_Intrusions)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(Days_One_to_Seven_Number_of_Intrusions)))</span>
+<span id="cb240-10"><a href="lab-8-one-way-anova.html#cb240-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-11"><a href="lab-8-one-way-anova.html#cb240-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the plot</span></span>
+<span id="cb240-12"><a href="lab-8-one-way-anova.html#cb240-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(descriptive_df, <span class="fu">aes</span>(<span class="at">x=</span>Condition, <span class="at">y=</span>means))<span class="sc">+</span> </span>
+<span id="cb240-13"><a href="lab-8-one-way-anova.html#cb240-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Condition))<span class="sc">+</span> <span class="co"># add means</span></span>
+<span id="cb240-14"><a href="lab-8-one-way-anova.html#cb240-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>means<span class="sc">-</span>SEs,               <span class="co"># add error bars</span></span>
+<span id="cb240-15"><a href="lab-8-one-way-anova.html#cb240-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>means<span class="sc">+</span>SEs), <span class="at">width=</span>.<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb240-16"><a href="lab-8-one-way-anova.html#cb240-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>all_data, <span class="fu">aes</span>(<span class="at">x=</span>Condition, <span class="at">y=</span>Days_One_to_Seven_Number_of_Intrusions), <span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
+<span id="cb240-17"><a href="lab-8-one-way-anova.html#cb240-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">25</span>)<span class="sc">+</span></span>
+<span id="cb240-18"><a href="lab-8-one-way-anova.html#cb240-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Intrusive Memories (Mean for Week)&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics_Lab_files/figure-html/unnamed-chunk-229-1.png" width="672" /></p>
+<p>There we have it. A nice graph showing us everything. We can see there was a lot of differences at the level of individual subjects. Some subjects had a mean of 15 intrusive memories for the week. Some had 0. Lots of differences.</p>
+<p>And, to be completely honest, this data seems a bit weird to me. It might not be weird, but it might be. The wording in the manuscript is that this data is the mean frequency of intrusive memories over the week. For the people who had 15, this means that every day they had on average 15 intrusive memories. Some people had on average 0 per day. This could be the data. But, it also seems like the data might just be frequency counts and not means at all. For example, the data could be that some people had a total of 15 intrusive over the week. The data might make more sense if these were frequency counts. Otherwise the differences between people are truly very large. For example the person who had an average of 15 intrusive memories per week, must have had 15*7 = 105 intrusive memories, which is a lot more than zero. In any case, this kind of wondering about the data is what happens when you start to notice how numbers work. It’s useful develop your data sense.</p>
+<p>Let’s move on to the ANOVA. By looking at the above graph do you have an intuition about what the ANOVA will tell us? I do, it should easily tell us that we are going to get an F-value that is bigger than one, and a p-value that is probably smaller than .05? How do I know this? I looked at the error bars, which represent the standard errors of the mean. If we look across conditions we can see that that the error bars don’t always overlap. This suggests there are differences in the data that don’t happen very often by chance. So, we expect a smallish p-value. Why do you think I expect the F-value to be greater than 1? If you can answer this question with a justification and explanation of how F works, pat yourself on the back!</p>
+</div>
+<div id="conduct-the-anova" class="section level3 hasAnchor" number="8.4.5">
+<h3><span class="header-section-number">8.4.5</span> Conduct the ANOVA<a href="lab-8-one-way-anova.html#conduct-the-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Conducting an ANOVA in R is pretty easy. It’s one line of code, just like the t-test.</p>
+<p>It’s worth knowing that there are a few different packages out there to do an ANOVA, for example Mike Lawrence’s <code>ezANOVA</code> package is pretty popular.</p>
+<p>For this tutorial we’ll show you how to run the ANOVA using the <code>aov</code> function from base R (comes pre-installed). This is pretty “easy” too. I put easy in quotes because the first time I saw this, it was not easy for me. Here’s a brief digression for me to tell you that I feel your pain. I was first introduced to R by Patrick Bennett (a professor at McMaster University, where I attended graduate school). Pat, like I am doing know, forced us to use R in his statistics class. I remember having zero clue about so many things, and was often very frustrated. So, I imagine some of you are quite frustrated too. I was luck, like some of you, to have had some previous experience with other programming languages, so I was familiar with what R might be doing. What I was most frustrated with, was learning how to tell R what to do. In other words, I didn’t know how to write the commands properly. I didn’t understand what we call the <strong>syntax</strong> of R.</p>
+<p>This was back many years ago now, well before there was so many helpful examples on Google with working code, showing you how the syntax works. All we had was the R help files, which were a total mystery to me. If you want to see the help file for <code>aov</code>, just type <code>?aov()</code> into the console, and press enter. You will see an “explanation” of how the <code>aov</code> function is supposed to work. You can use the same trick for any R function, like this <code>?name_of_function()</code>. To be clear, you have to replace the letters <code>name_of_function</code>, with the name of the function. Some of you think that might be super obvious, but that is the kind of thing I did not think was obvious. So, when I read the help file for how to use the <code>aov</code> function, that is to learn what to put where, I didn’t feel like it was showing me what I needed to do. Usually, at the bottom of the help file, there are some examples, and these are helpful, but sometimes they are missing the example you need, and you are expected to generalize your knowledge of how <code>aov</code> works, to make it work for your problem. This is a catch-22 because if you don’t know how it works, you can’t generalize. IMO, you need a lot of examples of things that work.</p>
+<p>So, with that digression, I’m going to explain the syntax for the aov function. It looks like this:</p>
+<p><code>aov(DV ~ IV, dataframe)</code></p>
+<p>That probably looks really foreign. Let me explain. First you need write <code>aov()</code>. <code>aov</code> is the name of the function, followed by the brackets. The brackets are a sandwich. Sandwiches have a top and a bottom, and they enclose the things you put in the sandwich. We then put things inside the <code>()</code>, in specific ways to make the <code>aov</code> sandwich. The <code>DV</code> stands for the name of the dependent variable in the data frame. For us, this will be <code>Days_One_to_Seven_Number_of_Intrusions</code>. So, when we add that, our function will look like:</p>
+<p><code>aov(Days_One_to_Seven_Number_of_Intrusions ~ IV, dataframe)</code></p>
+<p>Next, the <code>~</code> (tilda) stands for the word ‘by’. We are saying we want to analyse the Dependent variable <strong>by</strong> the conditions of the independent variable.</p>
+<p>The <code>IV</code> stands for the name of the column that is your independent variable. Our’s is called <code>Condition</code>. Adding that in, our formula looks like:</p>
+<p><code>aov(Days_One_to_Seven_Number_of_Intrusions ~ Condition, dataframe)</code></p>
+<p>Finally, the last part is the name of the data-frame we are using. The <code>aov</code> function only works on long-form data, where each score on the dependent variable has it’s own row. Our’s is already set up this way! The name of our data-frame is <code>all_data</code>. We add that in, and it looks like:</p>
+<p><code>aov(Days_One_to_Seven_Number_of_Intrusions ~ Condition, all_data)</code></p>
+<p>In English, this means, do an ANOVA on the dependent variable as a function of the independent variable, and use the data in my data frame.</p>
+<p>This is it for now. The <code>aov</code> function is very flexible because you can define different kinds of formulas (the <code>DV ~ IV</code> part). We’ll see other examples in later chapters. For now, this is all we need. Also, what’s cool, is that this will work for any single IV with any number of levels (conditions) 2 or greater. Fun. Let’s see it in action.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="lab-8-one-way-anova.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, all_data)</span></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = Days_One_to_Seven_Number_of_Intrusions ~ Condition, 
+##     data = all_data)
+## 
+## Terms:
+##                 Condition Residuals
+## Sum of Squares   114.8194  685.8333
+## Deg. of Freedom         3        68
+## 
+## Residual standard error: 3.175812
+## Estimated effects may be unbalanced</code></pre>
+<p>What is this garbage? I don’t see an ANOVA table, what is this? You are seeing the raw print out of the aov function. Clearly, this is not helpful, it’s not what we want to see.</p>
+<p>Fortunately, R comes with another function called <code>summary</code>. What it does is summarize the results of functions like <code>aov</code>, and prints them out in a nicer way. Let’s see the summary function do it’s thing:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="lab-8-one-way-anova.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, all_data))</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## Condition    3  114.8   38.27   3.795 0.0141 *
+## Residuals   68  685.8   10.09                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Alright, now we have an ANOVA table we can look at. However, it still looks ugly, at least to me. When you are working inside an R Markdown document, you have some more options to make it look nice. We can use the <code>kable</code> and <code>xtable</code> function together, like this.</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="lab-8-one-way-anova.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)</span>
+<span id="cb245-2"><a href="lab-8-one-way-anova.html#cb245-2" aria-hidden="true" tabindex="-1"></a>aov_out<span class="ot">&lt;-</span><span class="fu">aov</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, all_data)</span>
+<span id="cb245-3"><a href="lab-8-one-way-anova.html#cb245-3" aria-hidden="true" tabindex="-1"></a>summary_out<span class="ot">&lt;-</span><span class="fu">summary</span>(aov_out)</span>
+<span id="cb245-4"><a href="lab-8-one-way-anova.html#cb245-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-5"><a href="lab-8-one-way-anova.html#cb245-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">xtable</span>(summary_out))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Condition</td>
+<td align="right">3</td>
+<td align="right">114.8194</td>
+<td align="right">38.27315</td>
+<td align="right">3.794762</td>
+<td align="right">0.0140858</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">68</td>
+<td align="right">685.8333</td>
+<td align="right">10.08578</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p>Now we see a nicer print out. Especially if we <code>knit</code> the document into a webpage.</p>
+</div>
+<div id="reporting-the-anova-results" class="section level3 hasAnchor" number="8.4.6">
+<h3><span class="header-section-number">8.4.6</span> Reporting the ANOVA results<a href="lab-8-one-way-anova.html#reporting-the-anova-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Refer tot the textbook on ANOVAs for a deeper discussion of all the things in the ANOVA table. We’ll remind about some of those things here.</p>
+<p>First, let’s look at how we might report the results. There are three very important parts to this.</p>
+<ol style="list-style-type: decimal">
+<li>Saying what test you did to what data</li>
+<li>Reporting the inferential statistics</li>
+<li>Reporting the pattern in the means</li>
+</ol>
+<p>Here is part 1, we need to say what data we used, and what kind of test we used on that data:</p>
+<blockquote>
+<p>We submitted the mean intrusive memories for the week from each subject in each condition to a one-factor betwee-subjects ANOVA, with Intervention type (No-task control, Reactivation Plus tetris, Tetris only, Reactivation only) as the sole independent variable.</p>
+</blockquote>
+<p>Part 2 is saying what the results of the test were. Specifically, we report the values from the inferential test (see the textbook for why these values). Also, you should be able to answer this question: why do we report the values that we do?</p>
+<blockquote>
+<p>We found a main effect of Intervention type, F(3, 68) = 3.79, MSE = 10.09, p = 0.014.</p>
+</blockquote>
+<p>Part 3 is saying what the pattern was in the means. Remember, that in the ANOVA, a significant effect refers to the global variation among the means. In other words, we can say that there are some differences between the means, but we can’t specifically say which pairs of means are different, or which groups of means are different from one another. How can we report this, where are the means? In fact, we already found them when we plotted the data earlier. So, we can copy paste that code, and print out the means, rather than the figure:</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="lab-8-one-way-anova.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get means and SEs</span></span>
+<span id="cb246-2"><a href="lab-8-one-way-anova.html#cb246-2" aria-hidden="true" tabindex="-1"></a>descriptive_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb246-3"><a href="lab-8-one-way-anova.html#cb246-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span> </span>
+<span id="cb246-4"><a href="lab-8-one-way-anova.html#cb246-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">summarise</span>(<span class="at">means=</span> <span class="fu">mean</span>(Days_One_to_Seven_Number_of_Intrusions),</span>
+<span id="cb246-5"><a href="lab-8-one-way-anova.html#cb246-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">SEs =</span> <span class="fu">sd</span>(Days_One_to_Seven_Number_of_Intrusions)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(Days_One_to_Seven_Number_of_Intrusions)))</span>
+<span id="cb246-6"><a href="lab-8-one-way-anova.html#cb246-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-7"><a href="lab-8-one-way-anova.html#cb246-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(descriptive_df)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Condition</th>
+<th align="right">means</th>
+<th align="right">SEs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Control</td>
+<td align="right">5.111111</td>
+<td align="right">0.9963623</td>
+</tr>
+<tr class="even">
+<td align="left">Reactivation+Tetris</td>
+<td align="right">1.888889</td>
+<td align="right">0.4113495</td>
+</tr>
+<tr class="odd">
+<td align="left">Tetris_only</td>
+<td align="right">3.888889</td>
+<td align="right">0.6806806</td>
+</tr>
+<tr class="even">
+<td align="left">Reactivation_only</td>
+<td align="right">4.833333</td>
+<td align="right">0.7848650</td>
+</tr>
+</tbody>
+</table>
+<p>No we have to use a sentence to describe these means.</p>
+<blockquote>
+<p>Refer to table 1 for the means and standard errors of the mean in each condition</p>
+</blockquote>
+<p>or,</p>
+<blockquote>
+<p>Mean intrusive memories per week were 5.11 (SE = .99); 1.89 (SE = .41); 3.89 (SE = .68); and 4.83 (SE= .78), in the Control, Reaction plus Tetris, Tetris Only, and Reactivation only conditions, respectively</p>
+</blockquote>
+<p>Ugh, what a mouthful. Be mindful of how you write results. The above is not helpful because you see a list of numbers, and then a list of conditions, and the reader has to do a lot of work to keep everything straight. I like the table option.</p>
+<p>I also like this other kind of option:</p>
+<blockquote>
+<p>Mean intrusive memories were significantly different between the Control (M = 5.11, SE = .99), Reactivation plus Tetris (M = 3.89, SE = .68), Tetris only (M= 3.89, SE = .68), and Reactivation only (M = 4.83, .78) conditions.</p>
+</blockquote>
+<p>That’s a little bit better. Let’s put it all in one place to see what it look like:</p>
+<blockquote>
+<p>We submitted the mean intrusive memories for the week from each subject in each condition to a one-factor betwee-subjects ANOVA, with Intervention type (No-task control, Reactivation Plus tetris, Tetris only, Reactivation only) as the sole independent variable. We found a main effect of Intervention type, F(3, 68) = 3.79, MSE = 10.09, p = 0.014. Mean intrusive memories were significantly different between the Control (M = 5.11, SE = .99), Reactivation plus Tetris (M = 3.89, SE = .68), Tetris only (M= 3.89, SE = .68), and Reactivation only (M = 4.83, .78) conditions.</p>
+</blockquote>
+</div>
+<div id="individual-comparisons" class="section level3 hasAnchor" number="8.4.7">
+<h3><span class="header-section-number">8.4.7</span> Individual comparisons<a href="lab-8-one-way-anova.html#individual-comparisons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This next part is complicated, so we intentionally simplify it. There are these things (remember from the textbook), called comparisons. We use them to compare differences between specific conditions of interest. That part isn’t very complicated. You just pick the things you want to compare, and compare them.</p>
+<p>What is complicated is exactly what you “should” do to make the comparison. It turns out there are lots of recommendations and disagreements about what you should do. There are also lots of tests that you can do, so you have a lot of options. We are not going to show you here all of the tests. This is beyond the scope of what we are trying to teach you. Instead, we will use tests that you already know, the t-test for independent samples from the last lab. It will do the job for this data.</p>
+<p>We think that before you can make good decisions about the kind of comparison test you want to use, you have to have a solid understanding of <strong>what you are comparing</strong> and <strong>what you are not comparing</strong> when you use different tests. We think this understanding is more important than what test you use. More important, is that you know what means you want to compare. In this case, we will talk about what means we want to compare, and then just do a t-test.</p>
+<div id="what-did-the-anova-tell-us" class="section level4 hasAnchor" number="8.4.7.1">
+<h4><span class="header-section-number">8.4.7.1</span> What did the ANOVA tell us<a href="lab-8-one-way-anova.html#what-did-the-anova-tell-us" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Remember, the ANOVA we conducted is termed the <strong>omnibus</strong> test in the textbook. What means was it comparing? It wasn’t comparing specific means. It was asking a kind of blind and very general question: Are any of these means different. Our answer was yes. Our next question is: What means were different from what other means? The ANOVA doesn’t know the answer to this question. It just says I don’t know…</p>
+</div>
+<div id="comparing-specific-means-and-the-experimental-question" class="section level4 hasAnchor" number="8.4.7.2">
+<h4><span class="header-section-number">8.4.7.2</span> Comparing specific means and the experimental question<a href="lab-8-one-way-anova.html#comparing-specific-means-and-the-experimental-question" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Notice there are 4 means to compare. So, there are (4-1)! = 3! = 3x2x1 = 6 total different comparisons. The ! stands for factorial. What’s more important is recognizing that when you have more than two conditions (where you can only make one comparison, A vs. B), you get increasingly more comparisons. For four conditions, A, B, C, D, you get six comparisons, they are:</p>
+<p><code>AB, AC, AD, BC, BD, and CD</code> where each letter pair refers to A compared to B (AB), A compared to C (AC), and so on.</p>
+<p>Do we actually care about all of these comparisons? Perhaps. What was the point of the experiment? Remember, the experiment was asking a questions, that’s why they set-up the condition necessary to produce these means. What question were they asking? What did they want to know?</p>
+<p>They wanted to find out if various interventions after watching the scary movie, would change how many bad intrusive memories people would experience in the week following the movie. They discuss the idea that a memory can become malleable when it is re-activated. They want to “Re-activate” the bad memories, and then while they were changeable, do something to them to make them less likely to be intrusive later on. The big idea was that doing a bit of “re-activation” AND then playing Tetris (which takes up visual cognitive bandwidth) could cause changes to the re-activated memories, that would decrease the number of intrusive memories later on. With that reminder, let’s go through some different comparisons that we can make, and talk about what they might mean.</p>
+</div>
+<div id="control-vs.-reactivation_only" class="section level4 hasAnchor" number="8.4.7.3">
+<h4><span class="header-section-number">8.4.7.3</span> Control vs. Reactivation_only<a href="lab-8-one-way-anova.html#control-vs.-reactivation_only" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There was a control group that did not do anything special after watching the traumatic movie. The mean number of intrusive memories for the control group, gives some idea of the amount of intrusive memories we would expect to measure, when you do nothing to change that number.</p>
+<p>Comparing to the control group is a very sensible thing do to for each of the other groups. If one of the manipulations worked, it should show a different mean (something changed) than the control group.</p>
+<p>So, did the Reaction_only group have less intrusive memories over the control group? First we use the <code>filter</code> function from <code>dplyr</code> to select only the rows from the data frame that have the Control and Reactivation_only conditions. Then we run a t-test</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="lab-8-one-way-anova.html#cb247-1" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb247-2"><a href="lab-8-one-way-anova.html#cb247-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Control&#39;</span>,<span class="st">&#39;Reactivation_only&#39;</span>)<span class="sc">==</span><span class="cn">TRUE</span>)</span>
+<span id="cb247-3"><a href="lab-8-one-way-anova.html#cb247-3" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb247-4"><a href="lab-8-one-way-anova.html#cb247-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb247-5"><a href="lab-8-one-way-anova.html#cb247-5" aria-hidden="true" tabindex="-1"></a>       comparison_df,</span>
+<span id="cb247-6"><a href="lab-8-one-way-anova.html#cb247-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  Days_One_to_Seven_Number_of_Intrusions by Condition
+## t = 0.219, df = 34, p-value = 0.828
+## alternative hypothesis: true difference in means between group Control and group Reactivation_only is not equal to 0
+## 95 percent confidence interval:
+##  -2.299851  2.855406
+## sample estimates:
+##           mean in group Control mean in group Reactivation_only 
+##                        5.111111                        4.833333</code></pre>
+<p>The means are both basically 5, not a big difference!. The p-value is large, suggesting that change could easily have produced the tiny differences between the means. In other words, it doesn’t look like the “re-activation” phase did anything to suppress the amount of intrusive memories that people would have over one week, compared to control.</p>
+<p>Notice, this was a comparison we could make. But, was it an informative one about the goal of the study? Not really.</p>
+</div>
+<div id="control-vs.-reactivationtetris" class="section level4 hasAnchor" number="8.4.7.4">
+<h4><span class="header-section-number">8.4.7.4</span> Control vs. Reactivation+Tetris<a href="lab-8-one-way-anova.html#control-vs.-reactivationtetris" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>What we really want to know is if Reactivation+Tetris cause fewer intrusive memories…but compared to what? Well, if it did something, it should have a smaller mean than the Control group. So, let’s do that comparison:</p>
+<p>Note: we just change the one level name to the level we want <code>Reactivation+Tetris</code>.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="lab-8-one-way-anova.html#cb249-1" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb249-2"><a href="lab-8-one-way-anova.html#cb249-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Control&#39;</span>,<span class="st">&#39;Reactivation+Tetris&#39;</span>)<span class="sc">==</span><span class="cn">TRUE</span>)</span>
+<span id="cb249-3"><a href="lab-8-one-way-anova.html#cb249-3" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb249-4"><a href="lab-8-one-way-anova.html#cb249-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb249-5"><a href="lab-8-one-way-anova.html#cb249-5" aria-hidden="true" tabindex="-1"></a>       comparison_df,</span>
+<span id="cb249-6"><a href="lab-8-one-way-anova.html#cb249-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  Days_One_to_Seven_Number_of_Intrusions by Condition
+## t = 2.9893, df = 34, p-value = 0.005167
+## alternative hypothesis: true difference in means between group Control and group Reactivation+Tetris is not equal to 0
+## 95 percent confidence interval:
+##  1.031592 5.412852
+## sample estimates:
+##             mean in group Control mean in group Reactivation+Tetris 
+##                          5.111111                          1.888889</code></pre>
+<p>There is a bigger difference now, roughly 5.1 intrusive memories for control, and 1.9 for Reactivation+Tetris. The p-value is quite small, indicating this difference was not likely produced by chance. Now, we have some evidence that Reactivation+Tetris caused something to change, that condition produced fewer intrusive memories than control.</p>
+</div>
+<div id="control-vs.-tetris_only" class="section level4 hasAnchor" number="8.4.7.5">
+<h4><span class="header-section-number">8.4.7.5</span> Control vs. Tetris_only<a href="lab-8-one-way-anova.html#control-vs.-tetris_only" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now we can really start wondering what caused the difference. Was it just playing Tetris? It wasn’t just doing the reactivation, we already found out that didn’t do anything. Does just playing Tetris reduce the number of intrusive memories during the week? Let’s compare that to control:</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="lab-8-one-way-anova.html#cb251-1" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb251-2"><a href="lab-8-one-way-anova.html#cb251-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Control&#39;</span>,<span class="st">&#39;Tetris_only&#39;</span>)<span class="sc">==</span><span class="cn">TRUE</span>)</span>
+<span id="cb251-3"><a href="lab-8-one-way-anova.html#cb251-3" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb251-4"><a href="lab-8-one-way-anova.html#cb251-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb251-5"><a href="lab-8-one-way-anova.html#cb251-5" aria-hidden="true" tabindex="-1"></a>       comparison_df,</span>
+<span id="cb251-6"><a href="lab-8-one-way-anova.html#cb251-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  Days_One_to_Seven_Number_of_Intrusions by Condition
+## t = 1.0129, df = 34, p-value = 0.3183
+## alternative hypothesis: true difference in means between group Control and group Tetris_only is not equal to 0
+## 95 percent confidence interval:
+##  -1.230036  3.674480
+## sample estimates:
+##     mean in group Control mean in group Tetris_only 
+##                  5.111111                  3.888889</code></pre>
+<p>There’s mean difference of about 1, but the p-value isn’t very small. This suggests chance produces a difference of this size fairly often. If we claimed that just playing Tetris caused a difference based on this data, we could easily be making a type I error (claiming the result is real when it is not, a false-positive). Still, the difference was in the right direction wasn’t it.</p>
+</div>
+<div id="tetris_only-vs.-reactivation-tetris" class="section level4 hasAnchor" number="8.4.7.6">
+<h4><span class="header-section-number">8.4.7.6</span> Tetris_only vs. Reactivation + Tetris<a href="lab-8-one-way-anova.html#tetris_only-vs.-reactivation-tetris" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, we might ask if the Reactivation+Tetris group had fewer unwanted memories than the Tetris_only group. Did putting the two things together (reactivation AND Tetris) really do something special here, beyond just playing Tetris.</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="lab-8-one-way-anova.html#cb253-1" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb253-2"><a href="lab-8-one-way-anova.html#cb253-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Tetris_only&#39;</span>,<span class="st">&#39;Reactivation+Tetris&#39;</span>)<span class="sc">==</span><span class="cn">TRUE</span>)</span>
+<span id="cb253-3"><a href="lab-8-one-way-anova.html#cb253-3" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb253-4"><a href="lab-8-one-way-anova.html#cb253-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb253-5"><a href="lab-8-one-way-anova.html#cb253-5" aria-hidden="true" tabindex="-1"></a>       comparison_df,</span>
+<span id="cb253-6"><a href="lab-8-one-way-anova.html#cb253-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  Days_One_to_Seven_Number_of_Intrusions by Condition
+## t = -2.5147, df = 34, p-value = 0.01681
+## alternative hypothesis: true difference in means between group Reactivation+Tetris and group Tetris_only is not equal to 0
+## 95 percent confidence interval:
+##  -3.6162855 -0.3837145
+## sample estimates:
+## mean in group Reactivation+Tetris         mean in group Tetris_only 
+##                          1.888889                          3.888889</code></pre>
+<p>Well, according to the t-test, the p-value is again fairly small. Suggesting that the difference between Reactivation+Tetris (M=1.89) and Tetris_only (3.89), was not likely to be produced by chance. So, on the basis of this, there is some evidence that Reactivation+Tetris, really does cause fewer intrusive memories.</p>
+</div>
+</div>
+<div id="writing-it-all-up." class="section level3 hasAnchor" number="8.4.8">
+<h3><span class="header-section-number">8.4.8</span> Writing it all up.<a href="lab-8-one-way-anova.html#writing-it-all-up." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Because we have spent so much time on individual comparisons, we won’t do a full write up of the results. A full write-up would include telling the reader what data was used, what test was conducted, the results of the test, and the pattern of the means, AND then, the results of specific comparisons of interest. You can read the paper to see how the authors did it.</p>
+</div>
+<div id="food-for-thought" class="section level3 hasAnchor" number="8.4.9">
+<h3><span class="header-section-number">8.4.9</span> Food for thought<a href="lab-8-one-way-anova.html#food-for-thought" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Think about what we did here. We almost blindly just downloaded the data and ran the same analysis as the authors did. Sure, we looked at the data first, and then did the analysis. But, did we really look? Did you notice anything about what you looked at? What did we not look closely at that might make you skeptical of the conclusions from the research…</p>
+<p>Here’s a hint. Sample-size. We know that is important. Let’s ask the question, was there an equal number of participants in each of the 4 conditions. We can use <code>dplyr</code> again to do this. We’ll add the <code>length</code> function, which counts the number of subjects in each condition:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="lab-8-one-way-anova.html#cb255-1" aria-hidden="true" tabindex="-1"></a>descriptive_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb255-2"><a href="lab-8-one-way-anova.html#cb255-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span> </span>
+<span id="cb255-3"><a href="lab-8-one-way-anova.html#cb255-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">summarise</span>(<span class="at">means=</span> <span class="fu">mean</span>(Days_One_to_Seven_Number_of_Intrusions),</span>
+<span id="cb255-4"><a href="lab-8-one-way-anova.html#cb255-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">SEs =</span> <span class="fu">sd</span>(Days_One_to_Seven_Number_of_Intrusions)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(Days_One_to_Seven_Number_of_Intrusions)),</span>
+<span id="cb255-5"><a href="lab-8-one-way-anova.html#cb255-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">count =</span> <span class="fu">length</span>(Days_One_to_Seven_Number_of_Intrusions))</span>
+<span id="cb255-6"><a href="lab-8-one-way-anova.html#cb255-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb255-7"><a href="lab-8-one-way-anova.html#cb255-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(descriptive_df)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Condition</th>
+<th align="right">means</th>
+<th align="right">SEs</th>
+<th align="right">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Control</td>
+<td align="right">5.111111</td>
+<td align="right">0.9963623</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Reactivation+Tetris</td>
+<td align="right">1.888889</td>
+<td align="right">0.4113495</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">Tetris_only</td>
+<td align="right">3.888889</td>
+<td align="right">0.6806806</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Reactivation_only</td>
+<td align="right">4.833333</td>
+<td align="right">0.7848650</td>
+<td align="right">18</td>
+</tr>
+</tbody>
+</table>
+<p>The answer is YES, there were an equal number of subjects. That’s good. We should have checked that before. Lesson for next time. For example, if there were only 9 subjects in the Reactivation+Tetris group, we might be suspicious that they got lucky, and accidentally (by chance) assigned people to that group who are unlikely to report having intrusive memories. After all, different people are different, and not everybody is as susceptible to intrusive memories.</p>
+<p>Let’s do one more thing for fun, and to see everything in action all in one place. Let’s consider the role of outliers. Looking at the first graph we can see that most people in all the groups had fewer than 10 intrusive memories (mean we assume) per week. It looks like 5 people had more than that, and they just happened to be in the other groups. Maybe Reactivation+Tetris made those people have way less intrusive memories (which is why no one is above 10), or maybe the researchers got a little bit unlucky, and accidentally didn’t get any “outliers” (people with extreme values on the measure) in that group.</p>
+<p>Let’s re-run the analysis, but remove anybody with a mean higher than 10. This will only remove 5 subjects, so we will still have a lot left. What happens?</p>
+<p>Before we find out, let me point out again the beauty of R. All we need to do is copy and paste our previous code. Then, just filter the data once to remove the outliers, then voila, we redo everything all in one go. It’s much more complicated and time consuming to do this in many other software programs. You are lucky to be learning R.</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="lab-8-one-way-anova.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get rid out of outliers</span></span>
+<span id="cb256-2"><a href="lab-8-one-way-anova.html#cb256-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-3"><a href="lab-8-one-way-anova.html#cb256-3" aria-hidden="true" tabindex="-1"></a>all_data  <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span></span>
+<span id="cb256-4"><a href="lab-8-one-way-anova.html#cb256-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">filter</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">&lt;</span> <span class="dv">10</span>)</span>
+<span id="cb256-5"><a href="lab-8-one-way-anova.html#cb256-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-6"><a href="lab-8-one-way-anova.html#cb256-6" aria-hidden="true" tabindex="-1"></a><span class="co"># get means and SEs</span></span>
+<span id="cb256-7"><a href="lab-8-one-way-anova.html#cb256-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-8"><a href="lab-8-one-way-anova.html#cb256-8" aria-hidden="true" tabindex="-1"></a>descriptive_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb256-9"><a href="lab-8-one-way-anova.html#cb256-9" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span> </span>
+<span id="cb256-10"><a href="lab-8-one-way-anova.html#cb256-10" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">summarise</span>(<span class="at">means=</span> <span class="fu">mean</span>(Days_One_to_Seven_Number_of_Intrusions),</span>
+<span id="cb256-11"><a href="lab-8-one-way-anova.html#cb256-11" aria-hidden="true" tabindex="-1"></a>                              <span class="at">SEs =</span> <span class="fu">sd</span>(Days_One_to_Seven_Number_of_Intrusions)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(Days_One_to_Seven_Number_of_Intrusions)))</span>
+<span id="cb256-12"><a href="lab-8-one-way-anova.html#cb256-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-13"><a href="lab-8-one-way-anova.html#cb256-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the plot</span></span>
+<span id="cb256-14"><a href="lab-8-one-way-anova.html#cb256-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-15"><a href="lab-8-one-way-anova.html#cb256-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(descriptive_df, <span class="fu">aes</span>(<span class="at">x=</span>Condition, <span class="at">y=</span>means))<span class="sc">+</span> </span>
+<span id="cb256-16"><a href="lab-8-one-way-anova.html#cb256-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Condition))<span class="sc">+</span> <span class="co"># add means</span></span>
+<span id="cb256-17"><a href="lab-8-one-way-anova.html#cb256-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>means<span class="sc">-</span>SEs,               <span class="co"># add error bars</span></span>
+<span id="cb256-18"><a href="lab-8-one-way-anova.html#cb256-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>means<span class="sc">+</span>SEs), <span class="at">width=</span>.<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb256-19"><a href="lab-8-one-way-anova.html#cb256-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>all_data, <span class="fu">aes</span>(<span class="at">x=</span>Condition, <span class="at">y=</span>Days_One_to_Seven_Number_of_Intrusions), <span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
+<span id="cb256-20"><a href="lab-8-one-way-anova.html#cb256-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">25</span>)<span class="sc">+</span></span>
+<span id="cb256-21"><a href="lab-8-one-way-anova.html#cb256-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Intrusive Memories (Mean for Week)&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics_Lab_files/figure-html/unnamed-chunk-239-1.png" width="672" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="lab-8-one-way-anova.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run and report the ANOVA</span></span>
+<span id="cb257-2"><a href="lab-8-one-way-anova.html#cb257-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb257-3"><a href="lab-8-one-way-anova.html#cb257-3" aria-hidden="true" tabindex="-1"></a>aov_out<span class="ot">&lt;-</span><span class="fu">aov</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, all_data)</span>
+<span id="cb257-4"><a href="lab-8-one-way-anova.html#cb257-4" aria-hidden="true" tabindex="-1"></a>summary_out<span class="ot">&lt;-</span><span class="fu">summary</span>(aov_out)</span>
+<span id="cb257-5"><a href="lab-8-one-way-anova.html#cb257-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb257-6"><a href="lab-8-one-way-anova.html#cb257-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">xtable</span>(summary_out))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Condition</td>
+<td align="right">3</td>
+<td align="right">51.49152</td>
+<td align="right">17.163841</td>
+<td align="right">4.024458</td>
+<td align="right">0.0110347</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">63</td>
+<td align="right">268.68758</td>
+<td align="right">4.264882</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="lab-8-one-way-anova.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># conduct critical comparisons</span></span>
+<span id="cb258-2"><a href="lab-8-one-way-anova.html#cb258-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb258-3"><a href="lab-8-one-way-anova.html#cb258-3" aria-hidden="true" tabindex="-1"></a><span class="do">## control vs reactivation+Tetris</span></span>
+<span id="cb258-4"><a href="lab-8-one-way-anova.html#cb258-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb258-5"><a href="lab-8-one-way-anova.html#cb258-5" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb258-6"><a href="lab-8-one-way-anova.html#cb258-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Control&#39;</span>,<span class="st">&#39;Reactivation+Tetris&#39;</span>)<span class="sc">==</span><span class="cn">TRUE</span>)</span>
+<span id="cb258-7"><a href="lab-8-one-way-anova.html#cb258-7" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb258-8"><a href="lab-8-one-way-anova.html#cb258-8" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb258-9"><a href="lab-8-one-way-anova.html#cb258-9" aria-hidden="true" tabindex="-1"></a>       comparison_df,</span>
+<span id="cb258-10"><a href="lab-8-one-way-anova.html#cb258-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  Days_One_to_Seven_Number_of_Intrusions by Condition
+## t = 2.4159, df = 31, p-value = 0.02178
+## alternative hypothesis: true difference in means between group Control and group Reactivation+Tetris is not equal to 0
+## 95 percent confidence interval:
+##  0.2562181 3.0326708
+## sample estimates:
+##             mean in group Control mean in group Reactivation+Tetris 
+##                          3.533333                          1.888889</code></pre>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="lab-8-one-way-anova.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Tetris_only vs reactivation+Tetris</span></span>
+<span id="cb260-2"><a href="lab-8-one-way-anova.html#cb260-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb260-3"><a href="lab-8-one-way-anova.html#cb260-3" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span> </span>
+<span id="cb260-4"><a href="lab-8-one-way-anova.html#cb260-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Tetris_only&#39;</span>,<span class="st">&#39;Reactivation+Tetris&#39;</span>)<span class="sc">==</span><span class="cn">TRUE</span>)</span>
+<span id="cb260-5"><a href="lab-8-one-way-anova.html#cb260-5" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb260-6"><a href="lab-8-one-way-anova.html#cb260-6" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Days_One_to_Seven_Number_of_Intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb260-7"><a href="lab-8-one-way-anova.html#cb260-7" aria-hidden="true" tabindex="-1"></a>       comparison_df,</span>
+<span id="cb260-8"><a href="lab-8-one-way-anova.html#cb260-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  Days_One_to_Seven_Number_of_Intrusions by Condition
+## t = -2.3239, df = 33, p-value = 0.02643
+## alternative hypothesis: true difference in means between group Reactivation+Tetris and group Tetris_only is not equal to 0
+## 95 percent confidence interval:
+##  -2.8561054 -0.1896463
+## sample estimates:
+## mean in group Reactivation+Tetris         mean in group Tetris_only 
+##                          1.888889                          3.411765</code></pre>
+<p>The take home is that yes, even after removing outliers, the same basic pattern in the data is observed. Overall, this is a small n study, and ideally the basic findings should be replicated in another lab before we really have full confidence in them. But, I’d say the trends here look promising.</p>
+<p>That’s ANOVA. Come back next week for another ANOVA tutorial, this time using within-subject data. It’s called a repeated measures ANOVA, and it’s what’s happening next week.</p>
+</div>
+<div id="generalization-exercise-7" class="section level3 hasAnchor" number="8.4.10">
+<h3><span class="header-section-number">8.4.10</span> Generalization Exercise<a href="lab-8-one-way-anova.html#generalization-exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Your task is to conduct the ANOVA using <code>Day_Zero_Number_of_Intrusions</code> as the dependent variable. Report the ANOVA table, a figure to show the means, and a short write-up of the results.</p>
+</div>
+<div id="writing-assignment-7" class="section level3 hasAnchor" number="8.4.11">
+<h3><span class="header-section-number">8.4.11</span> Writing assignment<a href="lab-8-one-way-anova.html#writing-assignment-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>(2 points - Graded)</p>
+<p>Answer the following questions:</p>
+<ol style="list-style-type: decimal">
+<li><p>Explain why the ANOVA is called an omnibus test, and how the omnibus test is different from comparing specific means with t-tests. (1 point)</p></li>
+<li><p>Explain the general similarity between the ratios that are used to calculate the F value and the t-value (1 point)</p></li>
+</ol>
+<p>General grading.</p>
+<ul>
+<li>You will receive 0 points for missing answers</li>
+<li>You must write in complete sentences. Point form sentences will be given 0 points.</li>
+<li>Completely incorrect answers will receive 0 points.</li>
+<li>If your answer is generally correct but very difficult to understand and unclear you may receive half points for the question</li>
+</ul>
+</div>
+</div>
+<div id="excel-8" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Excel<a href="lab-8-one-way-anova.html#excel-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How to do it in Excel</p>
+</div>
+<div id="spss-8" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> SPSS<a href="lab-8-one-way-anova.html#spss-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this lab, we will use SPSS to:</p>
+<ol style="list-style-type: decimal">
+<li>Perform a One-Factor Analysis of Variance (ANOVA) and Graphing the data</li>
+<li>Planned comparisons: Use t-tests to locate differences</li>
+<li>Unplanned comparisons: Use a post-hoc test to locate differences</li>
+</ol>
+<div id="experiment-background-3" class="section level3 hasAnchor" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Experiment Background<a href="lab-8-one-way-anova.html#experiment-background-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>As described at the beginning of this lab manual section, researchers in the James et al. (2015) study sought to explore whether completing a visuospatial task (e.g., Tetris) after a memory was formed would interfere with the storage of that memory, and thereby reduce the frequency of subsequent intrusions. They hypothesized that only participants who complete a visuo-spatial task after reactivation of the traumatic memories would experience a reduction in intrusive memories. In comparison, simply completing a visuo-spatial task (without reactivation) or reactivation (without a visuo-spatial task), would not reduce the occurrence intrusive memories.In other words, if you play Tetris shortly after you were remembering bad memories, you will experience intrusive memories less often in the future.</p>
+<p>The authors conducted an experiment ( N = 72, n = 18 per condition) wherein all participants viewed a series of video clips of graphic violence (e.g., a person getting hit by a van while using his phone as he crosses the road). Pver the next 24 hours, participants recorded their intrusive memories. All groups were predicted to have an equal occurrence of intrusive memories during this pre-manipulation period (called Day 0).</p>
+<p>Experimental Task: After this 24-hour period, the participants returned to the lab and completed the experimental task. The experimenters randomly assigned participants to ONE of the following conditions:</p>
+<ol style="list-style-type: decimal">
+<li>No-task control: These participants completed a 10-minute music filler task.</li>
+<li>Reactivation + Tetris: These participants were shown a series of images from the trauma film to reactivate the traumatic memories (i.e., reactivation task). After a 10-minute music filler task, participants played the video game Tetris for 12 minutes.</li>
+<li>Tetris Only: These participants played Tetris for 12 minutes, but did not complete the reactivation task.</li>
+<li>Reactivation Only: These participants completed the reactivation task, but did not play Tetris.</li>
+</ol>
+<p>Dependent variable: Intrusive Memories: All participants were asked to record the number of intrusive memories that they experienced over the next seven days (Days 1 to 7).</p>
+</div>
+<div id="performing-a-one-factor-analysis-of-variance-anova-graphing-the-data" class="section level3 hasAnchor" number="8.6.2">
+<h3><span class="header-section-number">8.6.2</span> Performing a One-Factor Analysis of Variance (ANOVA) &amp; Graphing the data<a href="lab-8-one-way-anova.html#performing-a-one-factor-analysis-of-variance-anova-graphing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>First, let’s open the relevant data file; <a href="https://github.com/CrumpLab/statisticsLab/blob/master/data/spssdata/James2015_Experiment2.sav">Here</a> is the link. It’s called “James2015_Experiment2.sav” Open this file in SPSS. Your data should look like this:</p>
+<p><img src="img/8.4.11.png" /><!-- --></p>
+<p>In this experiment, there was one important independent variable, called <code>condition</code>, and it has four levels. The levels are 1, 2, 3, and 4 in the spreadsheet. These will correspond to the four levels in shown below:</p>
+<ol style="list-style-type: decimal">
+<li>No-task control</li>
+<li>Reactivation Plus Tetris</li>
+<li>Tetris only</li>
+<li>Reactivation only</li>
+</ol>
+<p>The dependent variable is coded in the column <code>Days_One_to_Seven_Number_of_Intrusions</code>. This represents the mean number of intrusions for that week. We are testing the hypothesis that the number of intrusive memories will be different among the groups (1-4). For now, we will not specify which group we think is going to have the highest or lowest number of memories, but rather we will test if there is a difference SOMEWHERE between these 4 groups.</p>
+<p>Let’s begin. Go to <span style="color:blue">Analyze</span>, then <span style="color:blue">Compare Means</span>, then select <span style="color:blue">One-Way ANOVA…</span></p>
+<p><img src="img/8.4.12.png" /><!-- --></p>
+<p>The next window will ask you to specify the dependent variable (move the variable <code>Days_One_to_Seven_Number_of_Intrusions</code> from the list on the left to the field labeled Dependent Variable) and the “Factor”“, which is the same thing as the independent variable or grouping variable (remember back to t-tests!). Move the variable <code>Condition</code> from the list into the field labeled”Factor”. Your window should look like this:</p>
+<p><img src="img/8.4.13.png" /><!-- --></p>
+<p>Now, click the <span style="color:blue">Options</span> button, and then choose <span style="color:blue">Means plot</span>.</p>
+<p><img src="img/8.4.14.png" /><!-- --></p>
+<p>Then, click <span style="color:blue">Continue</span> and <span style="color:blue">OK</span>.</p>
+<p>SPSS will produce an output window containing the results of the ANOVA (an ANOVA table), as well as a graph of the group means. It should look as follows:</p>
+<p><img src="img/8.4.15.png" /><!-- --></p>
+<p>First, let’s look at our ANOVA table: We see our F-statistic listed is 3.795, with a p-value o .014. This tests the null hypothesis that there is no difference among the groups. Since p is less than our likely alpha level (.05), we can reject the null hypothesis and conclude that there IS a difference somewhere among these groups. We may say it more formally as follows:</p>
+<p>The effect of condition on mean intrusive memories over days 1-7 was significant, F(3, 68)=3.795, p&lt;.05.</p>
+<p>To examine the data further, let’s refer to the graph created by SPSS: we can see that the Reactivation + Tetris condition appears to have the smallest mean. As for the others, they are all greater than Reactivation + Tetris, but differ somewhat from each other as well. It is important to know that at this point, we do not know where the significant differences could be. For example, it could be that only Reactivation + Tetris is different from No-Task Control, or it could be that there are other groups different from one another as well. In order to locate where the differences are, we must conduct additional analyses called either planned or unplanned comparisons.</p>
+</div>
+<div id="planned-comparisons-t-tests" class="section level3 hasAnchor" number="8.6.3">
+<h3><span class="header-section-number">8.6.3</span> Planned Comparisons: T-tests<a href="lab-8-one-way-anova.html#planned-comparisons-t-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>To find out where the differences are, one approach is to conduct as many t-tests as 2-group comparisons (also called pairwise comparisons) you can make out of your groups. That is, if you have 4 groups like we do, we can make the following pairwise comparisons:</p>
+<ol style="list-style-type: decimal">
+<li>groups 1 vs. 2</li>
+<li>groups 1 vs. 3</li>
+<li>groups 1 vs. 4</li>
+<li>groups 2 vs. 3</li>
+<li>groups 2 vs. 4</li>
+<li>groups 3 vs. 4</li>
+</ol>
+<p>For each of these, we can run a separate independent-samples t-test. Let’s start with the first comparison (Groups 1 and 2). Go to <span style="color:blue">Analyze</span>, then <span style="color:blue">Compare Means</span>, then <span style="color:blue">Independent-Samples t-test…</span></p>
+<p><img src="img/8.4.16.png" /><!-- --></p>
+<p>Let’s place our dependent variable (<code>Days_One_to_Seven_Number_of_Intrusions</code>) in its appropriate field. Then, place <code>Condition</code> into the Factor field.</p>
+<p><img src="img/8.4.17.png" /><!-- --></p>
+<p>Remember here that we have to click <span style="color:blue">Define Groups</span> to specify which groups we are comparing. Let’s put 1 and 2 in the fields from Group 1 and Group 2, as follows:</p>
+<p><img src="img/8.4.18.png" /><!-- --></p>
+<p>Click <span style="color:blue">Continue</span> and then <span style="color:blue">OK</span>. SPSS will produce the standard output tables for an independent-samples t-test.</p>
+<p><img src="img/8.4.19.png" /><!-- --></p>
+<p>As we can see, our t-test is significant; there is indeed a difference between groups 1 and 2, t(22.632)= 2.989, p&lt;.05.</p>
+<p>Now, that covers the comparison between groups 1 and 2. We now need to do the same thing for the rest of the comparisons (there are 5 comparisons left to conduct). The procedure for conducting these t-tests is the same as described here, and will only differ in the <span style="color:blue">Define Groups</span> stage of setting up the analysis; in this step, we used the numbers 1 and 2 to represent groups 1 and 2, but for the remainder of the comparisons you will use 1 and 3, 1 and 4, 2 and 3, 2 and 4, and so on.</p>
+</div>
+<div id="unplanned-comparisons-post-hoc-tests" class="section level3 hasAnchor" number="8.6.4">
+<h3><span class="header-section-number">8.6.4</span> Unplanned Comparisons: Post-hoc tests<a href="lab-8-one-way-anova.html#unplanned-comparisons-post-hoc-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>Another way to find the differences between groups in a One-Factor ANOVA is to conduct something called a post-hoc test. This test is referred to as “unplanned” because you only conduct one when you have a significant overall ANOVA. The post-hoc test is neat because it is conveniently summoned during the process of conducting an ANOVA, and presents its results in a compact table.</p>
+<p>Let’s use a post-hoc test to look at this data. Although there are many types of post-hoc tests, we’re going to conduct the commonly-used Tukey post-hoc test in this example. Let’s begin.</p>
+<p>We are going to go through the same steps as before in order to conduct our ANOVA: Go to <span style="color:blue">Analyze</span>, then <span style="color:blue">Compare Means</span>, then <span style="color:blue">One-Way ANOVA…</span></p>
+<p><img src="img/8.4.12.png" /><!-- --></p>
+<p>Place the dependent variable (<code>Days_One_to_Seven_Number_of_Intrusions</code>) in its appropriate field. Then, place <code>Condition</code> into the “Factor”” field. Now, click the button labeled <span style="color:blue">Post-hoc</span>. A window will appear with options for various post-hoc tests. We are going to choose <span style="color:blue">Tukey</span>:</p>
+<p><img src="img/8.4.20.png" /><!-- --></p>
+<p>Click <span style="color:blue">Continue</span>, and then <span style="color:blue">OK</span>. SPSS will produce the ANOVA table once again, followed by two tables that refer to the post-hoc test. Let’s look at the first table, named “Multiple Comparisons:”</p>
+<div id="multiple-comparisons" class="section level4 hasAnchor" number="8.6.4.1">
+<h4><span class="header-section-number">8.6.4.1</span> Multiple Comparisons<a href="lab-8-one-way-anova.html#multiple-comparisons" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<hr />
+<p><img src="img/8.4.21.png" /><!-- --></p>
+<p>In this table, every possible group of 2 conditions is being compared. Notice that the table is redundant; it considers the comparison between no-task control and reactivation + tetris to be different from reactivation + tetris vs. no-task control. However, we know these are the same comparisons. So, we only need to look at half of the table, in essence.</p>
+<p>If you start with row 1, this row compares no-task control with reactivation + tetris. If we find the Sig. column, we see the corresponding p-value for this row is .017. Because this is less than our likely alpha level (.05), this means that these two conditions ARE significantly different from one another. Where else is there a Sig. that is less than alpha (.05)?</p>
+<p>Reactivation + Tetris compared with Reactivation only has a p-value of .034. This is also a significant difference. These are the only significant differences we see here. This means that, among the 4 groups, only two differences were found: Reactivation + tetris is different from no-task control, and reactivation + tetris is different from reactivation only.</p>
+</div>
+<div id="homogeneous-subsets" class="section level4 hasAnchor" number="8.6.4.2">
+<h4><span class="header-section-number">8.6.4.2</span> Homogeneous Subsets<a href="lab-8-one-way-anova.html#homogeneous-subsets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<hr />
+<p><img src="img/8.4.22.png" /><!-- --></p>
+<p>This table actually gives you the same kind of information as the above table, but is more compact and easier to use. In this table you will see the conditions listed on the left, and a number of “subsets”–in this case there are 2 subsets (2 columns labeled 1 and 2, respectively). In these columns, the means of the conditions are listed (in this case, mean number of intrusive memories).</p>
+<p>The way to read a homogeneous subsets table is as simple as follows: If the means of two groups ever appear in the same column together, they are not significantly different from one another. If the means of two groups NEVER appear in the same column together, then they ARE significantly different from one another.</p>
+<p>Let’s start with Reactivation + Tetris and Tetris Only. Look at the table to determine if the means of these conditions ever appear in the same column together. The answer should be yes. The Reactivation + tetris mean (1.89) and Tetris only mean (3.89) appear in column 1 together. Now, let’s move on to Reactivation + Tetris as compared to Reactivation only. Do the means of these two groups ever appear in the same column together? No. The Reactivation + Tetris mean (1.89) only appears in column 1, and the reactivation only mean (4.83) only appears in column 2. This means they are different.</p>
+<p>If you go through every possible comparison of two groups, you will find that the only differences are between:</p>
+<ol style="list-style-type: decimal">
+<li>reactivation + tetris vs. reactivation only</li>
+<li>reactivation + tetris vs. no-task control</li>
+</ol>
+<p>These are the same pairwise differences we noted using the multiple comparisons table.</p>
+</div>
+</div>
+<div id="practice-problems-7" class="section level3 hasAnchor" number="8.6.5">
+<h3><span class="header-section-number">8.6.5</span> Practice Problems<a href="lab-8-one-way-anova.html#practice-problems-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>Using this lab’s data set, think about the following question: What if participants’ intrusive memories were not actually affected by the manipulation (tetris and reactivation), but rather the group with the most intrusive memories just happened to react more strongly to the disturbing films? What if there were differences in “level of disturbance” (hint hint: post-film distress rating) among the 4 groups?</p>
+<ol style="list-style-type: decimal">
+<li><p>Test this hypothesis using an alpha level of .05. Report your result in proper statistical reporting format. What do you conclude?</p></li>
+<li><p>Do the same type of analysis to determine whether the amount of attention paid to the film differed between the 4 groups. Report your result in proper statistical reporting format. What do you conclude?</p></li>
+</ol>
+</div>
+</div>
+<div id="jamovi-8" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> JAMOVI<a href="lab-8-one-way-anova.html#jamovi-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How to do it in JAMOVI</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab-7-t-test-independent-sample.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-9-repeated-measures-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CrumpLab/statisticsLab/blob/master/08-ANOVA.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Statistics_Lab.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

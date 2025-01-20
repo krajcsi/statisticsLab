@@ -32,7 +32,6 @@ jobs:
         run: Rscript -e 'bookdown::render_book("index.Rmd")'
         
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          branch: master
           folder: docs

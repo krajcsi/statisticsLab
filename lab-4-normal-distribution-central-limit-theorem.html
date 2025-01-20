@@ -559,12 +559,12 @@ By a small sample, we may judge of the whole piece.
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb121-1" aria-hidden="true" tabindex="-1"></a>gumballs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>)</span>
 <span id="cb121-2"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb121-2" aria-hidden="true" tabindex="-1"></a>sample_of_gumballs <span class="ot">&lt;-</span><span class="fu">sample</span>(gumballs, <span class="dv">10</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb121-3"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb121-3" aria-hidden="true" tabindex="-1"></a>sample_of_gumballs</span></code></pre></div>
-<pre><code>##  [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;A&quot;</code></pre>
+<pre><code>##  [1] &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;A&quot;</code></pre>
 <p>Here the sample function randomly picks A or B each time. We set it do this 10 times, so our sample has 10 things in it. We set <code>replace=TRUE</code> so that after each sample, we put the item back into the gumball machine and start again. Here’s another example with numbers</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb123-1" aria-hidden="true" tabindex="-1"></a>some_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
 <span id="cb123-2"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb123-2" aria-hidden="true" tabindex="-1"></a>sample_of_numbers <span class="ot">&lt;-</span><span class="fu">sample</span>(some_numbers, <span class="dv">20</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb123-3"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb123-3" aria-hidden="true" tabindex="-1"></a>sample_of_numbers</span></code></pre></div>
-<pre><code>##  [1] 4 2 3 2 5 5 1 4 2 2 3 5 1 5 5 5 5 5 4 5</code></pre>
+<pre><code>##  [1] 5 2 5 5 1 5 5 5 5 1 1 5 5 2 5 5 5 5 4 5</code></pre>
 <p>Let’s do one more thing with sample. Let’s sample 1000 times from our <code>some_numbers</code> variable, and then look at the histogram</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb125-2"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb125-2" aria-hidden="true" tabindex="-1"></a>some_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
@@ -588,11 +588,11 @@ By a small sample, we may judge of the whole piece.
 <p>For example, consider flipping a coin. It will be heads or tails, and the coin, if it is fair, should have a 50% chance of being heads or tails. Here’s how we flip a coin 10 times using <code>rbinom</code>.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb128-1" aria-hidden="true" tabindex="-1"></a>coin_flips <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>,<span class="dv">1</span>,.<span class="dv">5</span>)</span>
 <span id="cb128-2"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb128-2" aria-hidden="true" tabindex="-1"></a>coin_flips</span></code></pre></div>
-<pre><code>##  [1] 0 1 0 1 1 1 1 1 0 1</code></pre>
+<pre><code>##  [1] 0 0 0 1 0 1 0 0 1 1</code></pre>
 <p>We get a bunch of 0s, and 1s. We can pretend 0 = tails, and 1 = heads. Great, now we can do coin flipping if we want. For example, if you flip 10 coins, how many heads do you get? We can can do the above again, and then <code>sum(coin_flips)</code>. All the 1s are heads, so it will work out.</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb130-1" aria-hidden="true" tabindex="-1"></a>coin_flips <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>,<span class="dv">1</span>,.<span class="dv">5</span>)</span>
 <span id="cb130-2"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(coin_flips)</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 5</code></pre>
 <p>Alright, so we get the sum, which tells us the number of heads. But, should we always get that number of heads if we flipped a coin 10 times? If you keep redoing the above, you’ll get different answers. 5 heads will be the most frequent answer, but you will get lots of other answers too.</p>
 <p>Hold on to your seats for this next one. With R, we can simulate the flipping of a coin 10 times (you already know that, you just did it), and we can do that over and over as many times as we want. For example, we could do it 100 times over, saving the number of heads for each set of 10 flips. Then we could look at the distribution of those sums. That would tell us about the range of things that can happen when we flip a coin 10 times. We can do that in loop like this:</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb132-1" aria-hidden="true" tabindex="-1"></a>save_number_of_heads<span class="ot">&lt;-</span><span class="fu">length</span>(<span class="dv">1000</span>) <span class="co"># make an empty variable to save things in</span></span>
@@ -660,43 +660,43 @@ By a small sample, we may judge of the whole piece.
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="right">0.3040745</td>
+<td align="right">0.0992387</td>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="right">-0.0611550</td>
+<td align="right">0.1881496</td>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="right">0.5129743</td>
+<td align="right">0.0248148</td>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="right">0.1331110</td>
+<td align="right">-0.2452189</td>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="right">-0.0452668</td>
+<td align="right">-0.0589040</td>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="right">-0.3261950</td>
+<td align="right">0.0606874</td>
 </tr>
 <tr class="odd">
 <td align="right">7</td>
-<td align="right">-0.0167068</td>
+<td align="right">0.3377838</td>
 </tr>
 <tr class="even">
 <td align="right">8</td>
-<td align="right">0.1440839</td>
+<td align="right">-0.0496008</td>
 </tr>
 <tr class="odd">
 <td align="right">9</td>
-<td align="right">-0.1522360</td>
+<td align="right">-0.4730616</td>
 </tr>
 <tr class="even">
 <td align="right">10</td>
-<td align="right">-0.1026957</td>
+<td align="right">0.2066876</td>
 </tr>
 </tbody>
 </table>
@@ -712,7 +712,7 @@ By a small sample, we may judge of the whole piece.
 <p>That is the distribution of the sample means. It doesn’t look like much eh? That’s because we only took 10 samples right.</p>
 <p>Notice one more thing…What is the mean of our 10 sample means? This is a mean of means. Remember that.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sample_means<span class="sc">$</span>means)</span></code></pre></div>
-<pre><code>## [1] 0.03899883</code></pre>
+<pre><code>## [1] 0.009057652</code></pre>
 <p>Well, that’s pretty close to zero. Which is good. When we average over our samples, they better estimate the mean of the distribution they came from.</p>
 </div>
 <div id="simulating-the-distribution-of-sample-means" class="section level4 hasAnchor" number="4.2.2.4">
@@ -876,27 +876,27 @@ By a small sample, we may judge of the whole piece.
 <span id="cb157-2"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb157-2" aria-hidden="true" tabindex="-1"></a>my_sd <span class="ot">&lt;-</span><span class="fu">sd</span>(some_numbers)</span>
 <span id="cb157-3"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb157-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb157-4"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_mean)</span></code></pre></div>
-<pre><code>## [1] 51.16609</code></pre>
+<pre><code>## [1] 53.15026</code></pre>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_sd)</span></code></pre></div>
-<pre><code>## [1] 20.12247</code></pre>
+<pre><code>## [1] 26.13907</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>subtract the mean from your numbers</li>
 </ol>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb161-1" aria-hidden="true" tabindex="-1"></a>differences<span class="ot">&lt;-</span>some_numbers<span class="sc">-</span>my_mean</span>
 <span id="cb161-2"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(differences)</span></code></pre></div>
-<pre><code>##  [1]   9.68168519   8.30905059  18.18952984  -8.84051535   3.56163176
-##  [6]  28.62228128 -44.47687759  20.72717562  24.67801715  -3.32979547
-## [11]  -1.91509445 -41.72462140 -21.00156952   2.31750009  29.36888211
-## [16]   0.07783918  -5.47118025  -6.04233443  -0.85779054 -11.87381380</code></pre>
+<pre><code>##  [1] -24.916394   7.606724 -59.381705 -18.818048   5.556588  34.600119
+##  [7]  -4.533322 -16.527550   8.512212  18.869019 -43.290083   5.624049
+## [13]  35.151607 -32.975632  21.896002   2.851222   4.759794  39.226258
+## [19]  13.821961   1.967179</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>divide by the standard deviation</li>
 </ol>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb163-1" aria-hidden="true" tabindex="-1"></a>z_scores<span class="ot">&lt;-</span>differences<span class="sc">/</span>my_sd</span>
 <span id="cb163-2"><a href="lab-4-normal-distribution-central-limit-theorem.html#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z_scores)</span></code></pre></div>
-<pre><code>##  [1]  0.481138007  0.412923986  0.903941201 -0.439335493  0.176997741
-##  [6]  1.422403962 -2.210309035  1.030051254  1.226391042 -0.165476477
-## [11] -0.095171937 -2.073533769 -1.043687448  0.115169762  1.459506804
-## [16]  0.003868272 -0.271894067 -0.300277967 -0.042628491 -0.590077347</code></pre>
+<pre><code>##  [1] -0.95322406  0.29100969 -2.27176015 -0.71992024  0.21257784  1.32369342
+##  [7] -0.17343084 -0.63229289  0.32565089  0.72187025 -1.65614452  0.21515871
+## [13]  1.34479161 -1.26154557  0.83767323  0.10907892  0.18209498  1.50067515
+## [19]  0.52878541  0.07525818</code></pre>
 <p>Done. Now you have converted your original numbers into what we call standardized scores. They are standardized to have the same properties (assumed properties) as a normal distribution with mean = 0, and SD = 1.</p>
 <p>You could look at each of your original scores, and try to figure out if they are likely or unlikely numbers. But, if you make them into z-scores, then you can tell right away. Numbers close to 0 happen a lot, bigger numbers closer to 1 happen less often, but still fairly often, and numbers bigger than 2 or 3 hardly happen at all.</p>
 </div>

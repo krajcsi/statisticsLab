@@ -15,11 +15,14 @@ jobs:
         
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
+        with:
+            r-version: '4.3.3'
         
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@v2
         with:
             pandoc-version: '2.19'
+            
       - name: Install dependencies
         run: |
           install.packages(c("bookdown", "markdown", "data.table", "dplyr", "bindrcpp", "ggplot2", "summarytools", "gapminder", "ggpubr", "xtable"))

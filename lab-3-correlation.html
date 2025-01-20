@@ -723,7 +723,7 @@ If … we choose a group of social phenomena with no antecedent knowledge of the
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lab-3-correlation.html#cb115-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">10</span>)</span>
 <span id="cb115-2"><a href="lab-3-correlation.html#cb115-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">10</span>)</span>
 <span id="cb115-3"><a href="lab-3-correlation.html#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x,y)</span></code></pre></div>
-<pre><code>## [1] -0.2924682</code></pre>
+<pre><code>## [1] -0.4669154</code></pre>
 <p>Running the above code will give different values for the correlation each time, because the numbers in x and y are always randomly different. We might expect that because x and y are chosen randomly that there should be a 0 correlation. However, what we see is that random sampling can produce “fake” correlations just by chance alone. We want to estimate the range of correlations that chance can produce.</p>
 <p>Tip 3: One way to estimate the range of correlations that chance can produce is to repeat the above code many times. For example, if you ran the above code 100 times, you could save the correlations each time, then look at the smallest and largest correlation. This would be an estimate of the range of correlations that can be produced by chance. How can you repeat the above code many times to solve this problem?</p>
 <p>We can do this using a <code>for</code> loop. The code below shows how to repeat everything inside the for loop 100 times. The variable <code>i</code> is an index, that goes from 1 to 100. The <code>saved_value</code> variable starts out as an empty variable, and then we put a value into it (at index position i, from 1 to 100). In this code, we put the sum of the products of x and y into the <code>saved_value</code> variable. At the end of the simulation, the <code>save_value</code> variable contains 100 numbers. The <code>min()</code> and <code>max()</code> functions are used to find the minimum and maximum values for each of the 100 simulations. You should be able to modify this code by replacing <code>sum(x*y)</code> with <code>cor(x,y)</code>. Doing this will allow you to run the simulation 100 times, and find the minimum correlation and maximum correlation that arises by chance. This will be estimate for question 1. To provide an estimate for question 2, you will need to change <code>n=10</code> to <code>n=100</code>.</p>
@@ -735,9 +735,9 @@ If … we choose a group of social phenomena with no antecedent knowledge of the
 <span id="cb117-6"><a href="lab-3-correlation.html#cb117-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb117-7"><a href="lab-3-correlation.html#cb117-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb117-8"><a href="lab-3-correlation.html#cb117-8" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(saved_value)</span></code></pre></div>
-<pre><code>## [1] 94.54498</code></pre>
+<pre><code>## [1] 116.6938</code></pre>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="lab-3-correlation.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(saved_value)</span></code></pre></div>
-<pre><code>## [1] 489.7928</code></pre>
+<pre><code>## [1] 490.5697</code></pre>
 </div>
 <div id="writing-assignment-2" class="section level3 hasAnchor" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Writing assignment<a href="lab-3-correlation.html#writing-assignment-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
